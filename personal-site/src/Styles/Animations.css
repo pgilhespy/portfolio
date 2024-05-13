@@ -1,0 +1,12 @@
+@keyframes Letters-seperate-internal {
+    from {
+        letter-spacing: -6px;
+    }
+    to {
+        letter-spacing: -4px;
+    }
+}
+
+.Letters-seperate {
+    animation: Letters-seperate-internal forwards 1s ease-out;
+}
