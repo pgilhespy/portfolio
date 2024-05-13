@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import LandingPage from './Pages/LandingPage';
+import useMousePosition from './Utils/UseMousePosition';
 
 function App() {
+  const mousePosition = useMousePosition();
+
   return (
     <>
-      <LandingPage />
+      <LandingPage mousePos={mousePosition} />
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

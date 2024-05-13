@@ -9,3 +9,7 @@
     background-color: white;
     color: #C8D2D7
 }
+
+.Floating-bottom-left {
+    position: absolute;
+}
