@@ -9,7 +9,7 @@
 .Inter-regular {
     font-family: "Inter Tight", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
     letter-spacing: -2px;
   }
@@ -18,7 +18,7 @@
     font-size: 96px;
 }
 .Text-small {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 .Text-white {

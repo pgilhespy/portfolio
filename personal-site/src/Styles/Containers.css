@@ -4,3 +4,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.Even-spread-to-edges {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}

@@ -1,0 +1,11 @@
+.Button-box-highlight {
+    padding-right: 2px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.Button-box-highlight:hover {
+    padding-right: 2px;
+    background-color: white;
+    color: #C8D2D7
+}
