@@ -10,6 +10,7 @@
     color: #C8D2D7
 }
 
-.Floating-bottom-left {
+.Floating-video {
     position: absolute;
+    filter: blur(2px);
 }

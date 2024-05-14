@@ -7,3 +7,15 @@ button {
     padding: 0 0 0 0;
     border: 0px;
 }
+
+.Back {
+    z-index: 5;
+}
+
+.Middle {
+    z-index: 10;
+}
+
+.Front {
+    z-index: 15;
+}

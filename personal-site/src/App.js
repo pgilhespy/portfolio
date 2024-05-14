@@ -1,14 +1,26 @@
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import LandingPage from './Pages/LandingPage';
-import useMousePosition from './Utils/UseMousePosition';
 
 function App() {
-  const mousePosition = useMousePosition();
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.scrollY;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <LandingPage mousePos={mousePosition} />
+      <LandingPage scrollPos={scrollPosition} />
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
