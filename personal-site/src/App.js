@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import LandingPage from './Pages/LandingPage';
+import ContactPage from './Pages/ContactPage';
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -37,6 +38,7 @@ function App() {
           </a>
         </header>
       </div>
+      <ContactPage />
     </>
   );
 }
