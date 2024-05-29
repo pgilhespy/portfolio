@@ -13,7 +13,7 @@
 
 .Floating-video {
     position: absolute;
-    filter: blur(2px);
+    filter: blur(4px);
 }
 
 .Social-icon {

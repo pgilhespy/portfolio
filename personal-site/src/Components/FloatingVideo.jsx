@@ -6,10 +6,10 @@ const FloatingVideo = ({video, top, bottom, left, right, rotation, scale, scroll
     let adjustedBottom = bottom;
 
     if (adjustedTop != null)
-        adjustedTop = (top - 2*Math.sqrt(scrollPos)) * invertParalax;
+        adjustedTop = (top - 2.2*Math.sqrt(scrollPos)) * invertParalax;
 
     if (adjustedBottom != null)
-        adjustedBottom = (bottom + 2*Math.sqrt(scrollPos)) * invertParalax;
+        adjustedBottom = (bottom + 2.2*Math.sqrt(scrollPos)) * invertParalax;
 
     return (
         <video 

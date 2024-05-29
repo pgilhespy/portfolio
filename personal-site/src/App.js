@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import LandingPage from './Pages/LandingPage';
 import ContactPage from './Pages/ContactPage';
+import AboutIntroPage from './Pages/AboutIntroPage';
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -22,6 +23,7 @@ function App() {
   return (
     <>
       <LandingPage scrollPos={scrollPosition} />
+      <AboutIntroPage scrollPos={scrollPosition} />
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

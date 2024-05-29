@@ -3,7 +3,6 @@
     font-optical-sizing: auto;
     font-weight: 900;
     font-style: normal;
-    letter-spacing: -4px;
 }
 
 .Inter-regular {
@@ -11,12 +10,32 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+}
+
+.Spacing-tight {
+    letter-spacing: -4px;
+}
+
+.Spacing-medium {
+    letter-spacing: -3px;
+}
+
+.Spacing-normal {
     letter-spacing: -2px;
-  }
+}
+
+.Spacing-wide {
+    letter-spacing: 4px;
+}
 
 .Text-large {
     font-size: 96px;
 }
+
+.Text-medium {
+    font-size: 64px;
+}
+
 .Text-small {
     font-size: 28px;
 }

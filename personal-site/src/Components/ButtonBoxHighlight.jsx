@@ -7,7 +7,7 @@ const ButtonBoxHighlight = ({ displayText }) => {
 
     return (
         <>
-            <button className="Inter-regular Text-small Text-white Button-box-highlight" onClick={OnClick}>{displayText}</button>
+            <button className="Inter-regular Spacing-normal Text-small Text-white Button-box-highlight" onClick={OnClick}>{displayText}</button>
         </>
     );
 }

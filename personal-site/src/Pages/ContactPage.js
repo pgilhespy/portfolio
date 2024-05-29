@@ -13,7 +13,7 @@ function ContactPage() {
     return (
         <div className="Contact-page">
             <div className="Centered-container-horz-vert Middle">
-                <span className="Inter-black Text-large Text-white Drop-shadow-black Letters-seperate">LET'S CONNECT</span>
+                <span className="Inter-black Spacing-tight Text-large Text-white Drop-shadow-black Letters-seperate">LET'S CONNECT</span>
                 <div className='Even-spread-to-edges'>
                     <FontAwesomeIcon icon={faInstagram} className='Social-icon' />
                     <FontAwesomeIcon icon={faEnvelope}  className='Social-icon' />
