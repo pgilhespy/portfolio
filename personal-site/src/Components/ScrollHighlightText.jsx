@@ -12,7 +12,6 @@ const ScrollHighlightText = ({ displayText, scrollPos, pageHeight }) => {
 
     return (
         <span 
-            className='Next-level'
             style={{
                 color: `rgba(65, 76, 82, 1)`,
                 backgroundColor: `rgba(255, 255, 255, ${1-(gradient/1.2)})`

@@ -25,6 +25,6 @@ button {
 }
 
 .Margin-to-center {
-    padding-left: 18vw;
-    padding-right: 18vw;
+    margin-left: 18vw;
+    margin-right: 18vw;
 }
