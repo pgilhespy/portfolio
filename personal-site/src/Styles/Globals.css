@@ -23,3 +23,8 @@ button {
 .Front {
     z-index: 15;
 }
+
+.Margin-to-center {
+    padding-left: 18vw;
+    padding-right: 18vw;
+}

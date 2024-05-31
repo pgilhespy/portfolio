@@ -16,6 +16,12 @@
     filter: blur(4px);
 }
 
+.Floating-image {
+    position: absolute;
+    filter: blur(6px);
+    opacity: 0.4;
+}
+
 .Social-icon {
     color: white;
     font-size: 42px;
@@ -31,4 +37,8 @@
     padding: 5px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.Next-level {
+    
 }

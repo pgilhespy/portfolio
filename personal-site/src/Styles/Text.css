@@ -44,6 +44,10 @@
     color: white;
 }
 
+.Text-dark-gray {
+    color: #414C52;
+}
+
 .Drop-shadow-black {
     text-shadow: 0 0 32px rgba(22, 19, 19, 0.1);
 }
