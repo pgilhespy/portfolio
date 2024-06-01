@@ -21,7 +21,7 @@ function AboutIntroPage({ scrollPos }) {
     }, [scrollPos]);
     
     return (
-        <div ref={aboutIntroPageRef} className="About-intro-page">
+        <div ref={aboutIntroPageRef} className="About-pages">
             <FloatingImage image={image} left={30} top={10} rotation={0} scale={0.6} scrollPos={scrollPos} invertParalax={-1} />
             <FloatingImage image={image} left={160} top={10} rotation={0} scale={-0.6} scrollPos={scrollPos} invertParalax={-1} />
             <div className="Centered-container-horz-vert Middle Margin-to-center">

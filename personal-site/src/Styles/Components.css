@@ -38,3 +38,26 @@
     cursor: pointer;
     border-radius: 5px;
 }
+
+.Tight-fadeout-text {
+    line-height: 76px;
+    opacity: 100%;
+    filter: blur(0px);
+    transition: all 0.4s ease-in-out;
+}
+
+.Tight-fadeout-text:hover {
+    line-height: 76px;
+    opacity: 20%;
+    filter: blur(2px);
+}
+
+.Tight-fadeout-subText {
+    line-height: 76px;
+    opacity: 0%;
+    filter: blur(2px);
+    position: absolute;
+    right: 0px;
+    pointer-events: none;
+    transition: all 0.4s ease-in-out;
+}

@@ -25,3 +25,7 @@
 .Drop-shadow-container {
     box-shadow: 0 0 50px rgba(22, 19, 19, 0.3)
 }
+
+.Position-relative {
+    position: relative;
+}
