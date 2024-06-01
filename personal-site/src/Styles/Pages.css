@@ -20,6 +20,18 @@
     row-gap: 32px;
 }
 
+.Work-pages {
+    width: 100%;
+    height: 100vh;
+    background-color: #C8D2D7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    row-gap: 32px;
+}
+
 .Contact-page {
     width: 100%;
     height: 100vh;
