@@ -11,21 +11,15 @@ import ScrollHighlightText from '../Components/ScrollHighlightText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 
 function AboutIntroPage({ scrollPos }) {
-    const aboutIntroPageRef = useRef(null);
     const [pageHeight, setPageHeight] = useState(0);
     const { height, width } = useWindowDimensions();
 
     useEffect(() => {
-        if (aboutIntroPageRef.current) {
-            const boundingRect = aboutIntroPageRef.current.getBoundingClientRect();
-            setPageHeight(boundingRect.height);
-            console.log(`VH from my way: ${boundingRect.height}`);
-            console.log(`VH from other way: ${height}`);
-        }
+        setPageHeight(height);
     }, [scrollPos]);
     
     return (
-        <div ref={aboutIntroPageRef} className="About-pages">
+        <div className="About-pages">
             <div className='Fadeout-gradient-dark' />
             <FloatingImage image={image} left={30} top={10} rotation={0} scale={0.6} scrollPos={scrollPos} invertParalax={-1} />
             <FloatingImage image={image} left={160} top={10} rotation={0} scale={-0.6} scrollPos={scrollPos} invertParalax={-1} />

@@ -17,9 +17,9 @@ function LandingPage({ scrollPos }) {
             <div className="Centered-container-horz-vert Middle">
                 <span className="Inter-black Spacing-tight Text-large Text-white Drop-shadow-black Letters-seperate">PHILIP GILHESPY</span>
                 <div className='Even-spread-to-edges'>
-                    <ButtonBoxHighlight displayText={"ABOUT"} />
-                    <ButtonBoxHighlight displayText={"WORK"} />
-                    <ButtonBoxHighlight displayText={"CONTACT"} />
+                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} />
+                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} />
+                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} />
                 </div>
             </div>
             <div className='Fadeout-gradient-compensation' />

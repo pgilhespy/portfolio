@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <MenuBar />
+      <MenuBar scrollPos={scrollPosition} />
       <LandingPage scrollPos={scrollPosition} />
       <AboutIntroPage scrollPos={scrollPosition} />
       <AboutWhatIDoPage />
