@@ -64,7 +64,7 @@
 }
 .Menu-bar {
     position: sticky;
-    top: 90px;
+    top: 40px;
     height: 0px;
     align-items: center;
     justify-content: center;
