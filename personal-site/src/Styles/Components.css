@@ -1,7 +1,7 @@
 .Button-box-highlight {
     padding-right: 2px;
     background-color: transparent;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     mix-blend-mode: normal;
 }
 
