@@ -10,6 +10,7 @@ function WorkExperiencePage() {
     
     return (
         <div className="Work-pages">
+            <div className='Fadeout-gradient-light Inactive' />
             <span className='Inter-regular Spacing-wide Text-small Text-white'>MY EXPERIENCE</span>
             <div className="Centered-container-horz-left-align Middle Margin-to-center Drop-shadow-container">
                 <FadeoutCaptionText mainText={"ANTHEM"} subText={"Edited the show reel for a company event"}/>
@@ -18,6 +19,7 @@ function WorkExperiencePage() {
                 <FadeoutCaptionText mainText={"CERULEAN SOLUTIONS"} subText={"Developed a new website for the company"} />
                 <FadeoutCaptionText mainText={"..."} />
             </div>
+            <div className='Fadeout-gradient-compensation' />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import '../Styles/Components.css';
 
-const ButtonBoxHighlight = ({ displayText }) => {
+const ButtonBoxHighlight = ({ displayText, scrollPos, pageHeight }) => {
     const OnClick = () => {
         console.log(`Button ${displayText} clicked`);
     }

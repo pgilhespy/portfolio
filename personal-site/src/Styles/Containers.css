@@ -29,3 +29,27 @@
 .Position-relative {
     position: relative;
 }
+
+.Fadeout-gradient-light {
+    position: sticky;
+    top: 0px;
+    height: 20vh;
+    width: 100%;
+    z-index: 18;
+    background-image: linear-gradient(to top, rgba(200, 210, 215, 0), rgba(200, 210, 215, 1));
+}
+
+.Fadeout-gradient-dark {
+    position: sticky;
+    top: 0px;
+    height: 20vh;
+    width: 100%;
+    z-index: 18;
+    background-image: linear-gradient(to top, rgba(65, 76, 82, 0), rgba(65, 76, 82, 1));
+}
+
+.Fadeout-gradient-compensation {
+    height: 20vh;
+    width: 100%;
+    visibility: hidden;
+}

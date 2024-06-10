@@ -1,7 +1,7 @@
 import '../Styles/Components.css';
 import '../Styles/Globals.css';
 
-const FloatingVideo = ({video, top, bottom, left, right, rotation, scale, scrollPos, invertParalax}) => {
+const FloatingVideo = ({video, top, bottom, left, right, rotation, scale, scrollPos, invertParalax, zInd}) => {
     let adjustedTop = top;
     let adjustedBottom = bottom;
 
@@ -13,7 +13,7 @@ const FloatingVideo = ({video, top, bottom, left, right, rotation, scale, scroll
 
     return (
         <video 
-            className='Floating-video Back' 
+            className='Floating-video Inactive' 
             width="500" 
             height="500" 
             autoPlay 
@@ -25,7 +25,8 @@ const FloatingVideo = ({video, top, bottom, left, right, rotation, scale, scroll
                 bottom: `${adjustedBottom}px`, 
                 left: `${left}px`, 
                 right: `${right}px`, 
-                transform: `scale(${scale}, ${scale}) rotate(${rotation}deg)`
+                transform: `scale(${scale}, ${scale}) rotate(${rotation}deg)`,
+                zIndex: `${zInd}`
             }}
             src={video}
         >

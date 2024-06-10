@@ -24,7 +24,15 @@ button {
     z-index: 15;
 }
 
+.Menu-front {
+    z-index: 20;
+}
+
 .Margin-to-center {
     margin-left: 18vw;
     margin-right: 18vw;
+}
+
+.Inactive {
+    pointer-events: none;
 }

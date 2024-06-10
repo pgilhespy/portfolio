@@ -11,16 +11,18 @@ function LandingPage({ scrollPos }) {
     
     return (
         <div className="Landing-page">
-            <FloatingVideo video={video} left={-170} bottom={-150} rotation={0} scale={1} scrollPos={scrollPos} invertParalax={1} />
-            <FloatingVideo video={video} right={0} top={50} rotation={200} scale={0.4} scrollPos={scrollPos} invertParalax={-1} />
+            <div className='Fadeout-gradient-light Inactive' />
+            <FloatingVideo video={video} left={-170} bottom={-150} rotation={0} scale={1} scrollPos={scrollPos} invertParalax={1} zInd={25} />
+            <FloatingVideo video={video} right={0} top={50} rotation={200} scale={0.4} scrollPos={scrollPos} invertParalax={-1} zInd={5} />
             <div className="Centered-container-horz-vert Middle">
                 <span className="Inter-black Spacing-tight Text-large Text-white Drop-shadow-black Letters-seperate">PHILIP GILHESPY</span>
                 <div className='Even-spread-to-edges'>
-                    <ButtonBoxHighlight displayText={"WEB DESIGN"} />
-                    <ButtonBoxHighlight displayText={"PROJECTS"} />
+                    <ButtonBoxHighlight displayText={"ABOUT"} />
+                    <ButtonBoxHighlight displayText={"WORK"} />
                     <ButtonBoxHighlight displayText={"CONTACT"} />
                 </div>
             </div>
+            <div className='Fadeout-gradient-compensation' />
         </div>
     );
 }

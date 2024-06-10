@@ -10,6 +10,7 @@ function AboutWhatIDoPage() {
     
     return (
         <div className="About-pages">
+            <div className='Fadeout-gradient-dark Inactive' />
             <span className='Inter-regular Spacing-wide Text-small Text-white'>WHAT I DO</span>
             <div className="Centered-container-horz-left-align Middle Margin-to-center Drop-shadow-container">
                 <FadeoutCaptionText mainText={"WEB DESIGN"} subText={"Create and optimize website content with code and other tools"}/>
@@ -18,6 +19,7 @@ function AboutWhatIDoPage() {
                 <FadeoutCaptionText mainText={"CONTENT CREATION"} subText={"Make a variety of graphics and media for your business"} />
                 <FadeoutCaptionText mainText={"VIDEO EDITING"} subText={"Edit professional videos for use anywhere"} />
             </div>
+            <div className='Fadeout-gradient-compensation' />
         </div>
     );
 }
