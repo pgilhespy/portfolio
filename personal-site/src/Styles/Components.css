@@ -1,10 +1,9 @@
 .Button-box-highlight {
-    padding-right: 2px;
     transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 16px;
 }
 
 .Button-box-highlight:hover {
-    padding-right: 2px;
     cursor: pointer;
 }
 

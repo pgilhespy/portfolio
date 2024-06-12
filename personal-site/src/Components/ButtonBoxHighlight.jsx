@@ -12,8 +12,7 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
         setIsHovered(true);
     };
     const handleMouseLeave = () => {
-        if (!inSection)
-            setIsHovered(false);
+        setIsHovered(false);
     };
 
     const OnClick = () => {
@@ -29,7 +28,7 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
         // Pages 2,3
         else if (scrollPos < (2.95*height)) {
             setHoverColour("#414C52");
-            if (sectionNumber == 1)
+            if (sectionNumber === 1)
                 setInSection(true);
             else
                 setInSection(false);
@@ -37,7 +36,7 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
         // Pages 4,5
         else if (scrollPos < (4.95*height)) {
             setHoverColour("#C8D2D7");
-            if (sectionNumber == 2)
+            if (sectionNumber === 2)
                 setInSection(true);
             else
                 setInSection(false);
@@ -45,7 +44,7 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
         // Pages 6
         else {
             setHoverColour("#414C52");
-            if (sectionNumber == 3)
+            if (sectionNumber === 3)
                 setInSection(true);
             else
                 setInSection(false);
@@ -61,7 +60,8 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
                 className="Inter-regular Spacing-normal Text-small Text-white Button-box-highlight" 
                 style={{
                     color: `${(isHovered || inSection) ? hoverColour : "#FFFFFF"}`,
-                    backgroundColor: `${(isHovered || inSection) ? "white" : "transparent"}`
+                    backgroundColor: `${(isHovered || inSection) ? "white" : "transparent"}`,
+                    padding: `${(isHovered || inSection) ? "2px 4px 6px 4px" : "4px"}`
                 }}
             >
                 {displayText}
