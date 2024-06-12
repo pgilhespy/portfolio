@@ -14,7 +14,8 @@ const ScrollHighlightText = ({ displayText, scrollPos, pageHeight }) => {
         <span 
             style={{
                 color: `rgba(65, 76, 82, 1)`,
-                backgroundColor: `rgba(255, 255, 255, ${1-(gradient/1.2)})`
+                backgroundColor: `rgba(255, 255, 255, ${1-(gradient/1.2)})`,
+                borderRadius: "16px"
             }}
         >
             { displayText }
