@@ -5,6 +5,7 @@ import AboutIntroPage from './Pages/AboutIntroPage';
 import AboutWhatIDoPage from './Pages/AboutWhatIDoPage';
 import WorkExperiencePage from './Pages/WorkExperiencePage';
 import MenuBar from './Components/MenuBar';
+import ReelExperiencePage from './Pages/ReelExperiencePage';
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -28,6 +29,7 @@ function App() {
       <LandingPage scrollPos={scrollPosition} />
       <AboutIntroPage scrollPos={scrollPosition} />
       <AboutWhatIDoPage />
+      <ReelExperiencePage />
       <WorkExperiencePage />
       <ContactPage />
     </>

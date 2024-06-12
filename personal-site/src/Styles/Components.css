@@ -1,15 +1,11 @@
 .Button-box-highlight {
     padding-right: 2px;
-    background-color: transparent;
     transition: background-color 0.2s ease, color 0.2s ease;
-    mix-blend-mode: normal;
 }
 
 .Button-box-highlight:hover {
     padding-right: 2px;
-    background-color: white;
     cursor: pointer;
-    mix-blend-mode: screen;
 }
 
 .Floating-video {

@@ -16,9 +16,9 @@ const MenuBar = ({ scrollPos }) => {
     return (
         <div className='Menu-bar Even-spread-to-edges Menu-front' style={{visibility:`${visibility}`}}>
                 <div className='Even-spread-to-edges' style={{width: "723.1px"}}>
-                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} />
-                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} />
-                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} />
+                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} />
+                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} />
+                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} sectionNumber={3} />
                 </div>
         </div>
     );
