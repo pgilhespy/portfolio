@@ -16,7 +16,12 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
     };
 
     const OnClick = () => {
-        console.log(`Button ${displayText} clicked`);
+        if (sectionNumber === 1)
+            window.scrollTo(0, height);
+        else if (sectionNumber === 2)
+            window.scrollTo(0, 3*height);
+        else
+            window.scrollTo(0, 5*height);
     }
 
     useEffect(() => {

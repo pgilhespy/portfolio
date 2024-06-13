@@ -36,3 +36,7 @@ button {
 .Inactive {
     pointer-events: none;
 }
+
+html {
+    scroll-behavior: smooth;
+}

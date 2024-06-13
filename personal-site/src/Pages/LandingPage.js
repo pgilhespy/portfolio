@@ -16,9 +16,9 @@ function LandingPage({ scrollPos }) {
             <div className="Centered-container-horz-vert Middle">
                 <span className="Inter-black Spacing-tight Text-large Text-white Drop-shadow-black Letters-seperate">PHILIP GILHESPY</span>
                 <div className='Even-spread-to-edges'>
-                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} />
-                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} />
-                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} />
+                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} />
+                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} />
+                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} sectionNumber={3} />
                 </div>
             </div>
         </div>
