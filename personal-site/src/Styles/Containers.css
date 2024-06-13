@@ -53,3 +53,11 @@
     width: 100%;
     visibility: hidden;
 }
+
+.Fadeout-gradient {
+    position: absolute;
+    top: -40px;
+    height: 20vh;
+    width: 100%;
+    z-index: -1;
+}
