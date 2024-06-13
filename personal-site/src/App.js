@@ -30,7 +30,7 @@ function App() {
       <AboutIntroPage scrollPos={scrollPosition} />
       <AboutWhatIDoPage />
       <ReelExperiencePage />
-      <WorkExperiencePage />
+      <WorkExperiencePage scrollPos={scrollPosition} />
       <ContactPage />
     </>
   );
