@@ -21,18 +21,19 @@
 .Social-icon {
     color: white;
     font-size: 42px;
-    transition: all 0.2s ease;
-    padding: 5px;
-    border-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    padding: 6px;
+    border-radius: 16px;
 }
 
 .Social-icon:hover {
     color: #414C52;
     font-size: 42px;
     background-color: white;
-    padding: 5px;
+    padding: 4px 6px 8px 6px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 16px;
 }
 
 .Tight-fadeout-text {

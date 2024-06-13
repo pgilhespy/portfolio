@@ -9,6 +9,7 @@ import image from '../Content/quotation-mark-1.0.png';
 import FloatingImage from '../Components/FloatingImage';
 import ScrollHighlightText from '../Components/ScrollHighlightText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
+import bgVideo from '../Content/websiteBgVideo1.0.mp4';
 
 function AboutIntroPage({ scrollPos }) {
     const [pageHeight, setPageHeight] = useState(0);
@@ -18,6 +19,9 @@ function AboutIntroPage({ scrollPos }) {
         setPageHeight(height);
     }, [scrollPos]);
     
+    // <video className='Bg-video' autoPlay muted loop >
+    //     <source src={bgVideo} />
+    // </video>
     return (
         <div id="about" className="About-pages">
             <FloatingImage image={image} left={30} top={10} rotation={0} scale={0.6} scrollPos={scrollPos} invertParalax={-1} />

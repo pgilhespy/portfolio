@@ -61,3 +61,13 @@
     width: 100%;
     z-index: -1;
 }
+
+.Bg-video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 50%;
+    filter: grayscale() blur(4px);
+}

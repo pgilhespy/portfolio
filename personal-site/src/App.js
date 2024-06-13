@@ -28,7 +28,7 @@ function App() {
       <MenuBar scrollPos={scrollPosition} />
       <LandingPage scrollPos={scrollPosition} />
       <AboutIntroPage scrollPos={scrollPosition} />
-      <AboutWhatIDoPage />
+      <AboutWhatIDoPage scrollPos={scrollPosition} />
       <ReelExperiencePage />
       <WorkExperiencePage scrollPos={scrollPosition} />
       <ContactPage />
