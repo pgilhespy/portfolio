@@ -12,7 +12,6 @@ function ContactPage() {
     
     return (
         <div className="Contact-page">
-            <div className='Fadeout-gradient-dark Inactive' />
             <div className="Centered-container-horz-vert Middle">
                 <span className="Inter-black Spacing-tight Text-large Text-white Drop-shadow-black Letters-seperate">LET'S CONNECT</span>
                 <div className='Even-spread-to-edges'>
@@ -21,7 +20,6 @@ function ContactPage() {
                     <FontAwesomeIcon icon={faLinkedinIn} className='Social-icon' />
                 </div>
             </div>
-            <div className='Fadeout-gradient-compensation' />
         </div>
     );
 }

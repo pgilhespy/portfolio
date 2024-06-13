@@ -11,7 +11,6 @@ function LandingPage({ scrollPos }) {
     
     return (
         <div className="Landing-page">
-            <div className='Fadeout-gradient-light Inactive' />
             <FloatingVideo video={video} left={-170} bottom={-150} rotation={0} scale={1} scrollPos={scrollPos} invertParalax={1} zInd={25} />
             <FloatingVideo video={video} right={0} top={50} rotation={200} scale={0.4} scrollPos={scrollPos} invertParalax={-1} zInd={5} />
             <div className="Centered-container-horz-vert Middle">
@@ -22,7 +21,6 @@ function LandingPage({ scrollPos }) {
                     <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} />
                 </div>
             </div>
-            <div className='Fadeout-gradient-compensation' />
         </div>
     );
 }

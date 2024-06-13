@@ -20,7 +20,6 @@ function AboutIntroPage({ scrollPos }) {
     
     return (
         <div className="About-pages">
-            <div className='Fadeout-gradient-dark' />
             <FloatingImage image={image} left={30} top={10} rotation={0} scale={0.6} scrollPos={scrollPos} invertParalax={-1} />
             <FloatingImage image={image} left={160} top={10} rotation={0} scale={-0.6} scrollPos={scrollPos} invertParalax={-1} />
             <div className="Centered-container-horz-vert Middle Margin-to-center">
@@ -28,7 +27,6 @@ function AboutIntroPage({ scrollPos }) {
                     I’m a web designer with computer science and video editing skills who can take your site to the <ScrollHighlightText scrollPos={scrollPos} pageHeight={pageHeight} displayText={"next level."} />
                 </span>
             </div>
-            <div className='Fadeout-gradient-compensation' />
         </div>
     );
 }

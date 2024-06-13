@@ -9,8 +9,6 @@ function ReelExperiencePage() {
     
     return (
         <div className="Work-pages">
-            <div className='Fadeout-gradient-light Inactive' />
-            <div className='Fadeout-gradient-compensation' />
         </div>
     );
 }
