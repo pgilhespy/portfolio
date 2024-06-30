@@ -14,7 +14,7 @@
 
 .Floating-image {
     position: absolute;
-    filter: blur(6px);
+    filter: blur(3px);
     opacity: 0.4;
 }
 
