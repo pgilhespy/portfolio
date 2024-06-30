@@ -9,7 +9,6 @@ import image from '../Content/quotation-mark-1.0.png';
 import FloatingImage from '../Components/FloatingImage';
 import ScrollHighlightText from '../Components/ScrollHighlightText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
-import bgVideo from '../Content/websiteBgVideo1.0.mp4';
 
 function AboutIntroPage({ scrollPos }) {
     const [pageHeight, setPageHeight] = useState(0);
@@ -24,8 +23,8 @@ function AboutIntroPage({ scrollPos }) {
     // </video>
     return (
         <div id="about" className="About-pages">
-            <FloatingImage image={image} left={30} top={10} rotation={0} scale={0.6} scrollPos={scrollPos} invertParalax={-1} />
-            <FloatingImage image={image} left={160} top={10} rotation={0} scale={-0.6} scrollPos={scrollPos} invertParalax={-1} />
+            <FloatingImage image={image} left={30} top={10} rotation={0} scale={0.6} scrollPos={scrollPos} invertParalax={-1} pageNumber={0} />
+            <FloatingImage image={image} left={160} top={10} rotation={0} scale={-0.6} scrollPos={scrollPos} invertParalax={-1} pageNumber={0} />
             <div className="Centered-container-horz-vert Middle Margin-to-center">
                 <span className="Inter-black Spacing-medium Text-medium Text-white Drop-shadow-black">
                     I’m a web designer with computer science and video editing skills who can take your site to the <ScrollHighlightText scrollPos={scrollPos} pageHeight={pageHeight} displayText={"next level."} />

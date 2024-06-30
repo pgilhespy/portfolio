@@ -7,17 +7,25 @@ import '../Styles/Globals.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import PaperPlane from '../Components/PaperPlane';
 
-function ContactPage() {
+function ContactPage({ scrollPos }) {
     
     return (
         <div className="Contact-page">
+            <PaperPlane right={20} bottom={-40} rotation={0} scale={1.2} scrollPos={scrollPos} zInd={5} />
             <div className="Centered-container-horz-vert Middle">
                 <span className="Inter-black Spacing-tight Text-large Text-white Drop-shadow-black Letters-seperate">LET'S CONNECT</span>
                 <div className='Even-spread-to-edges'>
-                    <FontAwesomeIcon icon={faInstagram} className='Social-icon' />
-                    <FontAwesomeIcon icon={faEnvelope}  className='Social-icon' />
-                    <FontAwesomeIcon icon={faLinkedinIn} className='Social-icon' />
+                    <a href='https://www.instagram.com/p_gilhespy/' target='_blank' >
+                        <FontAwesomeIcon icon={faInstagram} className='Social-icon' />
+                    </a>
+                    <a href="mailto:philip@gilhespy.net" target='_blank' >
+                        <FontAwesomeIcon icon={faEnvelope}  className='Social-icon' />
+                    </a>
+                    <a href='https://www.linkedin.com/in/philip-gilhespy-7601132a1/' target='_blank' >
+                        <FontAwesomeIcon icon={faLinkedinIn} className='Social-icon' />
+                    </a>
                 </div>
             </div>
         </div>

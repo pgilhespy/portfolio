@@ -44,4 +44,6 @@
     align-items: center;
     justify-content: center;
     overflow-x: clip;
+    overflow-y: clip;
+    position: relative;
 }

@@ -29,9 +29,9 @@ function App() {
       <LandingPage scrollPos={scrollPosition} />
       <AboutIntroPage scrollPos={scrollPosition} />
       <AboutWhatIDoPage scrollPos={scrollPosition} />
-      <ReelExperiencePage />
+      <ReelExperiencePage scrollPos={scrollPosition} />
       <WorkExperiencePage scrollPos={scrollPosition} />
-      <ContactPage />
+      <ContactPage scrollPos={scrollPosition} />
     </>
   );
 }

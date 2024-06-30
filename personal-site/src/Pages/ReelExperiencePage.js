@@ -4,11 +4,13 @@ import '../Styles/Components.css';
 import '../Styles/Text.css';
 import '../Styles/Animations.css';
 import '../Styles/Globals.css';
+import Reel from '../Components/Reel';
 
-function ReelExperiencePage() {
+function ReelExperiencePage({ scrollPos }) {
     
     return (
         <div className="Work-pages">
+            <Reel scrollPos={scrollPos} />
         </div>
     );
 }
