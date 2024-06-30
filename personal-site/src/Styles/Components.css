@@ -75,4 +75,5 @@
 
 .Reel:fullscreen {
     opacity: 100% !important;
+    filter: blur(0px) !important;
 }
