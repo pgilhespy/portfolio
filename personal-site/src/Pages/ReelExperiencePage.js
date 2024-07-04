@@ -12,7 +12,7 @@ function ReelExperiencePage({ scrollPos }) {
     
     return (
         <div className="Work-pages">
-            <FloatingVideo video={starVideo} left={-230} top={400} rotation={-10} scale={1.2} scrollPos={scrollPos} invertParalax={1} zInd={25} pageNumber={3}/>
+            <FloatingVideo video={starVideo} left={-230} top={400} rotation={-10} scale={1.2} scrollPos={scrollPos} invertParalax={1} zInd={25} pageNumber={2.2}/>
             <Reel scrollPos={scrollPos} />
         </div>
     );
