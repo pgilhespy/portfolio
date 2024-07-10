@@ -11,23 +11,15 @@ import ScrollHighlightText from '../Components/ScrollHighlightText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 
 function AboutIntroPage({ scrollPos }) {
-    const [pageHeight, setPageHeight] = useState(0);
     const { height, width } = useWindowDimensions();
-
-    useEffect(() => {
-        setPageHeight(height);
-    }, [scrollPos]);
     
-    // <video className='Bg-video' autoPlay muted loop >
-    //     <source src={bgVideo} />
-    // </video>
     return (
         <div id="about" className="About-pages">
             <FloatingImage image={image} left={30} top={10} rotation={0} scale={0.6} scrollPos={scrollPos} invertParalax={-1} pageNumber={0} />
             <FloatingImage image={image} left={160} top={10} rotation={0} scale={-0.6} scrollPos={scrollPos} invertParalax={-1} pageNumber={0} />
             <div className="Centered-container-horz-vert Middle Margin-to-center">
                 <span className="Inter-black Spacing-medium Text-medium Text-white Drop-shadow-black">
-                    I’m a web designer with computer science and video editing skills who can take your site to the <ScrollHighlightText scrollPos={scrollPos} pageHeight={pageHeight} displayText={"next level."} />
+                    I’m a web designer with computer science and video editing skills who can take your site to the <ScrollHighlightText scrollPos={scrollPos} pageHeight={height} displayText={"next level."} />
                 </span>
             </div>
         </div>
