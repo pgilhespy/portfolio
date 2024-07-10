@@ -1,9 +1,11 @@
 import '../Styles/Components.css';
 import '../Styles/Text.css';
+import useWindowDimensions from '../Utils/UseWindowDimensions';
 
-const ScrollHighlightText = ({ displayText, scrollPos, pageHeight }) => {
+const ScrollHighlightText = ({ displayText, scrollPos }) => {
+    const { height, width } = useWindowDimensions();
     var gradient = 1;
-    var ratio = (pageHeight - scrollPos)/scrollPos
+    var ratio = (height - scrollPos)/scrollPos
     if ( ratio < 1)
         gradient = ratio;
 
