@@ -6,7 +6,7 @@ import '../Styles/Animations.css';
 import '../Styles/Globals.css';
 import FadeoutCaptionText from '../Components/FadeoutCaptionText';
 
-function WorkExperiencePage( {scrollPos} ) {
+function WorkExperiencePage() {
     
     return (
         <div className="Work-pages">
