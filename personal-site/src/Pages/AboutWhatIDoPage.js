@@ -16,7 +16,7 @@ function AboutWhatIDoPage( {scrollPos} ) {
     return (
         <div className="About-pages">
             <FloatingVideo video={bubbleVideo} right={-200} bottom={450} rotation={30} scale={1.3} scrollPos={scrollPos} invertParalax={1} zInd={25} pageNumber={1} />
-            <span className={`Inter-regular Spacing-wide Text-${getTextSize(width)}-small Text-white`} >WHAT I DO</span>
+            <span className={`Inter-regular Spacing-${getTextSize(width)}-wide Text-${getTextSize(width)}-small Text-white`} >WHAT I DO</span>
             <div className="Centered-container-horz-left-align Middle Margin-to-center Drop-shadow-container" style={{ background: "#414C52", }}>
                 <FadeoutCaptionText mainText={"WEB DESIGN"} subText={"Create and optimize website content with code and other tools"}/>
                 <FadeoutCaptionText mainText={"MOCK UPS"} subText={"See how your designs look on screen"} />
