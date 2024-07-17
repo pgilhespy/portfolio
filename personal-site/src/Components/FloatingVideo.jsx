@@ -15,8 +15,6 @@ const FloatingVideo = ({video, top, bottom, left, right, rotation, scale, scroll
     if (adjustedBottom != null)
         adjustedBottom = (bottom + offset) * invertParalax;
 
-    console.log(adjustedTop);
-
     return (
         <video 
             className='Floating-video Inactive' 

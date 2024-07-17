@@ -28,16 +28,40 @@
     letter-spacing: 4px;
 }
 
-.Text-large {
+.Text-window-large {
     font-size: 96px;
 }
 
-.Text-medium {
+.Text-window-medium {
     font-size: 64px;
 }
 
-.Text-small {
+.Text-window-small {
     font-size: 28px;
+}
+
+.Text-ipad-large {
+    font-size: 64px;
+}
+
+.Text-ipad-medium {
+    font-size: 42px;
+}
+
+.Text-ipad-small {
+    font-size: 16px;
+}
+
+.Text-phone-large {
+    font-size: 42px;
+}
+
+.Text-phone-medium {
+    font-size: 28px;
+}
+
+.Text-phone-small {
+    font-size: 10px;
 }
 
 .Text-white {

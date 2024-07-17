@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../Styles/Components.css';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
+import getTextSize from '../Utils/GetTextSize';
 
 const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -62,7 +63,7 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
                 onMouseEnter={handleMouseEnter} 
                 onMouseLeave={handleMouseLeave} 
                 onClick={OnClick}
-                className="Inter-regular Spacing-normal Text-small Text-white Button-box-highlight" 
+                className={`Inter-regular Spacing-normal Text-${getTextSize(width)}-small Text-white Button-box-highlight`}
                 style={{
                     color: `${(isHovered || inSection) ? hoverColour : "#FFFFFF"}`,
                     backgroundColor: `${(isHovered || inSection) ? "white" : "transparent"}`,

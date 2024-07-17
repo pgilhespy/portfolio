@@ -5,9 +5,12 @@ import '../Styles/Text.css';
 import '../Styles/Animations.css';
 import '../Styles/Globals.css';
 import { useState } from 'react';
+import getTextSize from '../Utils/GetTextSize';
+import useWindowDimensions from '../Utils/UseWindowDimensions';
 
 const FadeoutCaptionText = ({ mainText, subText }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const {height, width} = useWindowDimensions();
  
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -25,12 +28,12 @@ const FadeoutCaptionText = ({ mainText, subText }) => {
             <span 
                 onMouseEnter={handleMouseEnter} 
                 onMouseLeave={handleMouseLeave} 
-                className='Inter-black Spacing-tight Text-large Text-white Tight-fadeout-text'
+                className={`Inter-black Spacing-tight Text-${getTextSize(width)}-large Text-white Tight-fadeout-text`}
             >
                 { mainText }
             </span>
             <span 
-                className='Inter-regular Spacing-normal Text-small Text-white Tight-fadeout-subText'
+                className={`Inter-regular Spacing-normal Text-${getTextSize(width)}-small Text-white Tight-fadeout-subText`}
                 style={{opacity: `${subtextOpacity}`, filter: `blur(${subtextBlur})`}}
             >
                 { subText }

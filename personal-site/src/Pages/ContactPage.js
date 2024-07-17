@@ -11,8 +11,11 @@ import PaperPlane from '../Components/PaperPlane';
 import dashedSide from '../Content/dashedLine1.1.png';
 import dashedBottom from '../Content/dashedLine2.0.png';
 import FloatingImage from '../Components/FloatingImage';
+import useWindowDimensions from '../Utils/UseWindowDimensions';
+import getTextSize from '../Utils/GetTextSize';
 
 function ContactPage({ scrollPos }) {
+    const {width, height} = useWindowDimensions();
     
     return (
         <div className="Contact-page">
@@ -20,7 +23,7 @@ function ContactPage({ scrollPos }) {
             <FloatingImage image={dashedBottom} right={370} bottom={-100} rotation={0} scale={1.5} scrollPos={scrollPos} invertParalax={-1} pageNumber={4} />
             <PaperPlane right={20} bottom={-40} rotation={0} scale={1.2} scrollPos={scrollPos} zInd={5} />
             <div className="Centered-container-horz-vert Middle">
-                <span className="Inter-black Spacing-tight Text-large Text-white Drop-shadow-black Letters-seperate">LET'S CONNECT</span>
+                <span className={`Inter-black Spacing-tight Text-${getTextSize(width)}-large Text-white Drop-shadow-black Letters-seperate`} >LET'S CONNECT</span>
                 <div className='Even-spread-to-edges'>
                     <a href='https://www.instagram.com/p_gilhespy/' target='_blank' >
                         <FontAwesomeIcon icon={faInstagram} className='Social-icon' />
