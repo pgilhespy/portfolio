@@ -18,15 +18,15 @@ const MenuBar = ({ scrollPos }) => {
 
     if (screenSize == "window") {
         menuWidth = 723.1;
-        visibilityToggleHeight = 0.53;
+        visibilityToggleHeight = 0.54;
     }
     else if (screenSize == "ipad") {
         menuWidth = 484.6;
-        visibilityToggleHeight = 0.50;
+        visibilityToggleHeight = 0.51;
     }
     else {
         menuWidth = 295;
-        visibilityToggleHeight = 0.47;
+        visibilityToggleHeight = 0.5;
     }
 
     if (scrollPos > (visibilityToggleHeight * height) )
