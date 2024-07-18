@@ -6,13 +6,30 @@ import '../Styles/Globals.css';
 import ButtonBoxHighlight from '../Components/ButtonBoxHighlight';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import { useState, useEffect } from 'react';
+import getTextSize from '../Utils/GetTextSize';
 
 const MenuBar = ({ scrollPos }) => {
     const {height, width} = useWindowDimensions();
     const [gradientColour, setGradientColour] = useState("rgba(200, 210, 215, 1)");
     var visibility = "hidden";
+    const screenSize = getTextSize(width);
+    var menuWidth;
+    var visibilityToggleHeight;
 
-    if (scrollPos > (0.53 * height) )
+    if (screenSize == "window") {
+        menuWidth = 723.1;
+        visibilityToggleHeight = 0.53;
+    }
+    else if (screenSize == "ipad") {
+        menuWidth = 484.6;
+        visibilityToggleHeight = 0.50;
+    }
+    else {
+        menuWidth = 295;
+        visibilityToggleHeight = 0.47;
+    }
+
+    if (scrollPos > (visibilityToggleHeight * height) )
         visibility = "visible";
 
     useEffect(() => {
@@ -55,7 +72,7 @@ const MenuBar = ({ scrollPos }) => {
 
     return (
         <div className='Menu-bar Even-spread-to-edges Menu-front' style={{visibility:`${visibility}`}}>
-                <div className='Even-spread-to-edges' style={{width: "723.1px"}}>
+                <div className='Even-spread-to-edges' style={{width: `${menuWidth}px`}}>
                     <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} />
                     <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} />
                     <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} sectionNumber={3} />
