@@ -1,0 +1,42 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 0 0 0;
+}
+
+button {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border: 0px;
+}
+
+.Back {
+    z-index: 5;
+}
+
+.Middle {
+    z-index: 10;
+}
+
+.Front {
+    z-index: 15;
+}
+
+.Menu-front {
+    z-index: 20;
+}
+
+.Margin-to-center {
+    margin-left: 18vw;
+    margin-right: 18vw;
+}
+
+.Inactive {
+    pointer-events: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}

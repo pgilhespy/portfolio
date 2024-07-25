@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import LandingPage from './Pages/LandingPage';
+import ContactPage from './Pages/ContactPage';
+import AboutIntroPage from './Pages/AboutIntroPage';
+import AboutWhatIDoPage from './Pages/AboutWhatIDoPage';
+import WorkExperiencePage from './Pages/WorkExperiencePage';
+import MenuBar from './Components/MenuBar';
+import ReelExperiencePage from './Pages/ReelExperiencePage';
 
 function App() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.scrollY;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MenuBar scrollPos={scrollPosition} />
+      <LandingPage scrollPos={scrollPosition} />
+      <AboutIntroPage scrollPos={scrollPosition} />
+      <AboutWhatIDoPage scrollPos={scrollPosition} />
+      <ReelExperiencePage scrollPos={scrollPosition} />
+      <WorkExperiencePage />
+      <ContactPage scrollPos={scrollPosition} />
+    </>
   );
 }
 

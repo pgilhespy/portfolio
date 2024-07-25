@@ -1,0 +1,109 @@
+.Inter-black {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.Inter-regular {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.Spacing-window-tight {
+    letter-spacing: -4px;
+}
+
+.Spacing-window-medium {
+    letter-spacing: -3px;
+}
+
+.Spacing-window-normal {
+    letter-spacing: -2px;
+}
+
+.Spacing-window-wide {
+    letter-spacing: 4px;
+}
+
+.Spacing-ipad-tight {
+    letter-spacing: -2.5px;
+}
+
+.Spacing-ipad-medium {
+    letter-spacing: -1px;
+}
+
+.Spacing-ipad-normal {
+    letter-spacing: -0.5px;
+}
+
+.Spacing-ipad-wide {
+    letter-spacing: 2px;
+}
+
+.Spacing-phone-tight {
+    letter-spacing: -1px;
+}
+
+.Spacing-phone-medium {
+    letter-spacing: 0px;
+}
+
+.Spacing-phone-normal {
+    letter-spacing: 0px;
+}
+
+.Spacing-phone-wide {
+    letter-spacing: 1px;
+}
+
+.Text-window-large {
+    font-size: 96px;
+}
+
+.Text-window-medium {
+    font-size: 64px;
+}
+
+.Text-window-small {
+    font-size: 28px;
+}
+
+.Text-ipad-large {
+    font-size: 64px;
+}
+
+.Text-ipad-medium {
+    font-size: 42px;
+}
+
+.Text-ipad-small {
+    font-size: 16px;
+}
+
+.Text-phone-large {
+    font-size: 38px;
+}
+
+.Text-phone-medium {
+    font-size: 28px;
+}
+
+.Text-phone-small {
+    font-size: 10px;
+}
+
+.Text-white {
+    color: white;
+}
+
+.Text-dark-gray {
+    color: #414C52;
+}
+
+.Drop-shadow-black {
+    text-shadow: 0 0 32px rgba(22, 19, 19, 0.1);
+}

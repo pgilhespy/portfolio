@@ -1,0 +1,88 @@
+.Button-box-highlight {
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 16px;
+}
+
+.Button-box-highlight:hover {
+    cursor: pointer;
+}
+
+.Floating-video {
+    position: absolute;
+    filter: blur(4px);
+}
+
+.Floating-image {
+    position: absolute;
+    filter: blur(3px);
+    opacity: 0.4;
+}
+
+.Social-icon {
+    color: white;
+    font-size: 42px;
+    background-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    padding: 6px;
+    border-radius: 16px;
+}
+
+.Social-icon:hover {
+    color: #414C52;
+    font-size: 42px;
+    background-color: white;
+    padding: 4px 6px 8px 6px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.Tight-fadeout-text {
+    opacity: 100%;
+    filter: blur(0px);
+    transition: all 0.4s ease-in-out;
+}
+
+.Tight-fadeout-text:hover {
+    opacity: 20%;
+    filter: blur(2px);
+}
+
+.Tight-fadeout-subText {
+    opacity: 0%;
+    filter: blur(2px);
+    position: absolute;
+    right: 0px;
+    pointer-events: none;
+    transition: all 0.4s ease-in-out;
+    text-align: right;
+}
+
+.Line-height-window {
+    line-height: 76px;
+}
+
+.Line-height-ipad {
+    line-height: 56px;
+}
+
+.Line-height-phone {
+    line-height: 36px;
+}
+
+.Menu-bar {
+    position: sticky;
+    top: 4vh;
+    height: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Reel {
+    z-index: 10;
+    border-radius: 16px;
+}
+
+.Reel:fullscreen {
+    opacity: 100% !important;
+    filter: blur(0px) !important;
+}

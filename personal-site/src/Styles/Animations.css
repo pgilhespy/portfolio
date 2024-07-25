@@ -1,0 +1,38 @@
+@keyframes Letters-window-seperate-internal {
+    from {
+        letter-spacing: -8px;
+    }
+    to {
+        letter-spacing: -4px;
+    }
+}
+
+@keyframes Letters-ipad-seperate-internal {
+    from {
+        letter-spacing: -4.5px;
+    }
+    to {
+        letter-spacing: -2.5px;
+    }
+}
+
+@keyframes Letters-phone-seperate-internal {
+    from {
+        letter-spacing: -3px;
+    }
+    to {
+        letter-spacing: -1px;
+    }
+}
+
+.Letters-window-seperate {
+    animation: Letters-window-seperate-internal forwards 1s ease-out;
+}
+
+.Letters-ipad-seperate {
+    animation: Letters-ipad-seperate-internal forwards 1s ease-out;
+}
+
+.Letters-phone-seperate {
+    animation: Letters-phone-seperate-internal forwards 1s ease-out;
+}
