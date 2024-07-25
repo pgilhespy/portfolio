@@ -2,11 +2,31 @@ import '../Styles/Components.css';
 import '../Styles/Globals.css';
 import reel from '../Content/WebsiteReel1.1.mp4';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
+import getTextSize from '../Utils/GetTextSize';
 
 const Reel = ({ scrollPos }) => {
     const { height, width } = useWindowDimensions();
     let reelOpacity;
     let reelBlur;
+    const screenSize = getTextSize(width);
+    let reelHeight;
+    let reelWidth;
+
+    if (screenSize == "window") {
+        reelHeight = "75%";
+        reelWidth = "auto";
+    }
+
+    else if (screenSize == "ipad") {
+        reelHeight = "auto";
+        reelWidth = "95%";
+    }
+
+    else {
+        reelHeight = "auto";
+        reelWidth = "100%";
+    }
+
 
     // Not at spot yet
     if ( scrollPos < (height * 2.8) ) {
@@ -38,6 +58,8 @@ const Reel = ({ scrollPos }) => {
             controls
             src={reel}
             style={{
+                height: reelHeight,
+                width: reelWidth,
                 opacity: `${reelOpacity}%`,
                 filter: `blur(${reelBlur}px)`
             }}

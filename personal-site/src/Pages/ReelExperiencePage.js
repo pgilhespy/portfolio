@@ -30,7 +30,7 @@ function ReelExperiencePage({ scrollPos }) {
                 video={starVideo} 
                 left={-230*floatingVideo[0]} 
                 top={400*floatingVideo[1]} 
-                rotation={-10} 
+               rotation={-10} 
                 scale={1.2*floatingVideo[2]} 
                 scrollPos={scrollPos} 
                 invertParalax={1} 
