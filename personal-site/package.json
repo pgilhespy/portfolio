@@ -1,8 +1,8 @@
 {
   "name": "personal-site",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "http://pgilhespy.github.io/pgilhespy.github.io",
+  "private": false,
+  "homepage": "https://pgilhespy.github.io/pgilhespy.github.io",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
