@@ -19,25 +19,25 @@ function AboutWhatIDoPage( {scrollPos} ) {
         floatingVideo = [1, 1, 1];
 
     else if (screenSize == "ipad")
-        floatingVideo = [1, 0.95, 0.8];
+        floatingVideo = [1.1, 0.95, 0.8];
 
     else
-        floatingVideo = [1, 0.9, 0.6];
+        floatingVideo = [1.15, 0.9, 0.6];
     
     return (
         <div className="About-pages">
             <FloatingVideo
                 video={bubbleVideo} 
                 right={-200*floatingVideo[0]} 
-                bottom={450*floatingVideo[1]} 
+                top={350*floatingVideo[1]} 
                 rotation={30} 
                 scale={1.3*floatingVideo[2]} 
                 scrollPos={scrollPos} 
-                invertParalax={1} 
-                zInd={25} 
+                invertParalax={-1} 
+                zInd={5} 
                 pageNumber={1} 
             />
-            <span className={`Inter-regular Spacing-${getTextSize(width)}-wide Text-${getTextSize(width)}-small Text-white`} >WHAT I DO</span>
+            <span className={`Inter-regular Spacing-${getTextSize(width)}-wide Text-${getTextSize(width)}-small Text-white Middle`} >WHAT I DO</span>
             <div className="Centered-container-horz-left-align Middle Margin-to-center Drop-shadow-container" style={{ background: "#414C52", }}>
                 <FadeoutCaptionText mainText={"WEB DESIGN"} subText={"Create and optimize website content with code and other tools"}/>
                 <FadeoutCaptionText mainText={"MOCK UPS"} subText={"See how your designs look on screen"} />
