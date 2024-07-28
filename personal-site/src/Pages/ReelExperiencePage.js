@@ -16,10 +16,10 @@ function ReelExperiencePage({ scrollPos }) {
     var floatingVideo; 
 
     if (screenSize == "window")
-        floatingVideo = [1, 1, 1];
+        floatingVideo = [1, 1.1, 1];
 
     else if (screenSize == "ipad")
-        floatingVideo = [1, 1.1, 0.7];
+        floatingVideo = [1, 1.2, 0.5];
 
     else
         floatingVideo = [1, 1.2, 0.4];
@@ -29,13 +29,13 @@ function ReelExperiencePage({ scrollPos }) {
             <FloatingVideo 
                 video={starVideo} 
                 left={-230*floatingVideo[0]} 
-                top={400*floatingVideo[1]} 
-               rotation={-10} 
+                bottom={-250*floatingVideo[1]} 
+                rotation={-10} 
                 scale={1.2*floatingVideo[2]} 
                 scrollPos={scrollPos} 
                 invertParalax={1} 
                 zInd={25} 
-                pageNumber={2.2}
+                pageNumber={2}
             />
             <Reel scrollPos={scrollPos} />
         </div>
