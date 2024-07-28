@@ -69,6 +69,18 @@
     line-height: 36px;
 }
 
+.Line-height-subtext-window {
+    line-height: 28px;
+}
+
+.Line-height-subtext-ipad {
+    line-height: 16px;
+}
+
+.Line-height-subtext-phone {
+    line-height: 14px;
+}
+
 .Menu-bar {
     position: sticky;
     top: 4vh;

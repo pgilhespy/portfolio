@@ -33,7 +33,7 @@ const FadeoutCaptionText = ({ mainText, subText }) => {
                 { mainText }
             </span>
             <span 
-                className={`Inter-regular Spacing-${getTextSize(width)}-normal Line-height-${getTextSize(width)} Text-${getTextSize(width)}-small Text-white Tight-fadeout-subText`}
+                className={`Inter-regular Spacing-${getTextSize(width)}-normal Line-height-subtext-${getTextSize(width)} Text-${getTextSize(width)}-small Text-white Tight-fadeout-subText`}
                 style={{opacity: `${subtextOpacity}`, filter: `blur(${subtextBlur})`}}
             >
                 { subText }
