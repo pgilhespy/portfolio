@@ -42,11 +42,6 @@
     transition: all 0.4s ease-in-out;
 }
 
-.Tight-fadeout-text:hover {
-    opacity: 20%;
-    filter: blur(2px);
-}
-
 .Tight-fadeout-subText {
     opacity: 0%;
     filter: blur(2px);
