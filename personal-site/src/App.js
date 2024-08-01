@@ -11,10 +11,18 @@ import useWindowDimensions from './Utils/UseWindowDimensions';
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const {width, height} = useWindowDimensions();
   let tooSmall = false;
 
-  if (height < 425)
+  window.matchMedia('(display-mode: fullscreen)').addListener(({ matches }) => {
+    if (matches)
+      setIsFullscreen(true);
+    else
+      setIsFullscreen(false);
+  });
+
+  if ( (height < 425) && !isFullscreen )
     tooSmall = true;
 
   const handleScroll = () => {
