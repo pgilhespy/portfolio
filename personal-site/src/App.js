@@ -15,28 +15,46 @@ function App() {
   const {width, height} = useWindowDimensions();
   let tooSmall = false;
 
-  window.matchMedia('(display-mode: fullscreen)').addListener(({ matches }) => {
-    if (matches)
+  const checkFullscreen = () => {
+    return (
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement
+    );
+  };
+
+  const handleFullscreenChange = () => {
+    if (checkFullscreen()) {
       setIsFullscreen(true);
-    else
+    } else {
       setIsFullscreen(false);
-  });
-
-  if ( (height < 425) && !isFullscreen )
-    tooSmall = true;
-
+    }
+  };
+  
   const handleScroll = () => {
     const position = window.scrollY;
     setScrollPosition(position);
   };
-
+  
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
     };
   }, []);
+  
+  if ( (height < 425) && !isFullscreen )
+    tooSmall = true;
 
   return (
     <>

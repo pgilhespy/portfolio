@@ -15,15 +15,6 @@ const FadeoutCaptionText = ({ mainText, subText }) => {
     const md = new MobileDetect(navigator.userAgent);
     const mainTextRef = useRef(null);
 
-    // Auto fadeout if mobile device
-    // if (md.mobile()) {
-    //     if (mainTextRef.current) {
-    //         const mainTextBoundingBox = mainTextRef.current.getBoundingClientRect();
-    //         if ( mainTextBoundingBox.top > ((height/2) - (height/8)) )
-    //             setIsHovered(true);
-    //     }
-    // }
-
     useEffect(() => {
         const handleScroll = () => {
             if (md.mobile())
