@@ -1,6 +1,7 @@
 import '../Styles/Components.css';
 import '../Styles/Globals.css';
-import video from '../Content/chrome3.1.webm';
+import videoChrome from '../Content/chrome3.1.webm';
+import videoApple from '../Content/chrome3.1.webm';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 
 const PaperPlane = ({ bottom, right, rotation, scale, scrollPos, zInd }) => {
@@ -30,8 +31,9 @@ const PaperPlane = ({ bottom, right, rotation, scale, scrollPos, zInd }) => {
                 transform: `scale(${scale}, ${scale}) rotate(${rotation}deg)`,
                 zIndex: `${zInd}`
             }}
-            src={video}
         >
+            <source src={videoApple} type='video/mp4; codecs="hvc1"' />
+            <source src={videoChrome} type="video/webm" />
         </video>
     );
 }

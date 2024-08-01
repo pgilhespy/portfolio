@@ -2,7 +2,7 @@ import '../Styles/Components.css';
 import '../Styles/Globals.css';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 
-const FloatingVideo = ({video, top, bottom, left, right, rotation, scale, scrollPos, invertParalax, zInd, pageNumber}) => {
+const FloatingVideo = ({videoChrome, videoApple, top, bottom, left, right, rotation, scale, scrollPos, invertParalax, zInd, pageNumber}) => {
     const {height, width} = useWindowDimensions();
     let adjustedTop = top;
     let adjustedBottom = bottom;
@@ -32,8 +32,9 @@ const FloatingVideo = ({video, top, bottom, left, right, rotation, scale, scroll
                 transform: `scale(${scale}, ${scale}) rotate(${rotation}deg)`,
                 zIndex: `${zInd}`
             }}
-            src={video}
         >
+            <source src={videoApple} type='video/mp4; codecs="hvc1"' />
+            <source src={videoChrome} type="video/webm" />
         </video>
     );
 }

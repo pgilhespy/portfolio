@@ -4,7 +4,7 @@ import '../Styles/Text.css';
 import '../Styles/Animations.css';
 import '../Styles/Globals.css';
 import ButtonBoxHighlight from '../Components/ButtonBoxHighlight';
-import video from '../Content/chrome1.1.webm';
+import videoChrome from '../Content/chrome1.1.webm';
 import FloatingVideo from '../Components/FloatingVideo';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
@@ -31,7 +31,7 @@ function LandingPage({ scrollPos }) {
     return (
         <div className="Landing-page">
             <FloatingVideo 
-                video={video} 
+                videoChrome={videoChrome} 
                 left={-170*floatingVideo1[0]} 
                 bottom={-150*floatingVideo1[1]} 
                 rotation={0} 
@@ -42,7 +42,7 @@ function LandingPage({ scrollPos }) {
                 pageNumber={0} 
             />
             <FloatingVideo 
-                video={video} 
+                videoChrome={videoChrome} 
                 right={-10*floatingVideo2[0]} 
                 top={50*floatingVideo2[1]} 
                 rotation={200} 
