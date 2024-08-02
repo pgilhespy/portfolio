@@ -2,18 +2,22 @@ import { useEffect, useState } from 'react';
 import '../Styles/Components.css';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import MobileDetect from 'mobile-detect';
 
 const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [hoverColour, setHoverColour] = useState("#C8D2D7");
     const {height, width} = useWindowDimensions();
     const [inSection, setInSection] = useState(false);
+    const md = new MobileDetect(navigator.userAgent);
 
     const handleMouseEnter = () => {
-        setIsHovered(true);
+        if ( !md.mobile() )
+            setIsHovered(true);
     };
     const handleMouseLeave = () => {
-        setIsHovered(false);
+        if ( !md.mobile() )
+            setIsHovered(false);
     };
 
     const OnClick = () => {
