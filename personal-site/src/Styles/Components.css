@@ -27,13 +27,15 @@
     border-radius: 16px;
 }
 
-.Social-icon:hover {
-    color: #414C52;
-    font-size: 42px;
-    background-color: white;
-    padding: 4px 6px 8px 6px;
-    cursor: pointer;
-    border-radius: 16px;
+@media (hover: hover) {
+    .Social-icon:hover { 
+        color: #414C52;
+        font-size: 42px;
+        background-color: white;
+        padding: 4px 6px 8px 6px;
+        cursor: pointer;
+        border-radius: 16px; 
+    }
 }
 
 .Tight-fadeout-text {
