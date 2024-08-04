@@ -8,10 +8,13 @@ import videoChrome from '../Content/chrome1.1.webm';
 import FloatingVideo from '../Components/FloatingVideo';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function LandingPage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
     const screenSize = getTextSize(width);
+    const pageHeight = getPageHeight(height);
+
     var floatingVideo1; 
     var floatingVideo2; 
 
@@ -29,7 +32,7 @@ function LandingPage({ scrollPos }) {
     }
     
     return (
-        <div className="Landing-page">
+        <div className="Landing-page" style={{ height: `${pageHeight}px`}}>
             <FloatingVideo 
                 videoChrome={videoChrome} 
                 left={-170*floatingVideo1[0]} 

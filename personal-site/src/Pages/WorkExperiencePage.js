@@ -7,9 +7,11 @@ import '../Styles/Globals.css';
 import FadeoutCaptionText from '../Components/FadeoutCaptionText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function WorkExperiencePage() {
     const {width, height} = useWindowDimensions();
+    const pageHeight = getPageHeight(height);
     
     return (
         <div className="Work-pages">

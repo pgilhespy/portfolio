@@ -9,9 +9,11 @@ import FloatingImage from '../Components/FloatingImage';
 import ScrollHighlightText from '../Components/ScrollHighlightText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function AboutIntroPage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
+    const pageHeight = getPageHeight(height);
     const screenSize = getTextSize(width);
     var floatingImage1;
     var floatingImage2; 
@@ -30,7 +32,7 @@ function AboutIntroPage({ scrollPos }) {
     }
     
     return (
-        <div id="about" className="About-pages">
+        <div id="about" className="About-pages" style={{ height: `${pageHeight}px`}}>
             <FloatingImage 
                 image={image} 
                 left={30+floatingImage1[0]} 

@@ -1,17 +1,16 @@
 .Landing-page {
     width: 100%;
-    height: 100vh;
     background-color: #C8D2D7;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow-x: clip;
+    position: relative;
 }
 
 .About-pages {
     width: 100%;
-    height: 100vh;
     background-color: #414C52;
     display: flex;
     flex-direction: column;
@@ -24,7 +23,6 @@
 
 .Work-pages {
     width: 100%;
-    height: 100vh;
     background-color: #C8D2D7;
     display: flex;
     flex-direction: column;
@@ -37,7 +35,6 @@
 
 .Contact-page {
     width: 100%;
-    height: 100vh;
     background-color: #414C52;
     display: flex;
     flex-direction: column;

@@ -9,9 +9,11 @@ import FloatingVideo from '../Components/FloatingVideo';
 import starVideoChrome from '../Content/chrome1.1.webm';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function ReelExperiencePage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
+    const pageHeight = getPageHeight(height);
     const screenSize = getTextSize(width);
     var floatingVideo; 
 
@@ -25,7 +27,7 @@ function ReelExperiencePage({ scrollPos }) {
         floatingVideo = [1, 1.2, 0.4];
     
     return (
-        <div className="Work-pages">
+        <div className="Work-pages" style={{ height: `${pageHeight}px`}}>
             <FloatingVideo 
                 videoChrome={starVideoChrome} 
                 left={-230*floatingVideo[0]} 

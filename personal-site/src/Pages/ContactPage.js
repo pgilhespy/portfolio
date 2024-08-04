@@ -13,9 +13,11 @@ import dashedBottom from '../Content/dashedLine2.0.png';
 import FloatingImage from '../Components/FloatingImage';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function ContactPage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
+    const pageHeight = getPageHeight(height);
     const screenSize = getTextSize(width);
     var floatingImage1;
     var floatingImage2;
@@ -38,7 +40,7 @@ function ContactPage({ scrollPos }) {
     }
     
     return (
-        <div className="Contact-page">
+        <div className="Contact-page" style={{ height: `${pageHeight}px`}}>
             <FloatingImage 
                 image={dashedSide} 
                 left={70+floatingImage1[0]} 

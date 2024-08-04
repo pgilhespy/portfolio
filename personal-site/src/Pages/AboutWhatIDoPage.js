@@ -9,9 +9,11 @@ import FloatingVideo from '../Components/FloatingVideo';
 import bubbleVideoChrome from '../Content/chrome2.0.webm';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function AboutWhatIDoPage( {scrollPos} ) {
     const {width, height} = useWindowDimensions();
+    const pageHeight = getPageHeight(height);
     const screenSize = getTextSize(width);
     var floatingVideo; 
 
@@ -25,7 +27,7 @@ function AboutWhatIDoPage( {scrollPos} ) {
         floatingVideo = [1.15, 0.9, 0.6];
     
     return (
-        <div className="About-pages">
+        <div className="About-pages" style={{ height: `${pageHeight}px`}}>
             <FloatingVideo
                 videoChrome={bubbleVideoChrome} 
                 right={-200*floatingVideo[0]} 
