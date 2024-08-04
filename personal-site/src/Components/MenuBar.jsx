@@ -73,7 +73,7 @@ const MenuBar = ({ scrollPos }) => {
     }, [scrollPos]);
 
     return (
-        <div className='Menu-bar Even-spread-to-edges Menu-front' style={{visibility:`${visibility}`}}>
+        <div className='Menu-bar Even-spread-to-edges Menu-front' style={{visibility:`${visibility}`, top: `${pageHeight <= 500 ? "20px" : "4vh"}`}}>
                 <div className='Even-spread-to-edges' style={{width: `${menuWidth}px`}}>
                     <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} />
                     <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} />
