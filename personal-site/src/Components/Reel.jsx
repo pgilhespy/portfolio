@@ -3,9 +3,11 @@ import '../Styles/Globals.css';
 import reel from '../Content/WebsiteReel1.1.mp4';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 const Reel = ({ scrollPos }) => {
     const { height, width } = useWindowDimensions();
+    const pageHeight = getPageHeight(height);
     let reelOpacity;
     let reelBlur;
     const screenSize = getTextSize(width);
@@ -29,20 +31,20 @@ const Reel = ({ scrollPos }) => {
 
 
     // Not at spot yet
-    if ( scrollPos < (height * 2.8) ) {
-        let gradient = Math.pow( ( scrollPos / (height * 2.8) ), 3 );
+    if ( scrollPos < (pageHeight * 2.8) ) {
+        let gradient = Math.pow( ( scrollPos / (pageHeight * 2.8) ), 3 );
 
         reelOpacity = 100 * gradient;
         reelBlur = 4 * (1 - gradient);
     }
     // At correct spot
-    else if ( scrollPos < (height * 3.2) ) {
+    else if ( scrollPos < (pageHeight * 3.2) ) {
         reelOpacity = 100;
         reelBlur = 0;
     }
     // Past spot
     else {
-        let gradient = Math.pow( ( (height * 3.2) / scrollPos ), 3 );
+        let gradient = Math.pow( ( (pageHeight * 3.2) / scrollPos ), 3 );
 
         reelOpacity = 100 * gradient;
         reelBlur = 4 * (1 - gradient);
