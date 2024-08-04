@@ -3,11 +3,13 @@ import '../Styles/Components.css';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
 import MobileDetect from 'mobile-detect';
+import getPageHeight from '../Utils/GetPageHeight';
 
 const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [hoverColour, setHoverColour] = useState("#C8D2D7");
     const {height, width} = useWindowDimensions();
+    const pageHeight = getPageHeight(height);
     const [inSection, setInSection] = useState(false);
     const md = new MobileDetect(navigator.userAgent);
 
@@ -22,21 +24,21 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
 
     const OnClick = () => {
         if (sectionNumber === 1)
-            window.scrollTo(0, height);
+            window.scrollTo(0, pageHeight);
         else if (sectionNumber === 2)
-            window.scrollTo(0, 3*height);
+            window.scrollTo(0, 3*pageHeight);
         else
-            window.scrollTo(0, 5*height);
+            window.scrollTo(0, 5*pageHeight);
     }
 
     useEffect(() => {
         // Page 1
-        if (scrollPos < (0.95*height)) {
+        if (scrollPos < (0.95*pageHeight)) {
             setHoverColour("#C8D2D7");
             setInSection(false);
         }
         // Pages 2,3
-        else if (scrollPos < (2.95*height)) {
+        else if (scrollPos < (2.95*pageHeight)) {
             setHoverColour("#414C52");
             if (sectionNumber === 1)
                 setInSection(true);
@@ -44,14 +46,14 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
                 setInSection(false);
         }
         // Pages 4,5
-        else if (scrollPos < (4.95*height)) {
+        else if (scrollPos < (4.95*pageHeight)) {
             setHoverColour("#C8D2D7");
             if (sectionNumber === 2)
                 setInSection(true);
             else
                 setInSection(false);
         }
-        // Pages 6
+        // Page 6
         else {
             setHoverColour("#414C52");
             if (sectionNumber === 3)

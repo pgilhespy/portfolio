@@ -14,7 +14,7 @@ function WorkExperiencePage() {
     const pageHeight = getPageHeight(height);
     
     return (
-        <div className="Work-pages">
+        <div className="Work-pages" style={{ height: `${pageHeight}px`}}>
             
             <span className={`Inter-regular Spacing-${getTextSize(width)}-wide Text-${getTextSize(width)}-small Text-white`} >MY EXPERIENCE</span>
             <div className="Centered-container-horz-left-align Middle Drop-shadow-container" style={{ background: "#C8D2D7", }}>
