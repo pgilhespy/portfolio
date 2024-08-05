@@ -9,10 +9,12 @@ import FloatingImage from '../Components/FloatingImage';
 import ScrollHighlightText from '../Components/ScrollHighlightText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function AboutIntroPage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
-    const screenSize = getTextSize(width);
+    const pageHeight = getPageHeight(height);
+    const screenSize = getTextSize(width, height);
     var floatingImage1;
     var floatingImage2; 
 
@@ -30,7 +32,7 @@ function AboutIntroPage({ scrollPos }) {
     }
     
     return (
-        <div id="about" className="About-pages">
+        <div id="about" className="About-pages" style={{ height: `${pageHeight}px`}}>
             <FloatingImage 
                 image={image} 
                 left={30+floatingImage1[0]} 
@@ -52,7 +54,7 @@ function AboutIntroPage({ scrollPos }) {
                 pageNumber={0} 
             />
             <div className="Centered-container-horz-vert Middle Margin-to-center">
-                <span className={`Inter-black Spacing-${getTextSize(width)}-medium Text-${getTextSize(width)}-medium Text-white Drop-shadow-black`}>
+                <span className={`Inter-black Spacing-${getTextSize(width, height)}-medium Text-${getTextSize(width, height)}-medium Text-white Drop-shadow-black`}>
                     I’m a web designer with computer science and video editing skills who can take your site to the <ScrollHighlightText scrollPos={scrollPos} displayText={"next level."} />
                 </span>
             </div>

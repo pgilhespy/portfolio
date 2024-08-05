@@ -13,10 +13,12 @@ import dashedBottom from '../Content/dashedLine2.0.png';
 import FloatingImage from '../Components/FloatingImage';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function ContactPage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
-    const screenSize = getTextSize(width);
+    const pageHeight = getPageHeight(height);
+    const screenSize = getTextSize(width, height);
     var floatingImage1;
     var floatingImage2;
     var floatingVideo; 
@@ -38,7 +40,7 @@ function ContactPage({ scrollPos }) {
     }
     
     return (
-        <div className="Contact-page">
+        <div className="Contact-page" style={{ height: `${pageHeight}px`}}>
             <FloatingImage 
                 image={dashedSide} 
                 left={70+floatingImage1[0]} 
@@ -68,7 +70,7 @@ function ContactPage({ scrollPos }) {
                 zInd={5}
             />
             <div className="Centered-container-horz-vert Middle">
-                <span className={`Inter-black Spacing-${getTextSize(width)}-tight Text-${getTextSize(width)}-large Text-white Drop-shadow-black`} >LET'S CONNECT</span>
+                <span className={`Inter-black Spacing-${getTextSize(width, height)}-tight Text-${getTextSize(width, height)}-large Text-white Drop-shadow-black`} >LET'S CONNECT</span>
                 <div className='Even-spread-to-edges'>
                     <a href='https://www.instagram.com/p_gilhespy/' target='_blank' >
                         <FontAwesomeIcon icon={faInstagram} className='Social-icon' />

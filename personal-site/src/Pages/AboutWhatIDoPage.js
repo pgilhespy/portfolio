@@ -9,10 +9,12 @@ import FloatingVideo from '../Components/FloatingVideo';
 import bubbleVideoChrome from '../Content/chrome2.0.webm';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
+import getPageHeight from '../Utils/GetPageHeight';
 
 function AboutWhatIDoPage( {scrollPos} ) {
     const {width, height} = useWindowDimensions();
-    const screenSize = getTextSize(width);
+    const pageHeight = getPageHeight(height);
+    const screenSize = getTextSize(width, height);
     var floatingVideo; 
 
     if (screenSize == "window")
@@ -25,7 +27,7 @@ function AboutWhatIDoPage( {scrollPos} ) {
         floatingVideo = [1.15, 0.9, 0.6];
     
     return (
-        <div className="About-pages">
+        <div className="About-pages" style={{ height: `${pageHeight}px`}}>
             <FloatingVideo
                 videoChrome={bubbleVideoChrome} 
                 right={-200*floatingVideo[0]} 
@@ -37,7 +39,7 @@ function AboutWhatIDoPage( {scrollPos} ) {
                 zInd={5} 
                 pageNumber={1} 
             />
-            <span className={`Inter-regular Spacing-${getTextSize(width)}-wide Text-${getTextSize(width)}-small Text-white Middle`} >WHAT I DO</span>
+            <span className={`Inter-regular Spacing-${getTextSize(width, height)}-wide Text-${getTextSize(width, height)}-small Text-white Middle`} >WHAT I DO</span>
             <div className="Centered-container-horz-left-align Middle Drop-shadow-container" style={{ background: "#414C52", }}>
                 <FadeoutCaptionText mainText={"WEB DESIGN"} subText={"Create and optimize website content with code and other tools"}/>
                 <FadeoutCaptionText mainText={"MOCK UPS"} subText={"See how your designs look on screen"} />

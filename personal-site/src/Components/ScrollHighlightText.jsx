@@ -6,6 +6,7 @@ const ScrollHighlightText = ({ displayText, scrollPos }) => {
     const { height, width } = useWindowDimensions();
     var gradient = 1;
     var ratio = (height - scrollPos)/scrollPos
+    
     if ( ratio < 1)
         gradient = ratio;
 
