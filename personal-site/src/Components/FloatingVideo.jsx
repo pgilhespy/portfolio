@@ -9,13 +9,19 @@ const FloatingVideo = ({videoChrome, videoApple, top, bottom, left, right, rotat
     let adjustedTop = top;
     let adjustedBottom = bottom;
 
-    let offset = 2.2*Math.sqrt(scrollPos - (pageNumber * pageHeight));
+    let offsetInternalValue = scrollPos - (pageNumber * pageHeight);
+    if (offsetInternalValue <= 0 )
+        offsetInternalValue = 0.001;
+
+    let offset = 2.2*Math.sqrt(offsetInternalValue);
 
     if (adjustedTop != null)
         adjustedTop = (top -  offset) * invertParalax;
 
     if (adjustedBottom != null)
         adjustedBottom = (bottom + offset) * invertParalax;
+
+    console.log(adjustedTop);
 
     return (
         <video 
