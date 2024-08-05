@@ -1,6 +1,6 @@
 
-function getTextSize( width ) {
-    if (width > 1100)
+function getTextSize( width, height ) {
+    if (width > 1100 && height > 620)
         return "window";
 
     if (width > 620) 

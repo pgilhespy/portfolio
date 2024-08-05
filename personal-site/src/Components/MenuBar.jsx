@@ -14,7 +14,7 @@ const MenuBar = ({ scrollPos }) => {
     const pageHeight = getPageHeight(height);
     const [gradientColour, setGradientColour] = useState("rgba(200, 210, 215, 1)");
     var visibility = "hidden";
-    const screenSize = getTextSize(width);
+    const screenSize = getTextSize(width, height);
     var menuWidth;
     var visibilityToggleHeight;
 

@@ -58,13 +58,13 @@ const FadeoutCaptionText = ({ mainText, subText }) => {
                 ref={mainTextRef}
                 onMouseEnter={handleMouseEnter} 
                 onMouseLeave={handleMouseLeave} 
-                className={`Inter-black Spacing-${getTextSize(width)}-tight Line-height-${getTextSize(width)} Text-${getTextSize(width)}-large Text-white Tight-fadeout-text`}
+                className={`Inter-black Spacing-${getTextSize(width, height)}-tight Line-height-${getTextSize(width, height)} Text-${getTextSize(width, height)}-large Text-white Tight-fadeout-text`}
                 style={{opacity: `${maintextOpacity}`, filter: `blur(${maintextBlur})`}}
             >
                 { mainText }
             </span>
             <span 
-                className={`Inter-regular Spacing-${getTextSize(width)}-normal Line-height-subtext-${getTextSize(width)} Text-${getTextSize(width)}-small Text-white Tight-fadeout-subText`}
+                className={`Inter-regular Spacing-${getTextSize(width, height)}-normal Line-height-subtext-${getTextSize(width, height)} Text-${getTextSize(width, height)}-small Text-white Tight-fadeout-subText`}
                 style={{opacity: `${subtextOpacity}`, filter: `blur(${subtextBlur})`}}
             >
                 { subText }

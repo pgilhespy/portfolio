@@ -14,7 +14,7 @@ import getPageHeight from '../Utils/GetPageHeight';
 function ReelExperiencePage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
     const pageHeight = getPageHeight(height);
-    const screenSize = getTextSize(width);
+    const screenSize = getTextSize(width, height);
     var floatingVideo; 
 
     if (screenSize == "window")
@@ -33,7 +33,7 @@ function ReelExperiencePage({ scrollPos }) {
                 left={-230*floatingVideo[0]} 
                 bottom={-250*floatingVideo[1]} 
                 rotation={-10} 
-                scale={1.2*floatingVideo[2]} 
+                scale={1*floatingVideo[2]} 
                 scrollPos={scrollPos} 
                 invertParalax={1} 
                 zInd={25} 

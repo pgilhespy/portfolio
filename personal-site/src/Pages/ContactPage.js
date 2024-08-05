@@ -18,7 +18,7 @@ import getPageHeight from '../Utils/GetPageHeight';
 function ContactPage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
     const pageHeight = getPageHeight(height);
-    const screenSize = getTextSize(width);
+    const screenSize = getTextSize(width, height);
     var floatingImage1;
     var floatingImage2;
     var floatingVideo; 
@@ -70,7 +70,7 @@ function ContactPage({ scrollPos }) {
                 zInd={5}
             />
             <div className="Centered-container-horz-vert Middle">
-                <span className={`Inter-black Spacing-${getTextSize(width)}-tight Text-${getTextSize(width)}-large Text-white Drop-shadow-black`} >LET'S CONNECT</span>
+                <span className={`Inter-black Spacing-${getTextSize(width, height)}-tight Text-${getTextSize(width, height)}-large Text-white Drop-shadow-black`} >LET'S CONNECT</span>
                 <div className='Even-spread-to-edges'>
                     <a href='https://www.instagram.com/p_gilhespy/' target='_blank' >
                         <FontAwesomeIcon icon={faInstagram} className='Social-icon' />

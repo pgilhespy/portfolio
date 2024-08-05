@@ -12,7 +12,7 @@ import getPageHeight from '../Utils/GetPageHeight';
 
 function LandingPage({ scrollPos }) {
     const {width, height} = useWindowDimensions();
-    const screenSize = getTextSize(width);
+    const screenSize = getTextSize(width, height);
     const pageHeight = getPageHeight(height);
 
     var floatingVideo1; 
@@ -56,7 +56,7 @@ function LandingPage({ scrollPos }) {
                 pageNumber={0} 
             />
             <div className="Centered-container-horz-vert Middle">
-                <span className={`Inter-black Spacing-${getTextSize(width)}-tight Text-${getTextSize(width)}-large Text-white Drop-shadow-black Letters-${getTextSize(width)}-seperate`} >PHILIP GILHESPY</span>
+                <span className={`Inter-black Spacing-${getTextSize(width, height)}-tight Text-${getTextSize(width, height)}-large Text-white Drop-shadow-black Letters-${getTextSize(width, height)}-seperate`} >PHILIP GILHESPY</span>
                 <div className='Even-spread-to-edges'>
                     <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} />
                     <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} />

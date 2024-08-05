@@ -69,7 +69,7 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
                 onMouseEnter={handleMouseEnter} 
                 onMouseLeave={handleMouseLeave} 
                 onClick={OnClick}
-                className={`Inter-regular Spacing-${getTextSize(width)}-normal Text-${getTextSize(width)}-small Text-white Button-box-highlight`}
+                className={`Inter-regular Spacing-${getTextSize(width, height)}-normal Text-${getTextSize(width, height)}-small Text-white Button-box-highlight`}
                 style={{
                     color: `${(isHovered || inSection) ? hoverColour : "#FFFFFF"}`,
                     backgroundColor: `${(isHovered || inSection) ? "white" : "transparent"}`,

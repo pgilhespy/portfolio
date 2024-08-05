@@ -2,7 +2,6 @@ import '../Styles/Components.css';
 import '../Styles/Globals.css';
 import reel from '../Content/WebsiteReel1.1.mp4';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
-import getTextSize from '../Utils/GetTextSize';
 import getPageHeight from '../Utils/GetPageHeight';
 
 const Reel = ({ scrollPos }) => {
@@ -10,25 +9,18 @@ const Reel = ({ scrollPos }) => {
     const pageHeight = getPageHeight(height);
     let reelOpacity;
     let reelBlur;
-    const screenSize = getTextSize(width);
     let reelHeight;
     let reelWidth;
 
-    if (screenSize == "window") {
+    if ((pageHeight * (16/9)) < width) {
         reelHeight = "75%";
         reelWidth = "auto";
-    }
-
-    else if (screenSize == "ipad") {
-        reelHeight = "auto";
-        reelWidth = "95%";
     }
 
     else {
         reelHeight = "auto";
         reelWidth = "100%";
     }
-
 
     // Not at spot yet
     if ( scrollPos < (pageHeight * 2.8) ) {

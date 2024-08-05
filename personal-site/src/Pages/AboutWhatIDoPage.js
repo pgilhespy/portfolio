@@ -14,7 +14,7 @@ import getPageHeight from '../Utils/GetPageHeight';
 function AboutWhatIDoPage( {scrollPos} ) {
     const {width, height} = useWindowDimensions();
     const pageHeight = getPageHeight(height);
-    const screenSize = getTextSize(width);
+    const screenSize = getTextSize(width, height);
     var floatingVideo; 
 
     if (screenSize == "window")
@@ -39,7 +39,7 @@ function AboutWhatIDoPage( {scrollPos} ) {
                 zInd={5} 
                 pageNumber={1} 
             />
-            <span className={`Inter-regular Spacing-${getTextSize(width)}-wide Text-${getTextSize(width)}-small Text-white Middle`} >WHAT I DO</span>
+            <span className={`Inter-regular Spacing-${getTextSize(width, height)}-wide Text-${getTextSize(width, height)}-small Text-white Middle`} >WHAT I DO</span>
             <div className="Centered-container-horz-left-align Middle Drop-shadow-container" style={{ background: "#414C52", }}>
                 <FadeoutCaptionText mainText={"WEB DESIGN"} subText={"Create and optimize website content with code and other tools"}/>
                 <FadeoutCaptionText mainText={"MOCK UPS"} subText={"See how your designs look on screen"} />
