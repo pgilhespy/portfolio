@@ -21,8 +21,6 @@ const FloatingVideo = ({videoChrome, videoApple, top, bottom, left, right, rotat
     if (adjustedBottom != null)
         adjustedBottom = (bottom + offset) * invertParalax;
 
-    console.log(adjustedTop);
-
     return (
         <video 
             className='Floating-video Inactive' 
