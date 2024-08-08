@@ -41,7 +41,7 @@
 .Tight-fadeout-text {
     opacity: 100%;
     filter: blur(0px);
-    transition: all 0.4s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 .Tight-fadeout-subText {
@@ -50,7 +50,7 @@
     position: absolute;
     right: 0px;
     pointer-events: none;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.25s ease-in-out;
     text-align: right;
 }
 
