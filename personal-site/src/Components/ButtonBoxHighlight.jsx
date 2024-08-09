@@ -59,7 +59,7 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber, pageHeight 
             else
                 setInSection(false);
         }
-    }, [scrollPos]);
+    }, [scrollPos, pageHeight]);
 
     return (
         <>

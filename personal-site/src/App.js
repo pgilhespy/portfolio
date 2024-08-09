@@ -30,8 +30,6 @@ function App() {
 
   // Handle page height sizing
   useEffect(() => {
-    console.log(`Actual height is: ${height}`);
-
     // Check for a "large" change in height
     if ( (height > (pageHeight + heightChangeTolerance)) || (height < (pageHeight - heightChangeTolerance))) {
       // Clamp the page height if screen is very small
@@ -42,12 +40,12 @@ function App() {
       // Otherwise update the height
       else {
         setPageHeight(height);
-        console.log("    Page height updated");
+        console.log(`    Page height updated`);
       }
     }
-
-    console.log(`Page Height is: ${pageHeight}`);
   }, [height]);
+
+  console.log(`Page height outside is: ${pageHeight}`)
 
   return (
     <>
