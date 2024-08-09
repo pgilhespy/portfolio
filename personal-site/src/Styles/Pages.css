@@ -55,3 +55,11 @@
     justify-content: center;
     overflow-x: clip;
 }
+
+.Full-view-invisible-page {
+    position: absolute;
+    background-color: transparent;
+    height: 100lvh;
+    width: 100%;
+    z-index: 0;
+}

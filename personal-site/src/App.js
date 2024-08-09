@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import LandingPage from './Pages/LandingPage';
 import ContactPage from './Pages/ContactPage';
 import AboutIntroPage from './Pages/AboutIntroPage';
@@ -10,9 +10,9 @@ import useWindowDimensions from './Utils/UseWindowDimensions';
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [pageHeight, setPageHeight] = useState(0);
+  const [pageHeight, setPageHeight] = useState(window.outerHeight);
   const {width, height} = useWindowDimensions();
-  const heightChangeTolerance = 200;
+  const viewportCover = useRef(null);
   
   // Handle scroll tracking setup
   const handleScroll = () => {
@@ -30,25 +30,26 @@ function App() {
 
   // Handle page height sizing
   useEffect(() => {
-    // Check for a "large" change in height
-    if ( (height > (pageHeight + heightChangeTolerance)) || (height < (pageHeight - heightChangeTolerance))) {
+    if (viewportCover.current) {
+      const viewportCoverBoundingBox = viewportCover.current.getBoundingClientRect();
+      const viewportMaxHeight = viewportCoverBoundingBox.height;
+
       // Clamp the page height if screen is very small
-      if (height < 500) {
+      if (viewportMaxHeight < 500) {
         setPageHeight(500);
         console.log("    Page height clamped");
       }
       // Otherwise update the height
       else {
-        setPageHeight(height);
+        setPageHeight(viewportMaxHeight);
         console.log(`    Page height updated`);
       }
     }
   }, [height]);
 
-  console.log(`Page height outside is: ${pageHeight}`)
-
   return (
     <>
+      <div className='Full-view-invisible-page' ref={viewportCover} />
       <MenuBar scrollPos={scrollPosition} pageHeight={pageHeight} />
       <LandingPage scrollPos={scrollPosition} pageHeight={pageHeight} />
       <AboutIntroPage scrollPos={scrollPosition} pageHeight={pageHeight} />
