@@ -7,14 +7,12 @@ import ButtonBoxHighlight from '../Components/ButtonBoxHighlight';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import { useState, useEffect } from 'react';
 import getTextSize from '../Utils/GetTextSize';
-import getPageHeight from '../Utils/GetPageHeight';
 
-const MenuBar = ({ scrollPos }) => {
+const MenuBar = ({ scrollPos, pageHeight }) => {
     const {height, width} = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
     const [gradientColour, setGradientColour] = useState("rgba(200, 210, 215, 1)");
     var visibility = "hidden";
-    const screenSize = getTextSize(width, height);
+    const screenSize = getTextSize(width, pageHeight);
     var menuWidth;
     var visibilityToggleHeight;
 
@@ -75,9 +73,9 @@ const MenuBar = ({ scrollPos }) => {
     return (
         <div className='Menu-bar Even-spread-to-edges Menu-front' style={{visibility:`${visibility}`, top: `${pageHeight <= 500 ? "20px" : "4vh"}`}}>
                 <div className='Even-spread-to-edges' style={{width: `${menuWidth}px`}}>
-                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} />
-                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} />
-                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} sectionNumber={3} />
+                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} pageHeight={pageHeight} />
+                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} pageHeight={pageHeight} />
+                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} sectionNumber={3} pageHeight={pageHeight} />
                 </div>
                 <div 
                     className="Fadeout-gradient Inactive" 

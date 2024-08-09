@@ -13,12 +13,10 @@ import dashedBottom from '../Content/dashedLine2.0.png';
 import FloatingImage from '../Components/FloatingImage';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
-import getPageHeight from '../Utils/GetPageHeight';
 
-function ContactPage({ scrollPos }) {
+function ContactPage({ scrollPos, pageHeight }) {
     const {width, height} = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
-    const screenSize = getTextSize(width, height);
+    const screenSize = getTextSize(width, pageHeight);
     var floatingImage1;
     var floatingImage2;
     var floatingVideo; 
@@ -50,6 +48,7 @@ function ContactPage({ scrollPos }) {
                 scrollPos={scrollPos} 
                 invertParalax={-1} 
                 pageNumber={4} 
+                pageHeight={pageHeight}
             />
             <FloatingImage 
                 image={dashedBottom} 
@@ -60,6 +59,7 @@ function ContactPage({ scrollPos }) {
                 scrollPos={scrollPos} 
                 invertParalax={-1} 
                 pageNumber={4} 
+                pageHeight={pageHeight}
             />
             <PaperPlane 
                 right={20+floatingVideo[0]} 
@@ -68,9 +68,10 @@ function ContactPage({ scrollPos }) {
                 scale={1.2*floatingVideo[2]} 
                 scrollPos={scrollPos}
                 zInd={5}
+                pageHeight={pageHeight}
             />
             <div className="Centered-container-horz-vert Middle">
-                <span className={`Inter-black Spacing-${getTextSize(width, height)}-tight Text-${getTextSize(width, height)}-large Text-white Drop-shadow-black`} >LET'S CONNECT</span>
+                <span className={`Inter-black Spacing-${getTextSize(width, pageHeight)}-tight Text-${getTextSize(width, pageHeight)}-large Text-white Drop-shadow-black`} >LET'S CONNECT</span>
                 <div className='Even-spread-to-edges'>
                     <a href='https://www.instagram.com/p_gilhespy/' target='_blank' >
                         <FontAwesomeIcon icon={faInstagram} className='Social-icon' />

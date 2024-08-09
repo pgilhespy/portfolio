@@ -9,12 +9,10 @@ import FloatingImage from '../Components/FloatingImage';
 import ScrollHighlightText from '../Components/ScrollHighlightText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
-import getPageHeight from '../Utils/GetPageHeight';
 
-function AboutIntroPage({ scrollPos }) {
+function AboutIntroPage({ scrollPos, pageHeight }) {
     const {width, height} = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
-    const screenSize = getTextSize(width, height);
+    const screenSize = getTextSize(width, pageHeight);
     var floatingImage1;
     var floatingImage2; 
 
@@ -42,6 +40,7 @@ function AboutIntroPage({ scrollPos }) {
                 scrollPos={scrollPos} 
                 invertParalax={-1} 
                 pageNumber={0} 
+                pageHeight={pageHeight}
             />
             <FloatingImage 
                 image={image} 
@@ -52,10 +51,11 @@ function AboutIntroPage({ scrollPos }) {
                 scrollPos={scrollPos} 
                 invertParalax={-1} 
                 pageNumber={0} 
+                pageHeight={pageHeight}
             />
             <div className="Centered-container-horz-vert Middle Margin-to-center">
-                <span className={`Inter-black Spacing-${getTextSize(width, height)}-medium Text-${getTextSize(width, height)}-medium Text-white Drop-shadow-black`}>
-                    I’m a web designer with computer science and video editing skills who can take your site to the <ScrollHighlightText scrollPos={scrollPos} displayText={"next level."} />
+                <span className={`Inter-black Spacing-${getTextSize(width, pageHeight)}-medium Text-${getTextSize(width, pageHeight)}-medium Text-white Drop-shadow-black`}>
+                    I’m a web designer with computer science and video editing skills who can take your site to the <ScrollHighlightText scrollPos={scrollPos} displayText={"next level."} pageHeight={pageHeight} />
                 </span>
             </div>
         </div>

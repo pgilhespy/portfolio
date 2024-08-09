@@ -7,21 +7,19 @@ import '../Styles/Globals.css';
 import FadeoutCaptionText from '../Components/FadeoutCaptionText';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
-import getPageHeight from '../Utils/GetPageHeight';
 
-function WorkExperiencePage() {
+function WorkExperiencePage({ pageHeight }) {
     const {width, height} = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
     
     return (
         <div className="Work-pages" style={{ height: `${pageHeight}px`}}>
             
-            <span className={`Inter-regular Spacing-${getTextSize(width, height)}-wide Text-${getTextSize(width, height)}-small Text-white`} >MY EXPERIENCE</span>
+            <span className={`Inter-regular Spacing-${getTextSize(width, pageHeight)}-wide Text-${getTextSize(width, pageHeight)}-small Text-white`} >MY EXPERIENCE</span>
             <div className="Centered-container-horz-left-align Middle Drop-shadow-container" style={{ background: "#C8D2D7", }}>
-                <FadeoutCaptionText mainText={"ANTHEM"} subText={"Edited the show reel for a company event"}/>
-                <FadeoutCaptionText mainText={`${getTextSize(width, height) == "phone" ? "STANDARD FUSION" : "STANDARDFUSION"}`} subText={"Worked as a web developer"} />
-                <FadeoutCaptionText mainText={"METROPOLITAN"} subText={"Created a short social media ad"} />
-                <FadeoutCaptionText mainText={"CERULEAN SOLUTIONS"} subText={"Developed a new website for the company"} />
+                <FadeoutCaptionText mainText={"ANTHEM"} subText={"Edited the show reel for a company event"} pageHeight={pageHeight} />
+                <FadeoutCaptionText mainText={`${getTextSize(width, pageHeight) == "phone" ? "STANDARD FUSION" : "STANDARDFUSION"}`} subText={"Worked as a web developer"} pageHeight={pageHeight} />
+                <FadeoutCaptionText mainText={"METROPOLITAN"} subText={"Created a short social media ad"} pageHeight={pageHeight} />
+                <FadeoutCaptionText mainText={"CERULEAN SOLUTIONS"} subText={"Developed a new website for the company"} pageHeight={pageHeight} />
                 <FadeoutCaptionText mainText={"..."} />
             </div>
         </div>

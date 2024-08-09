@@ -2,11 +2,9 @@ import '../Styles/Components.css';
 import '../Styles/Globals.css';
 import reel from '../Content/WebsiteReel1.1.mp4';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
-import getPageHeight from '../Utils/GetPageHeight';
 
-const Reel = ({ scrollPos }) => {
+const Reel = ({ scrollPos, pageHeight }) => {
     const { height, width } = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
     let reelOpacity;
     let reelBlur;
     let reelHeight;

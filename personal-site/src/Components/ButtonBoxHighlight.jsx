@@ -3,13 +3,11 @@ import '../Styles/Components.css';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
 import MobileDetect from 'mobile-detect';
-import getPageHeight from '../Utils/GetPageHeight';
 
-const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
+const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber, pageHeight }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [hoverColour, setHoverColour] = useState("#C8D2D7");
     const {height, width} = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
     const [inSection, setInSection] = useState(false);
     const md = new MobileDetect(navigator.userAgent);
 
@@ -69,7 +67,7 @@ const ButtonBoxHighlight = ({ displayText, scrollPos, sectionNumber }) => {
                 onMouseEnter={handleMouseEnter} 
                 onMouseLeave={handleMouseLeave} 
                 onClick={OnClick}
-                className={`Inter-regular Spacing-${getTextSize(width, height)}-normal Text-${getTextSize(width, height)}-small Text-white Button-box-highlight`}
+                className={`Inter-regular Spacing-${getTextSize(width, pageHeight)}-normal Text-${getTextSize(width, pageHeight)}-small Text-white Button-box-highlight`}
                 style={{
                     color: `${(isHovered || inSection) ? hoverColour : "#FFFFFF"}`,
                     backgroundColor: `${(isHovered || inSection) ? "white" : "transparent"}`,

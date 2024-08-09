@@ -9,12 +9,10 @@ import FloatingVideo from '../Components/FloatingVideo';
 import starVideoChrome from '../Content/chrome1.1.webm';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
-import getPageHeight from '../Utils/GetPageHeight';
 
-function ReelExperiencePage({ scrollPos }) {
+function ReelExperiencePage({ scrollPos, pageHeight }) {
     const {width, height} = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
-    const screenSize = getTextSize(width, height);
+    const screenSize = getTextSize(width, pageHeight);
     var floatingVideo; 
 
     if (screenSize == "window")
@@ -38,8 +36,9 @@ function ReelExperiencePage({ scrollPos }) {
                 invertParalax={1} 
                 zInd={25} 
                 pageNumber={2}
+                pageHeight={pageHeight}
             />
-            <Reel scrollPos={scrollPos} />
+            <Reel scrollPos={scrollPos} pageHeight={pageHeight} />
         </div>
     );
 }

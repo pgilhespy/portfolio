@@ -8,12 +8,10 @@ import videoChrome from '../Content/chrome1.1.webm';
 import FloatingVideo from '../Components/FloatingVideo';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
-import getPageHeight from '../Utils/GetPageHeight';
 
-function LandingPage({ scrollPos }) {
+function LandingPage({ scrollPos, pageHeight }) {
     const {width, height} = useWindowDimensions();
-    const screenSize = getTextSize(width, height);
-    const pageHeight = getPageHeight(height);
+    const screenSize = getTextSize(width, pageHeight);
 
     var floatingVideo1; 
     var floatingVideo2; 
@@ -30,7 +28,7 @@ function LandingPage({ scrollPos }) {
         floatingVideo1 = [1.2, 1.3, 0.5];
         floatingVideo2 = [17, 1.2, 0.5];
     }
-    
+
     return (
         <div className="Landing-page" style={{ height: `${pageHeight}px`}}>
             <FloatingVideo 
@@ -43,6 +41,7 @@ function LandingPage({ scrollPos }) {
                 invertParalax={1} 
                 zInd={25} 
                 pageNumber={0} 
+                pageHeight={pageHeight}
             />
             <FloatingVideo 
                 videoChrome={videoChrome} 
@@ -54,13 +53,14 @@ function LandingPage({ scrollPos }) {
                 invertParalax={-1} 
                 zInd={5} 
                 pageNumber={0} 
+                pageHeight={pageHeight}
             />
             <div className="Centered-container-horz-vert Middle">
-                <span className={`Inter-black Spacing-${getTextSize(width, height)}-tight Text-${getTextSize(width, height)}-large Text-white Drop-shadow-black Letters-${getTextSize(width, height)}-seperate`} >PHILIP GILHESPY</span>
+                <span className={`Inter-black Spacing-${getTextSize(width, pageHeight)}-tight Text-${getTextSize(width, pageHeight)}-large Text-white Drop-shadow-black Letters-${getTextSize(width, pageHeight)}-seperate`} >PHILIP GILHESPY</span>
                 <div className='Even-spread-to-edges'>
-                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} />
-                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} />
-                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} sectionNumber={3} />
+                    <ButtonBoxHighlight displayText={"ABOUT"} scrollPos={scrollPos} sectionNumber={1} pageHeight={pageHeight} />
+                    <ButtonBoxHighlight displayText={"WORK"} scrollPos={scrollPos} sectionNumber={2} pageHeight={pageHeight} />
+                    <ButtonBoxHighlight displayText={"CONTACT"} scrollPos={scrollPos} sectionNumber={3} pageHeight={pageHeight} />
                 </div>
             </div>
         </div>

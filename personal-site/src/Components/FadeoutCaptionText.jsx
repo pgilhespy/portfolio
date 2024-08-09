@@ -9,7 +9,7 @@ import MobileDetect from 'mobile-detect';
 import getTextSize from '../Utils/GetTextSize';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 
-const FadeoutCaptionText = ({ mainText, subText }) => {
+const FadeoutCaptionText = ({ mainText, subText, pageHeight }) => {
     const [isHovered, setIsHovered] = useState(false);
     const {height, width} = useWindowDimensions();
     const md = new MobileDetect(navigator.userAgent);
@@ -21,8 +21,8 @@ const FadeoutCaptionText = ({ mainText, subText }) => {
                 if (mainTextRef.current) {
                     const mainTextBoundingBox = mainTextRef.current.getBoundingClientRect();
                     const isVisible = (
-                        mainTextBoundingBox.top >= (height - 2*mainTextBoundingBox.height) / 2 &&
-                        mainTextBoundingBox.bottom <= (height + 2*mainTextBoundingBox.height) / 2
+                        mainTextBoundingBox.top >= (pageHeight - 2*mainTextBoundingBox.height) / 2 &&
+                        mainTextBoundingBox.bottom <= (pageHeight + 2*mainTextBoundingBox.height) / 2
                     );
                     setIsHovered(isVisible);
                 }
@@ -58,13 +58,13 @@ const FadeoutCaptionText = ({ mainText, subText }) => {
                 ref={mainTextRef}
                 onMouseEnter={handleMouseEnter} 
                 onMouseLeave={handleMouseLeave} 
-                className={`Inter-black Spacing-${getTextSize(width, height)}-tight Line-height-${getTextSize(width, height)} Text-${getTextSize(width, height)}-large Text-white Tight-fadeout-text`}
+                className={`Inter-black Spacing-${getTextSize(width, pageHeight)}-tight Line-height-${getTextSize(width, pageHeight)} Text-${getTextSize(width, pageHeight)}-large Text-white Tight-fadeout-text`}
                 style={{opacity: `${maintextOpacity}`, filter: `blur(${maintextBlur})`}}
             >
                 { mainText }
             </span>
             <span 
-                className={`Inter-regular Spacing-${getTextSize(width, height)}-normal Line-height-subtext-${getTextSize(width, height)} Text-${getTextSize(width, height)}-small Text-white Tight-fadeout-subText`}
+                className={`Inter-regular Spacing-${getTextSize(width, pageHeight)}-normal Line-height-subtext-${getTextSize(width, pageHeight)} Text-${getTextSize(width, pageHeight)}-small Text-white Tight-fadeout-subText`}
                 style={{opacity: `${subtextOpacity}`, filter: `blur(${subtextBlur})`}}
             >
                 { subText }

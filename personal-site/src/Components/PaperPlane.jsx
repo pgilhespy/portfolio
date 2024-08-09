@@ -2,12 +2,8 @@ import '../Styles/Components.css';
 import '../Styles/Globals.css';
 import videoChrome from '../Content/chrome3.1.webm';
 import videoApple from '../Content/chrome3.1.webm';
-import useWindowDimensions from '../Utils/UseWindowDimensions';
-import getPageHeight from '../Utils/GetPageHeight';
 
-const PaperPlane = ({ bottom, right, rotation, scale, scrollPos, zInd }) => {
-    const {height, width} = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
+const PaperPlane = ({ bottom, right, rotation, scale, scrollPos, zInd, pageHeight }) => {
     let adjustedBottom = bottom - 200;
     let adjustedRight = right + 200;
 

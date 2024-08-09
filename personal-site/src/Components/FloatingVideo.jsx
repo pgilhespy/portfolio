@@ -1,11 +1,7 @@
 import '../Styles/Components.css';
 import '../Styles/Globals.css';
-import getPageHeight from '../Utils/GetPageHeight';
-import useWindowDimensions from '../Utils/UseWindowDimensions';
 
-const FloatingVideo = ({videoChrome, videoApple, top, bottom, left, right, rotation, scale, scrollPos, invertParalax, zInd, pageNumber}) => {
-    const {height, width} = useWindowDimensions();
-    const pageHeight = getPageHeight(height);
+const FloatingVideo = ({videoChrome, videoApple, top, bottom, left, right, rotation, scale, scrollPos, invertParalax, zInd, pageNumber, pageHeight}) => {
     let adjustedTop = top;
     let adjustedBottom = bottom;
 
