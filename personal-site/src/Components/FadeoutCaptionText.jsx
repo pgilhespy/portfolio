@@ -35,7 +35,7 @@ const FadeoutCaptionText = ({ mainText, subText, pageHeight }) => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [pageHeight]);
 
     const handleMouseEnter = () => {
         if ( !md.mobile() )
