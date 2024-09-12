@@ -7,6 +7,7 @@ import '../Styles/Globals.css';
 import FadeoutCaptionText from '../Components/FadeoutCaptionText';
 import FloatingVideo from '../Components/FloatingVideo';
 import bubbleVideoChrome from '../Content/chrome2.0.webm';
+import bubbleVideoSafari from '../Content/chrome2.0-safari.mov';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
 
@@ -28,6 +29,7 @@ function AboutWhatIDoPage( {scrollPos, pageHeight} ) {
         <div className="About-pages" style={{ height: `${pageHeight}px`}}>
             <FloatingVideo
                 videoChrome={bubbleVideoChrome} 
+                videoApple={bubbleVideoSafari}
                 right={-200*floatingVideo[0]} 
                 top={350*floatingVideo[1]} 
                 rotation={30} 

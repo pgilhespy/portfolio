@@ -7,6 +7,7 @@ import '../Styles/Globals.css';
 import Reel from '../Components/Reel';
 import FloatingVideo from '../Components/FloatingVideo';
 import starVideoChrome from '../Content/chrome1.1.webm';
+import starVideoSafari from '../Content/chrome1.1-safari.mov';
 import useWindowDimensions from '../Utils/UseWindowDimensions';
 import getTextSize from '../Utils/GetTextSize';
 
@@ -28,6 +29,7 @@ function ReelExperiencePage({ scrollPos, pageHeight }) {
         <div className="Work-pages" style={{ height: `${pageHeight}px`}}>
             <FloatingVideo 
                 videoChrome={starVideoChrome} 
+                videoApple={starVideoSafari}
                 left={-230*floatingVideo[0]} 
                 bottom={-250*floatingVideo[1]} 
                 rotation={-10} 

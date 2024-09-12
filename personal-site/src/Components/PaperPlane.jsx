@@ -1,7 +1,7 @@
 import '../Styles/Components.css';
 import '../Styles/Globals.css';
 import videoChrome from '../Content/chrome3.1.webm';
-import videoApple from '../Content/chrome3.1.webm';
+import videoApple from '../Content/chrome3.1-safari.mov';
 
 const PaperPlane = ({ bottom, right, rotation, scale, scrollPos, zInd, pageHeight }) => {
     let adjustedBottom = bottom - 200;
