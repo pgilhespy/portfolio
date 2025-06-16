@@ -18,8 +18,20 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  /* Smoother continuous gradient background */
-  background: linear-gradient(150deg, #f1eaf9, #e6def4, #d9d2ef, #cbc7ea, #bcbde5, #abb3df, #99aad8, #84a1d1);
+  /* Animated gradient background using CSS custom property */
+  --gradient-angle: 150deg;
+  background: linear-gradient(
+    var(--gradient-angle),
+    #f1eaf9,
+    #e6def4,
+    #d9d2ef,
+    #cbc7ea,
+    #bcbde5,
+    #abb3df,
+    #99aad8,
+    #84a1d1
+  );
+  transition: background 0.1s ease-out;
 }
 
 .sections-wrapper {

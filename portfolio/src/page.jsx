@@ -7,9 +7,12 @@ import './globals.css';
 
 export default function Portfolio() {
   const containerRef = useRef(null)
+  const backgroundRef = useRef(null)
   const [activeSection, setActiveSection] = useState(0)
   const [expandedWorkItem, setExpandedWorkItem] = useState(null)
   const sectionsRef = useRef([])
+  const gradientAngleRef = useRef(150) // Starting angle
+  const continuousAnimationRef = useRef(null)
 
   useEffect(() => {
     // Initialize GSAP timeline for smooth transitions
@@ -19,17 +22,76 @@ export default function Portfolio() {
     if (containerRef.current) {
       gsap.set(containerRef.current, { x: 0 })
     }
+
+    // Set initial gradient angle
+    if (backgroundRef.current) {
+      gsap.set(backgroundRef.current, { "--gradient-angle": `${gradientAngleRef.current}deg` })
+    }
+
+    // Start continuous gradient oscillation
+    startContinuousGradientAnimation()
+
+    return () => {
+      // Clean up continuous animation on unmount
+      if (continuousAnimationRef.current) {
+        continuousAnimationRef.current.kill()
+      }
+    }
   }, [])
 
+  const startContinuousGradientAnimation = () => {
+    if (continuousAnimationRef.current) {
+      continuousAnimationRef.current.kill()
+    }
+
+    continuousAnimationRef.current = gsap.to(backgroundRef.current, {
+      "--gradient-angle": `${gradientAngleRef.current + 5}deg`,
+      duration: 3,
+      ease: "sine.inOut",
+      yoyo: true,
+      repeat: -1,
+      onUpdate: function () {
+        // Keep track of the current base angle for section changes
+        const currentAngle = Number.parseFloat(this.targets()[0].style.getPropertyValue("--gradient-angle"))
+        // Don't update gradientAngleRef during oscillation to maintain base angle
+      },
+    })
+  }
+
   const navigateToSection = (index) => {
-    if (containerRef.current) {
+    if (containerRef.current && backgroundRef.current) {
       const translateX = -index * 100
 
-      gsap.to(containerRef.current, {
+      // Calculate new gradient angle (30 degrees per section)
+      const newBaseAngle = 150 + index * 30
+      gradientAngleRef.current = newBaseAngle
+
+      // Kill the continuous animation temporarily
+      if (continuousAnimationRef.current) {
+        continuousAnimationRef.current.kill()
+      }
+
+      // Animate both the section transition and gradient angle
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // Restart continuous animation with new base angle
+          startContinuousGradientAnimation()
+        },
+      })
+
+      tl.to(containerRef.current, {
         x: `${translateX}vw`,
         duration: 0.8,
         ease: "power2.inOut",
-      })
+      }).to(
+        backgroundRef.current,
+        {
+          "--gradient-angle": `${newBaseAngle}deg`,
+          duration: 2.0,
+          ease: "power1.inOut",
+        },
+        0,
+      ) // Start at the same time as the section transition
 
       setActiveSection(index)
     }
@@ -116,7 +178,7 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="portfolio-container">
+    <div className="portfolio-container" ref={backgroundRef}>
       <div ref={containerRef} className="sections-wrapper">
         {/* HOME SECTION */}
         <section className="portfolio-section home-section">
