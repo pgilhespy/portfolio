@@ -173,21 +173,18 @@ export default function Portfolio() {
             <div className="row h-100">
               <div className="col-12 d-flex flex-column justify-content-between p-4">
                 <div className="content-area">
-                  <div className="content-card work-content-card">
-                    <div className="work-header">
-                      <h1 className="main-title">
+                  <div className="work-content-wrapper">
+                    <div className="work-header-card">
+                      <h1 className="main-title work-title">
                         MY
                         <br />
                         WORK
                       </h1>
-                      <p className="subtitle">
+                      <p className="subtitle work-subtitle">
                         Some Past
                         <br />
                         Projects
                       </p>
-                      <div className="star-container">
-                        <StarIcon />
-                      </div>
                     </div>
 
                     <div className="work-content-scrollable">
@@ -292,32 +289,37 @@ export default function Portfolio() {
                 <div className="content-area">
                   <div className="content-card">
                     <div className="contact-content">
-                      <h1 className="main-title">
-                        GET IN
-                        <br />
-                        CONTACT
-                      </h1>
-                      <p className="subtitle">
-                        With Me For Any
-                        <br />
-                        Inquiries
-                      </p>
-
-                      <div className="star-container">
-                        <StarIcon />
+                      <div className="contact-header">
+                        <div className="star-container contact-star">
+                          <StarIcon />
+                        </div>
+                        <div className="contact-titles">
+                          <h1 className="main-title contact-title">
+                            GET IN
+                            <br />
+                            CONTACT
+                          </h1>
+                          <p className="subtitle contact-subtitle">
+                            With Me For Any
+                            <br />
+                            Inquiries
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="contact-info">
-                        <p>
-                          I'm always looking for projects to work on, whether that's a simple design or a combination of
-                          the 3 skills needed to create and run here to help. So please don't hesitate to get in touch
-                          and let's discuss further.
-                        </p>
-                      </div>
+                      <div className="contact-body">
+                        <div className="profile-section">
+                          <div className="profile-placeholder">Picture Of Me</div>
+                          <button className="email-button">Email Me</button>
+                        </div>
 
-                      <div className="profile-section">
-                        <div className="profile-placeholder">Picture Of Me</div>
-                        <button className="email-button">Email Me</button>
+                        <div className="contact-info">
+                          <p>
+                            I'm always looking for projects to work on, whether that's a simple design or a combination
+                            of the 3 skills needed to create and run here to help. So please don't hesitate to get in
+                            touch and let's discuss further.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
