@@ -13,6 +13,29 @@ body {
   height: 100vh;
 }
 
+/* Scroll bar stuff */
+/* This is global — affects all scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track: the background of the scrollbar */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* Thumb: the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+/* Hovered thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
 .portfolio-container {
   width: 100vw;
   height: 100vh;
