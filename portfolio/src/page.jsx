@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
 import starVideo from './Content/chrome1.1.webm';
+import reel from './Content/WebsiteReel1.1.mp4';
 import './globals.css';
 
 export default function Portfolio() {
@@ -193,30 +194,46 @@ export default function Portfolio() {
                 <div className="content-area">
                   <div className="content-card">
                     <div className="hero-content">
-                      <h1 className="main-title">
-                        PHILIP
-                        <br />
-                        GILHESPY
-                      </h1>
-                      <p className="subtitle">
-                        Multidisciplinary Digital
-                        <br />
-                        Creator
-                      </p>
-
-                      <div className="star-container">
-                        <StarIcon />
+                      <div className="hero-top-section">
+                        <div className="hero-left-top">
+                          <div>
+                            <h1 className="main-title">
+                              PHILIP
+                              <br />
+                              GILHESPY
+                            </h1>
+                            <p className="subtitle">
+                              Multidisciplinary Digital
+                              <br />
+                              Creator
+                            </p>
+                          </div>
+                          <div className="description">
+                            <p>
+                              <b>I'm a 22 year</b> old creative who likes to make things that people can use, watch and enjoy. I
+                              like to think I'm quite good at what I do and I'm both quite willing and able to prove it to
+                              you. So please, have a look around and see what you think.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="star-container">
+                          <StarIcon />
+                        </div>
                       </div>
 
-                      <div className="description">
-                        <p>
-                          <b>I'm a 22 year</b> old creative who likes to make things that people can use, watch and enjoy. I
-                          like to think I'm quite good at what I do and I'm both quite willing and able to prove it to
-                          you. So please, have a look around and see what you think.
-                        </p>
-                      </div>
+                      <div className="hero-bottom-section">
+                        <div className="hero-left-bottom">
+                          <button className="cta-button" onClick={() => navigateToSection(1)}>
+                            See My Projects
+                          </button>
+                        </div>
 
-                      <button className="cta-button" onClick={() => navigateToSection(1)}>See My Projects</button>
+                        <div className="hero-right-bottom">
+                          <div className="reel-video">
+                            <video autoPlay loop muted playsInline src={reel}></video>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
