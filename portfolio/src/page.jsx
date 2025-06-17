@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
+import starVideo from './Content/chrome1.1.webm';
 import './globals.css';
 
 export default function Portfolio() {
@@ -102,11 +103,15 @@ export default function Portfolio() {
   }
 
   const StarIcon = () => (
-    <div className="star-icon">
-      <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-        <path d="M60 0L65.45 54.55L120 60L65.45 65.45L60 120L54.55 65.45L0 60L54.55 54.55L60 0Z" fill="currentColor" />
-      </svg>
-    </div>
+      <video 
+            className='floating-video' 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            src={starVideo}
+        >
+        </video>
   )
 
   const workData = {
@@ -205,13 +210,13 @@ export default function Portfolio() {
 
                       <div className="description">
                         <p>
-                          I'm a 32 year old creative who likes to make things that people can use, watch and enjoy. I
+                          <b>I'm a 22 year</b> old creative who likes to make things that people can use, watch and enjoy. I
                           like to think I'm quite good at what I do and I'm both quite willing and able to prove it to
                           you. So please, have a look around and see what you think.
                         </p>
                       </div>
 
-                      <button className="cta-button">See My Projects</button>
+                      <button className="cta-button" onClick={() => navigateToSection(1)}>See My Projects</button>
                     </div>
                   </div>
                 </div>
@@ -401,7 +406,7 @@ export default function Portfolio() {
         </section>
       </div>
 
-      {/* FIXED NAVIGATION BAR */}
+      {/* NAVIGATION BAR */}
       <div className="navigation-bar-fixed">
         <button className={`nav-item ${activeSection === 0 ? "active" : ""}`} onClick={() => navigateToSection(0)}>
           Home
