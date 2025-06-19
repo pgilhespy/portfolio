@@ -210,9 +210,11 @@ export default function Portfolio() {
                           </div>
                           <div className="description">
                             <p>
-                              <b>I'm a 22 year</b> old creative who likes to make things that people can use, watch and enjoy. I
-                              like to think I'm quite good at what I do and I'm both quite willing and able to prove it to
-                              you. So please, have a look around and see what you think.
+                              <b>I'm a 22 year</b> old creator who can take your digital media to the next level. Whether
+                              your looking for help with websites, videos, advertisements or design, I can take what you have
+                              and elevate it. I understand that every project is unique, which is why I pride myself on building
+                              custom solutions tailored to each client. In doing so I've gained experience with a variety of tools
+                              and participated in every stage of the creative process from planning to publishing.
                             </p>
                           </div>
                         </div>
