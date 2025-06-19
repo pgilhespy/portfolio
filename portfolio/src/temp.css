@@ -13,29 +13,6 @@ body {
   height: 100vh;
 }
 
-/* Scroll bar stuff */
-/* This is global — affects all scrollbars */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-/* Track: the background of the scrollbar */
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 10px;
-}
-
-/* Thumb: the draggable part of the scrollbar */
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-}
-
-/* Hovered thumb */
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.6);
-}
-
 .portfolio-container {
   width: 100vw;
   height: 100vh;
@@ -93,7 +70,7 @@ body {
 
 .main-title {
   font-size: 4rem;
-  font-weight: 600;
+  font-weight: 900;
   line-height: 0.9;
   color: #2d3436;
   margin-bottom: 1rem;
@@ -106,21 +83,16 @@ body {
   color: #636e72;
   margin-bottom: 2rem;
   line-height: 1.3;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .star-container {
-  flex: 1; /* takes up remaining space */
-  display: flex;
-  justify-content: center; /* centers content within this area */
-}
-
-.floating-video {
-  transform: rotate(20deg);
-  width: 50%;
-  height: 50%;
-  filter: grayscale(100%) contrast(2) brightness(0.8) invert(1) drop-shadow(0px 0px 10px rgba(0,0,0,0.1));
-  margin-right: 10%;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  color: #2d3436;
+  opacity: 0.8;
 }
 
 .description {
@@ -133,14 +105,12 @@ body {
   line-height: 1.5;
   color: #2d3436;
   font-weight: 400;
-  text-align: justify;
-  text-justify: inter-word;
 }
 
 .cta-button,
 .email-button {
-  background: transparent;
-  color: black;
+  background: #2d3436;
+  color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 25px;
@@ -149,19 +119,12 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: "Inter", sans-serif;
-  outline: 1px solid black;
 }
 
 .cta-button:hover,
 .email-button:hover {
-  background: black;
-  color: white;
-  outline: 1px solid black;
+  background: #636e72;
   transform: translateY(-2px);
-}
-
-button:focus:not(:focus-visible) {
-  outline: 1px solid black;
 }
 
 .bottom-section {
@@ -177,9 +140,10 @@ button:focus:not(:focus-visible) {
   display: flex;
   justify-content: center;
   gap: 0;
-  background: rgba(255, 255, 255, 0.30);
+  background: rgba(45, 52, 54, 0.9);
   backdrop-filter: blur(15px);
   border-radius: 25px;
+  padding: 8px;
   z-index: 1000;
   width: auto;
 }
@@ -191,13 +155,13 @@ button:focus:not(:focus-visible) {
 .nav-item {
   background: none;
   border: none;
-  color: black;
-  padding: 14px 25px;
-  border-radius: 25px;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
   font-family: "Inter", sans-serif;
   position: relative;
   z-index: 2;
@@ -205,12 +169,12 @@ button:focus:not(:focus-visible) {
 }
 
 .nav-item.active {
-  background: black;
-  color: white;
+  background: white;
+  color: #2d3436;
 }
 
 .nav-item:hover:not(.active) {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .footer-info {
@@ -304,14 +268,6 @@ button:focus:not(:focus-visible) {
   transform: translateY(-2px);
 }
 
-.work-item-card:hover .project-title {
-  font-variation-settings: "wght" 700;
-}
-
-.work-item-card:hover .project-dot {
-  margin-right: 0.4rem;
-}
-
 .work-item-header {
   display: flex;
   justify-content: space-between;
@@ -321,8 +277,7 @@ button:focus:not(:focus-visible) {
 .project-title {
   font-size: 0.9rem;
   color: #2d3436;
-  font-variation-settings: "wght" 500;
-  transition: font-variation-settings 0.3s ease;
+  font-weight: 500;
 }
 
 .project-dot {
@@ -331,8 +286,6 @@ button:focus:not(:focus-visible) {
   background: #636e72;
   border-radius: 50%;
   flex-shrink: 0;
-  margin-right: 0rem;
-  transition: margin-right 0.3s ease;
 }
 
 .work-item-expanded {
@@ -470,47 +423,6 @@ button:focus:not(:focus-visible) {
   font-weight: 400;
 }
 
-.contact-hero-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  gap: 2rem;
-}
-
-.contact-hero-top-section {
-  display: flex;
-  gap: 2rem;
-  flex: 1;
-  align-items: center;
-}
-
-.contact-hero-right-top {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: flex-end;
-}
-
-.contact-hero-bottom-section {
-  display: flex;
-  width: 100%;
-}
-
-.contact-hero-left-bottom {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-}
-
-.contact-hero-right-bottom {
-  display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
-  padding-left: 3rem;
-}
-
 /* Homepage Layout Styles */
 .hero-content {
   display: flex;
@@ -521,49 +433,51 @@ button:focus:not(:focus-visible) {
 
 .hero-top-section {
   display: flex;
-  gap: 2rem;
-  flex: 1;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
 }
 
-.hero-left-top {
+.hero-left {
+  flex: 1;
+}
+
+.star-container {
+  position: static;
+  transform: none;
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+.hero-bottom-section {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.hero-left-bottom {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.hero-bottom-section {
-  display: flex;
-  width: 100%;
-}
-
-.hero-left-bottom {
-  display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
-  padding-right: 3rem;
-}
-
-.hero-right-bottom {
+.reel-container {
   flex: 1;
   position: relative;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 16px;
+  min-height: 300px;
+  backdrop-filter: blur(5px);
 }
 
 .reel-video {
   width: 100%;
   height: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.reel-video video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block; /* removes extra spacing */
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 .reel-overlay {
@@ -595,10 +509,6 @@ button:focus:not(:focus-visible) {
 
   .content-card {
     padding: 2rem;
-  }
-
-  .hero-left-bottom {
-    padding-right: 2rem;
   }
 
   .work-header-card {
@@ -652,10 +562,6 @@ button:focus:not(:focus-visible) {
 
   .content-card {
     padding: 1.5rem;
-  }
-
-  .hero-left-bottom {
-    padding-right: 0rem;
   }
 
   .work-header-card {
