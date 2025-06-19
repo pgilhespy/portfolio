@@ -372,37 +372,45 @@ export default function Portfolio() {
               <div className="col-12 d-flex flex-column justify-content-between p-4">
                 <div className="content-area">
                   <div className="content-card">
-                    <div className="contact-content">
-                      <div className="contact-header">
-                        <div className="star-container contact-star">
+                    <div className="contact-hero-content">
+                      <div className="contact-hero-top-section">
+                        <div className="star-container">
                           <StarIcon />
                         </div>
-                        <div className="contact-titles">
-                          <h1 className="main-title contact-title">
-                            GET IN
-                            <br />
-                            CONTACT
-                          </h1>
-                          <p className="subtitle contact-subtitle">
-                            With Me For Any
-                            <br />
-                            Inquiries
-                          </p>
+                        <div className="contact-hero-right-top">
+                          <div>
+                            <h1 className="main-title contact-title">
+                              GET IN
+                              <br />
+                              CONTACT
+                            </h1>
+                            <p className="subtitle contact-subtitle">
+                              With Me For Any
+                              <br />
+                              Inquiries
+                            </p>
+                          </div>
+                          <div className="description">
+                            <p>
+                              <b>I'm always looking</b> for projects to work on, whether that's a simple design or a combination
+                              of the 3 skills needed to create and run here to help. So please don't hesitate to get in
+                              touch and let's discuss further.
+                            </p>
+                          </div>
                         </div>
                       </div>
 
-                      <div className="contact-body">
-                        <div className="profile-section">
-                          <div className="profile-placeholder">Picture Of Me</div>
-                          <button className="email-button">Email Me</button>
+                      <div className="contact-hero-bottom-section">
+                        <div className="contact-hero-left-bottom">
+                          <div className="reel-video">
+                            <video autoPlay loop muted playsInline src={reel}></video>
+                          </div>
                         </div>
 
-                        <div className="contact-info">
-                          <p>
-                            I'm always looking for projects to work on, whether that's a simple design or a combination
-                            of the 3 skills needed to create and run here to help. So please don't hesitate to get in
-                            touch and let's discuss further.
-                          </p>
+                        <div className="contact-hero-right-bottom">
+                          <button className="cta-button" onClick={() => navigateToSection(1)}>
+                            Email Me
+                          </button>
                         </div>
                       </div>
                     </div>
