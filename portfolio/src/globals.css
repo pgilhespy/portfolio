@@ -345,6 +345,10 @@ button:focus:not(:focus-visible) {
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(45, 52, 54, 0.1);
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
   animation: expandIn 0.3s ease-out;
 }
 
@@ -360,10 +364,27 @@ button:focus:not(:focus-visible) {
 }
 
 .work-item-expanded-left {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(45, 52, 54, 0.1);
-  animation: expandIn 0.3s ease-out;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.work-item-expanded-right {
+  width: 100%;
+  height: 100%;
+  flex: 1 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.work-item-expanded-right video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block; /* removes extra spacing */
 }
 
 .work-item-expanded .role {

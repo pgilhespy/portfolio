@@ -241,7 +241,7 @@ export default function Portfolio() {
 
                         <div className="hero-right-bottom">
                           <div className="reel-video">
-                            <video autoPlay loop muted playsInline src={reel}></video>
+                            <video autoPlay loop muted playsInline src={reel} />
                           </div>
                         </div>
                       </div>
@@ -300,15 +300,20 @@ export default function Portfolio() {
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
-                                  <p className="role">{project.role}</p>
-                                  <p className="description">{project.description}</p>
-                                  {project.testimonial && (
-                                    <div className="testimonial">
-                                      <blockquote>{project.testimonial}</blockquote>
-                                      <cite>{project.client}</cite>
-                                    </div>
-                                  )}
-                                  <p className="details">{project.details}</p>
+                                  <div className="work-item-expanded-left" >
+                                    <p className="role">{project.role}</p>
+                                    <p className="description">{project.description}</p>
+                                    {project.testimonial && (
+                                      <div className="testimonial">
+                                        <blockquote>{project.testimonial}</blockquote>
+                                        <cite>{project.client}</cite>
+                                      </div>
+                                    )}
+                                    <p className="details">{project.details}</p>
+                                  </div>
+                                  <div className="work-item-expanded-right" >
+                                    <video autoPlay loop muted playsInline src={reel} />
+                                  </div>
                                 </div>
                               )}
                             </div>
