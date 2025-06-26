@@ -120,11 +120,14 @@ export default function Portfolio() {
       {
         key: "speedbooking",
         title: "SpeedBooking UK",
-        role: "Video Editor",
+        role: "Motion Graphics Editor",
         description:
-          "Created promotional videos and social media content for the UK's leading speed networking platform.",
+          "Created engaging animation and motion graphics utilizing Adobe After Effects to accompany informative content. \
+          Worked alongside the client to narrow down requirements, extract key ideas, write scripts and bring their vision to life. \
+          Also Designed compelling promotional content that increased customer engagement and contributed to a higher conversion \
+          rate for fast-track driving test bookings",
         details:
-          "Produced over 50 promotional videos, managed social media video content, and created brand identity videos.",
+          "Produced over 30 promotional and informative videos for social media platforms.",
       },
       {
         key: "anthem",
