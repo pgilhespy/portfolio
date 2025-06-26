@@ -308,7 +308,7 @@ button:focus:not(:focus-visible) {
   font-variation-settings: "wght" 700;
 }
 
-.work-item-card:hover .project-dot {
+.work-item-card:hover .project-logo {
   margin-right: 0.4rem;
 }
 
@@ -325,11 +325,9 @@ button:focus:not(:focus-visible) {
   transition: font-variation-settings 0.3s ease;
 }
 
-.project-dot {
-  width: 12px;
-  height: 12px;
-  background: #636e72;
-  border-radius: 50%;
+.project-logo {
+  width: auto;
+  height: 1.2rem;
   flex-shrink: 0;
   margin-right: 0rem;
   transition: margin-right 0.3s ease;
@@ -367,6 +365,7 @@ button:focus:not(:focus-visible) {
   color: #2d3436;
   margin-bottom: 0.5rem;
   font-weight: 400;
+  max-width: 100%;
 }
 
 .work-item-expanded .details {

@@ -5,6 +5,8 @@ import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
 import starVideo from './Content/chrome1.1.webm';
 import reel from './Content/WebsiteReel1.1.mp4';
+import speedbookingLogo from './Content/speedbookingLogo2.svg';
+import anthemLogo from './Content/anthemLogo2.svg';
 import './globals.css';
 
 export default function Portfolio() {
@@ -128,6 +130,7 @@ export default function Portfolio() {
           rate for fast-track driving test bookings",
         details:
           "Produced over 30 promotional and informative videos for social media platforms.",
+        logo: speedbookingLogo,
       },
       {
         key: "anthem",
@@ -136,6 +139,7 @@ export default function Portfolio() {
         description: "Full creative direction for music video production and brand storytelling.",
         details:
           "Directed and edited multiple music videos, handled color grading, and managed post-production workflow.",
+        logo: anthemLogo,
       },
       {
         key: "bricked",
@@ -288,7 +292,7 @@ export default function Portfolio() {
                             >
                               <div className="work-item-header">
                                 <span className="project-title">{project.title}</span>
-                                <div className="project-dot"></div>
+                                <img src={project.logo} className="project-logo" />
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
@@ -317,7 +321,7 @@ export default function Portfolio() {
                             >
                               <div className="work-item-header">
                                 <span className="project-title">{project.title}</span>
-                                <div className="project-dot"></div>
+                                <img src={project.logo} className="project-logo" />
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
@@ -340,7 +344,7 @@ export default function Portfolio() {
                             >
                               <div className="work-item-header">
                                 <span className="project-title">{project.title}</span>
-                                <div className="project-dot"></div>
+                                <img src={project.logo} className="project-logo" />
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
