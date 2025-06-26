@@ -7,6 +7,7 @@ import starVideo from './Content/chrome1.1.webm';
 import reel from './Content/WebsiteReel1.1.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import anthemLogo from './Content/anthemLogo2.svg';
+import brickedLogo from './Content/brickedcoLogo1.svg'
 import './globals.css';
 
 export default function Portfolio() {
@@ -151,6 +152,7 @@ export default function Portfolio() {
         client: "- Client Co-Owner",
         details:
           "Long-term collaboration producing weekly content, music videos, and brand campaigns. Managed entire post-production pipeline.",
+        logo: brickedLogo,
       },
     ],
     coding: [
@@ -292,7 +294,9 @@ export default function Portfolio() {
                             >
                               <div className="work-item-header">
                                 <span className="project-title">{project.title}</span>
-                                <img src={project.logo} className="project-logo" />
+                                <div className="project-logo">
+                                  <img src={project.logo} />
+                                </div>
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">

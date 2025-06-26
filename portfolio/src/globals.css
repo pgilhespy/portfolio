@@ -326,11 +326,19 @@ button:focus:not(:focus-visible) {
 }
 
 .project-logo {
-  width: auto;
+  width: 45px;
   height: 1.2rem;
-  flex-shrink: 0;
   margin-right: 0rem;
   transition: margin-right 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-logo img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .work-item-expanded {
@@ -349,6 +357,13 @@ button:focus:not(:focus-visible) {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.work-item-expanded-left {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(45, 52, 54, 0.1);
+  animation: expandIn 0.3s ease-out;
 }
 
 .work-item-expanded .role {
