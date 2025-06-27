@@ -199,7 +199,7 @@ export default function Portfolio() {
         <section className="portfolio-section home-section">
           <div className="container-fluid h-100">
             <div className="row h-100">
-              <div className="col-12 d-flex flex-column justify-content-between p-4">
+              <div className="col-12 d-flex flex-column justify-content-between custom-padding">
                 <div className="content-area">
                   <div className="content-card">
                     <div className="hero-content">
@@ -266,7 +266,7 @@ export default function Portfolio() {
         <section className="portfolio-section work-section">
           <div className="container-fluid h-100">
             <div className="row h-100">
-              <div className="col-12 d-flex flex-column justify-content-between p-4">
+              <div className="col-12 d-flex flex-column justify-content-between custom-padding">
                 <div className="content-area">
                   <div className="work-content-wrapper">
                     <div className="work-header-card">
@@ -387,7 +387,7 @@ export default function Portfolio() {
         <section className="portfolio-section contact-section">
           <div className="container-fluid h-100">
             <div className="row h-100">
-              <div className="col-12 d-flex flex-column justify-content-between p-4">
+              <div className="col-12 d-flex flex-column justify-content-between custom-padding">
                 <div className="content-area">
                   <div className="content-card">
                     <div className="contact-hero-content">
