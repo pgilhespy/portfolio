@@ -255,9 +255,15 @@ export default function Portfolio() {
                 <div className="footer-info">
                   <span className="name">Philip Gilhespy</span>
                   <div className="social-links">
-                    <Instagram size={20} />
-                    <Linkedin size={20} />
-                    <ArrowUpRight size={20} />
+                    <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
+                      <Instagram size={20} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
+                      <Linkedin size={20} />
+                    </a>
+                    <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
+                      <ArrowUpRight size={20} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -376,9 +382,15 @@ export default function Portfolio() {
                 <div className="footer-info">
                   <span className="name">Philip Gilhespy</span>
                   <div className="social-links">
-                    <Instagram size={20} />
-                    <Linkedin size={20} />
-                    <ArrowUpRight size={20} />
+                    <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
+                      <Instagram size={20} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
+                      <Linkedin size={20} />
+                    </a>
+                    <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
+                      <ArrowUpRight size={20} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -432,9 +444,11 @@ export default function Portfolio() {
                         </div>
 
                         <div className="contact-hero-right-bottom">
-                          <button className="cta-button" onClick={() => navigateToSection(1)}>
-                            Email Me
-                          </button>
+                          <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
+                            <button className="cta-button" >
+                              Email Me
+                            </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -444,9 +458,15 @@ export default function Portfolio() {
                 <div className="footer-info">
                   <span className="name">Philip Gilhespy</span>
                   <div className="social-links">
-                    <Instagram size={20} />
-                    <Linkedin size={20} />
-                    <ArrowUpRight size={20} />
+                    <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
+                      <Instagram size={20} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
+                      <Linkedin size={20} />
+                    </a>
+                    <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
+                      <ArrowUpRight size={20} />
+                    </a>
                   </div>
                 </div>
               </div>

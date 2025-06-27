@@ -13,6 +13,14 @@ body {
   height: 100vh;
 }
 
+.social-links a {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+}
+
 /* Scroll bar stuff */
 /* This is global — affects all scrollbars */
 ::-webkit-scrollbar {
