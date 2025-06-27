@@ -315,7 +315,7 @@ export default function Portfolio() {
                                     <p className="details">{project.details}</p>
                                   </div>
                                   <div className="work-item-expanded-right" >
-                                    <video autoPlay loop muted playsInline src={reel} />
+                                    <video autoPlay loop muted playsInline src={reel} controls />
                                   </div>
                                 </div>
                               )}
