@@ -217,6 +217,9 @@ export default function Portfolio() {
                               Creator
                             </p>
                           </div>
+                          <div className="star-container-mobile">
+                            <StarIcon />
+                          </div>
                           <div className="description">
                             <p>
                               <b>I'm a 22 year</b> old creator who can take your digital media to the next level. Whether
