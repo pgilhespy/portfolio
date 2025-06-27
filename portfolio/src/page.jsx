@@ -411,6 +411,9 @@ export default function Portfolio() {
                               Inquiries
                             </p>
                           </div>
+                          <div className="star-container-mobile">
+                            <StarIcon />
+                          </div>
                           <div className="description">
                             <p>
                               <b>I'm always looking</b> for projects to work on, whether that's a simple design or a combination

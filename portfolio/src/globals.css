@@ -670,8 +670,8 @@ button:focus:not(:focus-visible) {
   }
 
   .contact-title,
-  .contact-subtitle {
-    text-align: center;
+  .contact-subtitle { 
+    text-align: right;
   }
 
   .contact-info {
@@ -711,7 +711,12 @@ button:focus:not(:focus-visible) {
   }
 
   .contact-hero-bottom-section {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .contact-hero-right-bottom {
+    padding-left: 0;
   }
 
   .reel-container {
