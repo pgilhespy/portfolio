@@ -44,6 +44,15 @@ body {
   background: rgba(255, 255, 255, 0.6);
 }
 
+/* Background floater media */
+.background-floater {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+  filter: blur(2px);
+}
+
 .custom-padding {
   padding: 1.5rem;
 }
@@ -102,6 +111,8 @@ body {
   max-width: 80%;
   width: 100%;
 }
+
+/* Home page styles */
 
 .main-title {
   font-size: 4rem;

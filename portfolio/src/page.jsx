@@ -18,10 +18,44 @@ export default function Portfolio() {
   const sectionsRef = useRef([])
   const gradientAngleRef = useRef(150) // Starting angle
   const continuousAnimationRef = useRef(null)
+  const floatingStarsRef = useRef([]);
+  const starsConfig = [
+    {
+      id: "star1",
+      top: "5%",
+      right: "-20%",
+      rotation: -10,
+      scale: 1,
+      page: 0,
+    },
+    {
+      id: "star2",
+      bottom: "20%",
+      left: "5%",
+      rotation: 30,
+      scale: 1.2,
+      page: 1.6,
+    },
+  ];
 
   useEffect(() => {
     // Initialize GSAP timeline for smooth transitions
     const tl = gsap.timeline()
+
+    // Init stars pos
+    floatingStarsRef.current.forEach((starEl, i) => {
+      if (starEl) {
+        const starData = starsConfig[i];
+        const startingPos = 0 + (starData.page * window.innerWidth);
+
+        gsap.set(starEl, { 
+          x: startingPos,
+          rotate: starData.rotation,
+          scale: starData.scale,
+        });
+      }
+    });
+
 
     // Set initial position
     if (containerRef.current) {
@@ -65,7 +99,7 @@ export default function Portfolio() {
 
   const navigateToSection = (index) => {
     if (containerRef.current && backgroundRef.current) {
-      const translateX = -index * 100
+      const translateX = -index * window.innerWidth;
 
       // Calculate new gradient angle (30 degrees per section)
       const newBaseAngle = 150 + index * 30
@@ -85,7 +119,7 @@ export default function Portfolio() {
       })
 
       tl.to(containerRef.current, {
-        x: `${translateX}vw`,
+        x: translateX,
         duration: 0.8,
         ease: "power2.inOut",
       }).to(
@@ -97,6 +131,18 @@ export default function Portfolio() {
         },
         0,
       ) // Start at the same time as the section transition
+
+      // floating stars parallax animation
+      floatingStarsRef.current.forEach((star, i) => {
+        if (star) {
+          const starOffset = -(index - activeSection) * (window.innerWidth * 0.8);
+          gsap.to(star, {
+            x: `+=${starOffset}`,
+            duration: 0.8,
+            ease: "power2.inOut",
+          });
+        }
+      });
 
       setActiveSection(index)
     }
@@ -194,6 +240,30 @@ export default function Portfolio() {
 
   return (
     <div className="portfolio-container" ref={backgroundRef}>
+      {/* bg floater */}
+      {starsConfig.map((star, i) => (
+        <div
+          key={star.id}
+          className="background-floater"
+          style={{
+            top: star.top,
+            bottom: star.bottom,
+            left: star.left,
+            right: star.right,
+          }}
+        >
+          <video
+            ref={(el) => (floatingStarsRef.current[i] = el)}
+            className="floating-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            src={starVideo}
+          />
+        </div>
+      ))}
       <div ref={containerRef} className="sections-wrapper">
         {/* HOME SECTION */}
         <section className="portfolio-section home-section">
