@@ -18,6 +18,7 @@ export default function Portfolio() {
   const sectionsRef = useRef([])
   const gradientAngleRef = useRef(150) // Starting angle
   const continuousAnimationRef = useRef(null)
+  const scrollRefs = useRef([null, null, null]);
   const floatingStarsRef = useRef([]);
   const starsConfig = [
     {
@@ -30,7 +31,7 @@ export default function Portfolio() {
     },
     {
       id: "star2",
-      bottom: "20%",
+      bottom: "10%",
       left: "5%",
       rotation: 30,
       scale: 1.2,
@@ -78,6 +79,44 @@ export default function Portfolio() {
     }
   }, [])
 
+  // Star scroll movement animation
+  useEffect(() => {
+    const activeScrollContainer = scrollRefs.current[activeSection];
+    if (!activeScrollContainer) return;
+
+    // Create optimized GSAP setters for Y transforms
+    const ySetters = floatingStarsRef.current.map((starEl) =>
+      gsap.quickTo(starEl, "y", {
+        duration: 0.1,
+        ease: "power1.out",
+      })
+    );
+
+    let scrollAnimationFrame = null;
+
+    const handleScroll = () => {
+      if (scrollAnimationFrame) return;
+
+      scrollAnimationFrame = requestAnimationFrame(() => {
+        const scrollY = activeScrollContainer.scrollTop;
+
+        ySetters.forEach((setY) => {
+          const offset = -scrollY * 0.1;
+          setY(offset);
+        });
+
+        scrollAnimationFrame = null;
+      });
+    };
+
+    activeScrollContainer.addEventListener("scroll", handleScroll);
+
+    return () => {
+      activeScrollContainer.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(scrollAnimationFrame);
+    };
+  }, [activeSection]);
+
   const startContinuousGradientAnimation = () => {
     if (continuousAnimationRef.current) {
       continuousAnimationRef.current.kill()
@@ -99,6 +138,7 @@ export default function Portfolio() {
 
   const navigateToSection = (index) => {
     if (containerRef.current && backgroundRef.current) {
+
       const translateX = -index * window.innerWidth;
 
       // Calculate new gradient angle (30 degrees per section)
@@ -126,8 +166,8 @@ export default function Portfolio() {
         backgroundRef.current,
         {
           "--gradient-angle": `${newBaseAngle}deg`,
-          duration: 2.0,
-          ease: "power1.inOut",
+          duration: 0.8,
+          ease: "power2.inOut",
         },
         0,
       ) // Start at the same time as the section transition
@@ -266,11 +306,11 @@ export default function Portfolio() {
       ))}
       <div ref={containerRef} className="sections-wrapper">
         {/* HOME SECTION */}
-        <section className="portfolio-section home-section">
+        <section className="portfolio-section home-section" ref={(el) => (scrollRefs.current[0] = el)}>
           <div className="container-fluid h-100">
             <div className="row h-100">
               <div className="col-12 d-flex flex-column justify-content-between custom-padding">
-                <div className="content-area">
+                <div className="content-area" >
                   <div className="content-card">
                     <div className="hero-content">
                       <div className="hero-top-section">
@@ -342,7 +382,7 @@ export default function Portfolio() {
         </section>
 
         {/* WORK SECTION */}
-        <section className="portfolio-section work-section">
+        <section className="portfolio-section work-section" ref={(el) => (scrollRefs.current[1] = el)} >
           <div className="container-fluid h-100">
             <div className="row h-100">
               <div className="col-12 d-flex flex-column justify-content-between custom-padding">
@@ -469,7 +509,7 @@ export default function Portfolio() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section className="portfolio-section contact-section">
+        <section className="portfolio-section contact-section" ref={(el) => (scrollRefs.current[2] = el)}>
           <div className="container-fluid h-100">
             <div className="row h-100">
               <div className="col-12 d-flex flex-column justify-content-between custom-padding">
