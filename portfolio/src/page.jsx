@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
+import ImageFollow from './ImageFollow';
+import cursorImage from './Content/cursor1.svg';
 import starVideo from './Content/chrome1.1.webm';
 import reel from './Content/WebsiteReel1.1.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
@@ -12,10 +14,10 @@ import './globals.css';
 
 export default function Portfolio() {
   const containerRef = useRef(null)
+  const heroVisualContainerRef = useRef(null);
   const backgroundRef = useRef(null)
   const [activeSection, setActiveSection] = useState(0)
   const [expandedWorkItem, setExpandedWorkItem] = useState(null)
-  const sectionsRef = useRef([])
   const gradientAngleRef = useRef(150) // Starting angle
   const continuousAnimationRef = useRef(null)
   const scrollRefs = useRef([null, null, null]);
@@ -192,16 +194,12 @@ export default function Portfolio() {
     setExpandedWorkItem(expandedWorkItem === itemKey ? null : itemKey)
   }
 
-  const StarIcon = () => (
-      <video 
-            className='floating-video' 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            src={starVideo}
-        >
-        </video>
+  const HeroVisual = () => (
+      <ImageFollow
+        image={cursorImage}
+        containerRef={backgroundRef} // .portfolio-container
+        boundsRef={heroVisualContainerRef} // .hero-visual-container
+      />
   )
 
   const workData = {
@@ -294,7 +292,7 @@ export default function Portfolio() {
         >
           <video
             ref={(el) => (floatingStarsRef.current[i] = el)}
-            className="floating-video"
+            className="floating-asset"
             autoPlay
             loop
             muted
@@ -327,8 +325,8 @@ export default function Portfolio() {
                               Creator
                             </p>
                           </div>
-                          <div className="star-container-mobile">
-                            <StarIcon />
+                          <div className="hero-visual-container-mobile">
+                            <HeroVisual />
                           </div>
                           <div className="description">
                             <p>
@@ -340,8 +338,8 @@ export default function Portfolio() {
                             </p>
                           </div>
                         </div>
-                        <div className="star-container">
-                          <StarIcon />
+                        <div className="hero-visual-container" ref={heroVisualContainerRef} >
+                          <HeroVisual />
                         </div>
                       </div>
 
@@ -517,8 +515,8 @@ export default function Portfolio() {
                   <div className="content-card">
                     <div className="contact-hero-content">
                       <div className="contact-hero-top-section">
-                        <div className="star-container">
-                          <StarIcon />
+                        <div className="hero-visual-container">
+                          <HeroVisual />
                         </div>
                         <div className="contact-hero-right-top">
                           <div>
@@ -533,8 +531,8 @@ export default function Portfolio() {
                               Inquiries
                             </p>
                           </div>
-                          <div className="star-container-mobile">
-                            <StarIcon />
+                          <div className="hero-visual-container-mobile">
+                            <HeroVisual />
                           </div>
                           <div className="description">
                             <p>

@@ -132,19 +132,19 @@ body {
   font-weight: 400;
 }
 
-.star-container {
+.hero-visual-container {
   flex: 1; /* takes up remaining space */
   display: flex;
   justify-content: center; /* centers content within this area */
 }
 
-.star-container-mobile {
+.hero-visual-container-mobile {
   flex: 1; /* takes up remaining space */
   display: none;
   justify-content: center; /* centers content within this area */
 }
 
-.floating-video {
+.floating-asset {
   transform: rotate(20deg);
   width: 50%;
   height: 50%;
