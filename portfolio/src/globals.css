@@ -55,15 +55,6 @@ body {
 .floating-asset {
   width: 200px;
   height: 200px;
-  background: linear-gradient(
-    0deg,
-    #e6def4,
-    #d9d2ef,
-    #cbc7ea,
-    #bcbde5,
-    #abb3df,
-    #84a1d1
-  );
   aspect-ratio: 1;
 }
 
@@ -80,14 +71,8 @@ body {
   --gradient-angle: 150deg;
   background: linear-gradient(
     var(--gradient-angle),
-    #f1eaf9,
-    #e6def4,
-    #d9d2ef,
-    #cbc7ea,
-    #bcbde5,
-    #abb3df,
-    #99aad8,
-    #84a1d1
+    #c8d2d7,
+    #9eadb4
   );
   transition: background 0.1s ease-out;
 }
