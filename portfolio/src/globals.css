@@ -55,15 +55,6 @@ body {
 .floating-asset {
   width: 200px;
   height: 200px;
-  background: linear-gradient(
-    0deg,
-    #e6def4,
-    #d9d2ef,
-    #cbc7ea,
-    #bcbde5,
-    #abb3df,
-    #84a1d1
-  );
   aspect-ratio: 1;
 }
 
@@ -76,20 +67,16 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
+
   /* Animated gradient background using CSS custom property */
   --gradient-angle: 150deg;
+  --color-start: #c8d2d7;
+  --color-end: #9eadb4;
   background: linear-gradient(
     var(--gradient-angle),
-    #f1eaf9,
-    #e6def4,
-    #d9d2ef,
-    #cbc7ea,
-    #bcbde5,
-    #abb3df,
-    #99aad8,
-    #84a1d1
+    var(--color-start),
+    var(--color-end)
   );
-  transition: background 0.1s ease-out;
 }
 
 .sections-wrapper {
@@ -263,6 +250,11 @@ button:focus:not(:focus-visible) {
   font-weight: 500;
 }
 
+.dark-mode {
+  color: white !important;
+  stroke: white !important;
+}
+
 .social-links {
   display: flex;
   gap: 1rem;
@@ -287,7 +279,7 @@ button:focus:not(:focus-visible) {
 }
 
 .work-header-card {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 3rem;
@@ -297,10 +289,12 @@ button:focus:not(:focus-visible) {
 
 .work-title {
   text-align: center;
+  color: white;
 }
 
 .work-subtitle {
   text-align: center;
+  color: #c8d2d7;
 }
 
 .work-content-scrollable {
@@ -318,13 +312,13 @@ button:focus:not(:focus-visible) {
 .category-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2d3436;
+  color: white;
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
 
 .work-item-card {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 1rem;
@@ -334,7 +328,7 @@ button:focus:not(:focus-visible) {
 }
 
 .work-item-card:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
 }
 
@@ -354,7 +348,7 @@ button:focus:not(:focus-visible) {
 
 .project-title {
   font-size: 0.9rem;
-  color: #2d3436;
+  color: white;
   font-variation-settings: "wght" 500;
   transition: font-variation-settings 0.3s ease;
 }
@@ -373,6 +367,7 @@ button:focus:not(:focus-visible) {
 .project-logo img {
   max-width: 100%;
   max-height: 100%;
+  filter: invert(1);
 }
 
 .work-item-expanded {
@@ -423,7 +418,7 @@ button:focus:not(:focus-visible) {
 
 .work-item-expanded .role {
   font-size: 0.8rem;
-  color: #636e72;
+  color: #c8d2d7;
   font-weight: 600;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -432,7 +427,7 @@ button:focus:not(:focus-visible) {
 .work-item-expanded .description {
   font-size: 0.85rem;
   line-height: 1.4;
-  color: #2d3436;
+  color: white;
   margin-bottom: 0.5rem;
   font-weight: 400;
   max-width: 100%;
@@ -441,7 +436,7 @@ button:focus:not(:focus-visible) {
 .work-item-expanded .details {
   font-size: 0.8rem;
   line-height: 1.4;
-  color: #636e72;
+  color: #c8d2d7;
   font-weight: 400;
 }
 

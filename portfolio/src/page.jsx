@@ -8,7 +8,8 @@ import cursorImage from './Content/cursor1.svg';
 import reel from './Content/WebsiteReel1.1.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import anthemLogo from './Content/anthemLogo2.svg';
-import brickedLogo from './Content/brickedcoLogo1.svg'
+import brickedLogo from './Content/brickedcoLogo1.svg';
+import starVideo from './Content/chrome1.1.webm';
 import './globals.css';
 
 export default function Portfolio() {
@@ -21,76 +22,47 @@ export default function Portfolio() {
   const continuousAnimationRef = useRef(null)
   const scrollRefs = useRef([null, null, null]);
   const floatingAssetsRefs = useRef([]);
+
   const floatingAssetsConfig = [
     {
       id: "p1TopRight",
-      top: "5%",
-      right: "5%",
-      rotation: gradientAngleRef.current,
-      scale: 1,
-      blurAmt: 10,
+      ratioY: 0.1,
+      ratioX: 0.85,
+      rotation: 20,
       page: 0,
-      clipPath: "shape(from 92.42% 38.65%,curve to 90.29% 66.27% with 94.64% 52.81%,curve to 73.50% 86.41% with 85.93% 79.73%,curve to 49.14% 87.70% with 61.07% 93.10%,curve to 29.16% 75.31% with 37.21% 82.29%,curve to 10.79% 57.61% with 21.11% 68.33%,curve to 6.04% 32.56% with 0.46% 46.88%,curve to 25.10% 11.90% with 11.61% 18.24%,curve to 50.85% 11.22% with 38.59% 5.56%,curve to 76.65% 20.69% with 63.11% 16.88%,curve to 92.42% 38.65% with 90.20% 24.49%)",
+      depth: 2,
     },
     {
-      id: "p2MiddleRight",
-      bottom: "40%",
-      left: "5%",
-      rotation: gradientAngleRef.current,
-      scale: 2.5,
-      blurAmt: 3,
-      page: 1.6,
-      clipPath: "shape(from 91.13% 40.47%,curve to 92.84% 67.28% with 97.51% 52.99%,curve to 73.86% 84.39% with 88.17% 81.58%,curve to 46.85% 88.62% with 59.55% 87.20%,curve to 24.69% 81.05% with 34.15% 90.04%,curve to 15.44% 59.95% with 15.24% 72.06%,curve to 16.75% 35.62% with 15.65% 47.84%,curve to 28.11% 14.06% with 17.85% 23.40%,curve to 50.73% 10.82% with 38.37% 4.71%,curve to 73.92% 22.44% with 63.09% 16.93%,curve to 91.13% 40.47% with 84.75% 27.95%)",
-    },
-    {
-      id: "p1MiddleLeft",
-      bottom: "30%",
-      left: "7%",
-      rotation: gradientAngleRef.current,
-      scale: 2.5,
-      blurAmt: 3,
+      id: "p1BottomLeft",
+      ratioY: 0.85,
+      ratioX: 0.05,
+      rotation: -10,
       page: 0,
-      clipPath: "shape(from 92.88% 38.10%,curve to 86.83% 63.69% with 93.89% 52.76%,curve to 69.29% 79.46% with 79.77% 74.63%,curve to 46.76% 86.44% with 58.81% 84.30%,curve to 25.67% 79.88% with 34.72% 88.59%,curve to 12.67% 59.29% with 16.63% 71.18%,curve to 13.86% 35.89% with 8.71% 47.40%,curve to 29.89% 19.18% with 19.02% 24.37%,curve to 52.79% 13.26% with 40.75% 13.99%,curve to 78.35% 17.98% with 64.83% 12.54%,curve to 92.88% 38.10% with 91.86% 23.43%)",
+      depth: 0,
     },
     {
-      id: "p1BottomRight",
-      bottom: "-5%",
-      right: "0%",
-      rotation: gradientAngleRef.current,
-      scale: 2.5,
-      blurAmt: 15,
-      page: 0,
-      clipPath: "shape(from 91.79% 39.05%,curve to 86.78% 63.37% with 94.62% 52.81%,curve to 69.49% 81.52% with 78.94% 73.94%,curve to 46.42% 91.27% with 60.04% 89.09%,curve to 23.66% 82.98% with 32.80% 93.44%,curve to 9.00% 59.80% with 14.51% 72.52%,curve to 8.84% 33.73% with 3.48% 47.07%,curve to 27.90% 18.83% with 14.20% 20.38%,curve to 54.71% 11.12% with 41.60% 17.27%,curve to 78.39% 15.13% with 67.82% 4.98%,curve to 91.79% 39.05% with 88.95% 25.28%)",
+      id: "p2BottomRight",
+      ratioY: 0.8,
+      ratioX: 0.65,
+      rotation: -30,
+      page: 1,
+      depth: 0,
     },
     {
-      id: "p2MiddleRightSmall",
-      bottom: "60%",
-      left: "5%",
-      rotation: gradientAngleRef.current,
-      scale: 1,
-      blurAmt: 10,
-      page: 1.6,
-      clipPath: "shape(from 87.06% 41.29%,curve to 87.40% 64.71% with 92.47% 52.67%,curve to 70.58% 80.58% with 82.32% 76.74%,curve to 47.35% 85.07% with 58.84% 84.43%,curve to 24.59% 79.50% with 35.86% 85.72%,curve to 11.19% 60.35% with 13.31% 73.28%,curve to 13.11% 35.13% with 9.06% 47.42%,curve to 29.33% 19.84% with 17.17% 22.84%,curve to 52.65% 15.98% with 41.49% 16.85%,curve to 72.74% 22.51% with 63.81% 15.12%,curve to 87.06% 41.29% with 81.66% 29.91%)",
-    },
-    {
-      id: "p3BottomRight",
-      bottom: "-5%",
-      right: "10%",
-      rotation: gradientAngleRef.current,
-      scale: 3.5,
-      blurAmt: 6,
-      page: 1.6,
-      clipPath: "shape(from 83.21% 42.14%,curve to 81.99% 61.99% with 87.88% 52.38%,curve to 67.39% 77.70% with 76.10% 71.59%,curve to 47.06% 85.29% with 58.68% 83.80%,curve to 24.36% 80.04% with 35.44% 86.77%,curve to 12.81% 60.47% with 13.28% 73.30%,curve to 15.55% 35.89% with 12.34% 47.63%,curve to 29.64% 18.63% with 18.76% 24.16%,curve to 53.70% 10.24% with 40.53% 13.11%,curve to 72.71% 19.63% with 66.88% 7.38%,curve to 83.21% 42.14% with 78.54% 31.89%)",
+      id: "p2BottomLeftSmall",
+      ratioY: 0.97,
+      ratioX: 0.1,
+      rotation: 20,
+      page: 1,
+      depth: 3,
     },
     {
       id: "p3TopRight",
-      top: "5%",
-      right: "20%",
-      rotation: gradientAngleRef.current,
-      scale: 1,
-      blurAmt: 10,
-      page: 1.6,
-      clipPath: "shape(from 91.61% 38.91%,curve to 89.88% 66.21% with 93.90% 52.76%,curve to 73.30% 85.76% with 85.85% 79.66%,curve to 47.30% 91.31% with 60.75% 91.85%,curve to 27.89% 79.30% with 33.86% 90.78%,curve to 17.10% 57.72% with 21.93% 67.82%,curve to 14.55% 35.09% with 12.26% 47.63%,curve to 27.98% 15.10% with 16.83% 22.56%,curve to 53.07% 7.32% with 39.12% 7.64%,curve to 78.17% 16.03% with 67.02% 7.01%,curve to 91.61% 38.91% with 89.32% 25.05%)",
+      ratioY: 0.2,
+      ratioX: 0.35,
+      rotation: -60,
+      page: 2,
+      depth: 1,
     },
   ];
 
@@ -102,12 +74,14 @@ export default function Portfolio() {
     floatingAssetsRefs.current.forEach((assetEl, i) => {
       if (assetEl) {
         const assetData = floatingAssetsConfig[i];
-        const startingPos = 0 + (assetData.page * window.innerWidth);
+        const startingPosX = 0 + (assetData.page * window.innerWidth) + (window.innerWidth * assetData.ratioX);
+        const startingPosY = (window.innerHeight * assetData.ratioY);
 
         gsap.set(assetEl, { 
-          x: startingPos,
+          x: startingPosX,
+          y: startingPosY,
           rotate: assetData.rotation,
-          scale: assetData.scale,
+          scale: 2.5 - (assetData.depth * 0.5),
         });
       }
     });
@@ -122,9 +96,6 @@ export default function Portfolio() {
       gsap.set(backgroundRef.current, { "--gradient-angle": `${gradientAngleRef.current}deg` })
     }
 
-    // Start continuous gradient oscillation
-    startContinuousGradientAnimation()
-
     return () => {
       // Clean up continuous animation on unmount
       if (continuousAnimationRef.current) {
@@ -135,12 +106,21 @@ export default function Portfolio() {
 
   // Star scroll movement animation
   useEffect(() => {
+    // Store initial Y positions for floating assets
+    const initialYs = floatingAssetsRefs.current.map((assetEl, i) => {
+      if (assetEl) {
+        const assetData = floatingAssetsConfig[i];
+        return window.innerHeight * assetData.ratioY;
+      }
+      return 0;
+    });
+
     const activeScrollContainer = scrollRefs.current[activeSection];
     if (!activeScrollContainer) return;
 
     // Create optimized GSAP setters for Y transforms
-    const ySetters = floatingAssetsRefs.current.map((assetE1) =>
-      gsap.quickTo(assetE1, "y", {
+    const ySetters = floatingAssetsRefs.current.map((assetEl) =>
+      gsap.quickTo(assetEl, "y", {
         duration: 0.1,
         ease: "power1.out",
       })
@@ -154,9 +134,9 @@ export default function Portfolio() {
       scrollAnimationFrame = requestAnimationFrame(() => {
         const scrollY = activeScrollContainer.scrollTop;
 
-        ySetters.forEach((setY) => {
+        ySetters.forEach((setY, i) => {
           const offset = -scrollY * 0.1;
-          setY(offset);
+          setY(initialYs[i] + offset);
         });
 
         scrollAnimationFrame = null;
@@ -169,47 +149,27 @@ export default function Portfolio() {
       activeScrollContainer.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(scrollAnimationFrame);
     };
-  }, [activeSection]);
-
-  const startContinuousGradientAnimation = () => {
-    if (continuousAnimationRef.current) {
-      continuousAnimationRef.current.kill()
-    }
-
-    continuousAnimationRef.current = gsap.to(backgroundRef.current, {
-      "--gradient-angle": `${gradientAngleRef.current + 5}deg`,
-      duration: 3,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1,
-      onUpdate: function () {
-        // Keep track of the current base angle for section changes
-        const currentAngle = Number.parseFloat(this.targets()[0].style.getPropertyValue("--gradient-angle"))
-        // Don't update gradientAngleRef during oscillation to maintain base angle
-      },
-    })
-  }
+  }, [activeSection, floatingAssetsConfig]);
 
   const navigateToSection = (index) => {
     if (containerRef.current && backgroundRef.current) {
+      let bgColourStart = "#c8d2d7";
+      let bgColourEnd = "#9eadb4";
+
+      if (index === 1) {
+        // Work section — solid dark
+        bgColourStart = '#414c52';
+        bgColourEnd = '#353e42';
+      }
 
       const translateX = -index * window.innerWidth;
 
-      // Calculate new gradient angle (30 degrees per section)
-      const newBaseAngle = 150 + index * 30
+      // Calculate new gradient angle (15 degrees per section)
+      const newBaseAngle = 195 - index * 15;
       gradientAngleRef.current = newBaseAngle
-
-      // Kill the continuous animation temporarily
-      if (continuousAnimationRef.current) {
-        continuousAnimationRef.current.kill()
-      }
 
       // Animate both the section transition and gradient angle
       const tl = gsap.timeline({
-        onComplete: () => {
-          // Restart continuous animation with new base angle
-          startContinuousGradientAnimation()
-        },
       })
 
       tl.to(containerRef.current, {
@@ -224,15 +184,27 @@ export default function Portfolio() {
           ease: "power2.inOut",
         },
         0,
+      ).to(
+        backgroundRef.current,
+        {
+          "--color-start": `${bgColourStart}`,
+          "--color-end": `${bgColourEnd}`,
+          duration: 0.8,
+          ease: "power2.inOut",
+        },
+        0,
       ) // Start at the same time as the section transition
 
       // floating assets parallax animation
       floatingAssetsRefs.current.forEach((asset, i) => {
         if (asset) {
-          const starOffset = -(index - activeSection) * (window.innerWidth * 0.8);
+          const assetConfig = floatingAssetsConfig[i];
+          const starOffset = -(index - activeSection) * (window.innerWidth * 0.8) * (1 - (assetConfig.depth / 16));
+          const angleOffset = (index - activeSection) * 30 * (1 - (assetConfig.depth / 6));
+          console.log(`Animating asset ${assetConfig.id} with offset: ${starOffset}, angle: ${angleOffset}`);
           gsap.to(asset, {
             x: `+=${starOffset}`,
-            rotation: newBaseAngle,
+            rotation: `+=${angleOffset}`,
             duration: 0.8,
             ease: "power2.inOut",
           });
@@ -240,6 +212,13 @@ export default function Portfolio() {
       });
 
       setActiveSection(index)
+      if (backgroundRef.current) {
+        if (index === 1) {
+          backgroundRef.current.classList.add("work-active");
+        } else {
+          backgroundRef.current.classList.remove("work-active");
+        }
+      }
     }
   }
 
@@ -341,15 +320,18 @@ export default function Portfolio() {
             bottom: asset.bottom,
             left: asset.left,
             right: asset.right,
-            filter: `blur(${asset.blurAmt}px)`
+            filter: `blur(${3 * asset.depth}px)`
           }}
         >
-          <div 
+          <video 
             ref={(el) => (floatingAssetsRefs.current[i] = el)}
             className="floating-asset" 
-            style = {{
-              clipPath: asset.clipPath,
-            }}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            src={starVideo}
           />
         </div>
       ))}
@@ -539,8 +521,8 @@ export default function Portfolio() {
                 </div>
 
                 <div className="footer-info">
-                  <span className="name">Philip Gilhespy</span>
-                  <div className="social-links">
+                  <span className="name dark-mode">Philip Gilhespy</span>
+                  <div className="social-links dark-mode">
                     <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
                       <Instagram size={20} />
                     </a>
