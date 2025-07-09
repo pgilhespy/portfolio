@@ -22,69 +22,48 @@ export default function Portfolio() {
   const continuousAnimationRef = useRef(null)
   const scrollRefs = useRef([null, null, null]);
   const floatingAssetsRefs = useRef([]);
+  // TODO: Get rid of the top and right stuff and just set the x and y directly
+  //       relative to the screen width and height
   const floatingAssetsConfig = [
     {
       id: "p1TopRight",
-      top: "5%",
-      right: "5%",
+      ratioY: 0.1,
+      ratioX: 0.85,
       rotation: 20,
-      scale: 1,
-      blurAmt: 10,
       page: 0,
+      depth: 2,
     },
     {
-      id: "p2MiddleRight",
-      bottom: "40%",
-      left: "5%",
-      rotation: 0,
-      scale: 2.5,
-      blurAmt: 3,
-      page: 1.6,
-    },
-    {
-      id: "p1MiddleLeft",
-      bottom: "30%",
-      left: "7%",
+      id: "p1BottomLeft",
+      ratioY: 0.85,
+      ratioX: 0.05,
       rotation: -10,
-      scale: 2.5,
-      blurAmt: 3,
       page: 0,
+      depth: 0,
     },
     {
-      id: "p1BottomRight",
-      bottom: "-5%",
-      right: "0%",
-      rotation: 30,
-      scale: 2.5,
-      blurAmt: 15,
-      page: 0,
-    },
-    {
-      id: "p2MiddleRightSmall",
-      bottom: "60%",
-      left: "5%",
+      id: "p2BottomRight",
+      ratioY: 0.8,
+      ratioX: 0.65,
       rotation: -30,
-      scale: 1,
-      blurAmt: 10,
-      page: 1.6,
+      page: 1,
+      depth: 0,
     },
     {
-      id: "p3BottomRight",
-      bottom: "-5%",
-      right: "10%",
-      rotation: 50,
-      scale: 3.5,
-      blurAmt: 6,
-      page: 1.6,
+      id: "p2BottomLeftSmall",
+      ratioY: 0.97,
+      ratioX: 0.1,
+      rotation: 20,
+      page: 1,
+      depth: 3,
     },
     {
       id: "p3TopRight",
-      top: "5%",
-      right: "20%",
-      rotation: 30,
-      scale: 1,
-      blurAmt: 10,
-      page: 1.6,
+      ratioY: 0.2,
+      ratioX: 0.35,
+      rotation: -60,
+      page: 2,
+      depth: 1,
     },
   ];
 
@@ -96,12 +75,14 @@ export default function Portfolio() {
     floatingAssetsRefs.current.forEach((assetEl, i) => {
       if (assetEl) {
         const assetData = floatingAssetsConfig[i];
-        const startingPos = 0 + (assetData.page * window.innerWidth);
+        const startingPosX = 0 + (assetData.page * window.innerWidth) + (window.innerWidth * assetData.ratioX);
+        const startingPosY = (window.innerHeight * assetData.ratioY);
 
         gsap.set(assetEl, { 
-          x: startingPos,
+          x: startingPosX,
+          y: startingPosY,
           rotate: assetData.rotation,
-          scale: assetData.scale,
+          scale: 2.5 - (assetData.depth * 0.5),
         });
       }
     });
@@ -223,8 +204,10 @@ export default function Portfolio() {
       // floating assets parallax animation
       floatingAssetsRefs.current.forEach((asset, i) => {
         if (asset) {
-          const starOffset = -(index - activeSection) * (window.innerWidth * 0.8);
-          const angleOffset = (index - activeSection) * 30;
+          const assetConfig = floatingAssetsConfig[i];
+          const starOffset = -(index - activeSection) * (window.innerWidth * 0.8) * (1 - (assetConfig.depth / 16));
+          const angleOffset = (index - activeSection) * 30 * (1 - (assetConfig.depth / 6));
+          console.log(`Animating asset ${assetConfig.id} with offset: ${starOffset}, angle: ${angleOffset}`);
           gsap.to(asset, {
             x: `+=${starOffset}`,
             rotation: `+=${angleOffset}`,
@@ -336,7 +319,7 @@ export default function Portfolio() {
             bottom: asset.bottom,
             left: asset.left,
             right: asset.right,
-            filter: `blur(${asset.blurAmt}px)`
+            filter: `blur(${3 * asset.depth}px)`
           }}
         >
           <video 
