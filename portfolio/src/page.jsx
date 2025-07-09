@@ -22,8 +22,7 @@ export default function Portfolio() {
   const continuousAnimationRef = useRef(null)
   const scrollRefs = useRef([null, null, null]);
   const floatingAssetsRefs = useRef([]);
-  // TODO: Get rid of the top and right stuff and just set the x and y directly
-  //       relative to the screen width and height
+
   const floatingAssetsConfig = [
     {
       id: "p1TopRight",
@@ -107,12 +106,21 @@ export default function Portfolio() {
 
   // Star scroll movement animation
   useEffect(() => {
+    // Store initial Y positions for floating assets
+    const initialYs = floatingAssetsRefs.current.map((assetEl, i) => {
+      if (assetEl) {
+        const assetData = floatingAssetsConfig[i];
+        return window.innerHeight * assetData.ratioY;
+      }
+      return 0;
+    });
+
     const activeScrollContainer = scrollRefs.current[activeSection];
     if (!activeScrollContainer) return;
 
     // Create optimized GSAP setters for Y transforms
-    const ySetters = floatingAssetsRefs.current.map((assetE1) =>
-      gsap.quickTo(assetE1, "y", {
+    const ySetters = floatingAssetsRefs.current.map((assetEl) =>
+      gsap.quickTo(assetEl, "y", {
         duration: 0.1,
         ease: "power1.out",
       })
@@ -126,9 +134,9 @@ export default function Portfolio() {
       scrollAnimationFrame = requestAnimationFrame(() => {
         const scrollY = activeScrollContainer.scrollTop;
 
-        ySetters.forEach((setY) => {
+        ySetters.forEach((setY, i) => {
           const offset = -scrollY * 0.1;
-          setY(offset);
+          setY(initialYs[i] + offset);
         });
 
         scrollAnimationFrame = null;
@@ -141,7 +149,7 @@ export default function Portfolio() {
       activeScrollContainer.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(scrollAnimationFrame);
     };
-  }, [activeSection]);
+  }, [activeSection, floatingAssetsConfig]);
 
   const navigateToSection = (index) => {
     if (containerRef.current && backgroundRef.current) {
