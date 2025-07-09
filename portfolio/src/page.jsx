@@ -145,11 +145,19 @@ export default function Portfolio() {
 
   const navigateToSection = (index) => {
     if (containerRef.current && backgroundRef.current) {
+      let bgColourStart = "#c8d2d7";
+      let bgColourEnd = "#9eadb4";
+
+      if (index === 1) {
+        // Work section — solid dark
+        bgColourStart = '#414c52';
+        bgColourEnd = '#353e42';
+      }
 
       const translateX = -index * window.innerWidth;
 
-      // Calculate new gradient angle (30 degrees per section)
-      const newBaseAngle = 150 + index * 30;
+      // Calculate new gradient angle (15 degrees per section)
+      const newBaseAngle = 195 - index * 15;
       gradientAngleRef.current = newBaseAngle
 
       // Animate both the section transition and gradient angle
@@ -164,6 +172,15 @@ export default function Portfolio() {
         backgroundRef.current,
         {
           "--gradient-angle": `${newBaseAngle}deg`,
+          duration: 0.8,
+          ease: "power2.inOut",
+        },
+        0,
+      ).to(
+        backgroundRef.current,
+        {
+          "--color-start": `${bgColourStart}`,
+          "--color-end": `${bgColourEnd}`,
           duration: 0.8,
           ease: "power2.inOut",
         },
@@ -187,6 +204,13 @@ export default function Portfolio() {
       });
 
       setActiveSection(index)
+      if (backgroundRef.current) {
+        if (index === 1) {
+          backgroundRef.current.classList.add("work-active");
+        } else {
+          backgroundRef.current.classList.remove("work-active");
+        }
+      }
     }
   }
 
@@ -489,8 +513,8 @@ export default function Portfolio() {
                 </div>
 
                 <div className="footer-info">
-                  <span className="name">Philip Gilhespy</span>
-                  <div className="social-links">
+                  <span className="name dark-mode">Philip Gilhespy</span>
+                  <div className="social-links dark-mode">
                     <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
                       <Instagram size={20} />
                     </a>
