@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
 import ImageFollow from './ImageFollow';
-import cursorImage from './Content/cursor1.svg';
+import cursorImage from './Content/cursor2.svg';
 import reel from './Content/WebsiteReel1.1.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import anthemLogo from './Content/anthemLogo2.svg';
