@@ -9,6 +9,10 @@ import reel from './Content/WebsiteReel1.1.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import anthemLogo from './Content/anthemLogo2.svg';
 import brickedLogo from './Content/brickedcoLogo1.svg';
+import hercLogo from './Content/hercLogo1.svg';
+import ltbcLogo from './Content/ltbcLogo1.svg';
+import portfolioLogo from './Content/portfolioLogo1.svg';
+import sfLogo from './Content/sfLogo1.svg';
 import starVideo from './Content/chrome1.1.webm';
 import './globals.css';
 
@@ -279,6 +283,7 @@ export default function Portfolio() {
         description: "Built a comprehensive business management platform using React and Node.js.",
         details:
           "Developed custom CRM, inventory management, and reporting systems. Integrated payment processing and automated workflows.",
+        logo: sfLogo,
       },
       {
         key: "ltb",
@@ -287,6 +292,7 @@ export default function Portfolio() {
         description: "Created responsive web applications for consulting firm clients.",
         details:
           "Built multiple client portals, implemented data visualization dashboards, and optimized for mobile performance.",
+        logo: ltbcLogo,
       },
       {
         key: "portfolio",
@@ -294,6 +300,7 @@ export default function Portfolio() {
         role: "Designer & Developer",
         description: "This very website you're looking at! Built with React, GSAP, and lots of creativity.",
         details: "Designed in Figma, built with React and Next.js, animated with GSAP, and deployed on Vercel.",
+        logo: portfolioLogo,
       },
     ],
     design: [
@@ -304,6 +311,7 @@ export default function Portfolio() {
         description: "Complete brand identity design for fitness coaching business.",
         details:
           "Created logo, brand guidelines, marketing materials, and social media templates. Designed mobile app UI/UX.",
+        logo: hercLogo,
       },
     ],
   }
@@ -480,7 +488,9 @@ export default function Portfolio() {
                             >
                               <div className="work-item-header">
                                 <span className="project-title">{project.title}</span>
-                                <img src={project.logo} className="project-logo" />
+                                <div className="project-logo">
+                                  <img src={project.logo} />
+                                </div>
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
@@ -503,7 +513,9 @@ export default function Portfolio() {
                             >
                               <div className="work-item-header">
                                 <span className="project-title">{project.title}</span>
-                                <img src={project.logo} className="project-logo" />
+                                <div className="project-logo">
+                                  <img src={project.logo} />
+                                </div>
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
