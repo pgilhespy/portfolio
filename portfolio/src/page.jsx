@@ -5,6 +5,7 @@ import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
 import ImageFollow from './ImageFollow';
 import cursorImage from './Content/cursor2.svg';
+import mailImage from './Content/mail2.svg';
 import reel from './Content/WebsiteReel1.1.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import anthemLogo from './Content/anthemLogo2.svg';
@@ -230,11 +231,12 @@ export default function Portfolio() {
     setExpandedWorkItem(expandedWorkItem === itemKey ? null : itemKey)
   }
 
-  const HeroVisual = () => (
+  const HeroVisual = ({ imgSrc, size }) => (
       <ImageFollow
-        image={cursorImage}
+        image={imgSrc}
         containerRef={backgroundRef} // .portfolio-container
         boundsRef={heroVisualContainerRef} // .hero-visual-container
+        size={size}
       />
   )
 
@@ -367,7 +369,7 @@ export default function Portfolio() {
                             </p>
                           </div>
                           <div className="hero-visual-container-mobile">
-                            <HeroVisual />
+                            <HeroVisual imgSrc={cursorImage} size={25} />
                           </div>
                           <div className="description">
                             <p>
@@ -380,7 +382,7 @@ export default function Portfolio() {
                           </div>
                         </div>
                         <div className="hero-visual-container" ref={heroVisualContainerRef} >
-                          <HeroVisual />
+                          <HeroVisual imgSrc={cursorImage} size={25} />
                         </div>
                       </div>
 
@@ -561,7 +563,7 @@ export default function Portfolio() {
                     <div className="contact-hero-content">
                       <div className="contact-hero-top-section">
                         <div className="hero-visual-container">
-                          <HeroVisual />
+                          <HeroVisual imgSrc={mailImage} size={40} />
                         </div>
                         <div className="contact-hero-right-top">
                           <div>
@@ -577,7 +579,7 @@ export default function Portfolio() {
                             </p>
                           </div>
                           <div className="hero-visual-container-mobile">
-                            <HeroVisual />
+                            <HeroVisual imgSrc={mailImage} size={40} />
                           </div>
                           <div className="description">
                             <p>

@@ -4,7 +4,7 @@ import gsap from 'gsap';
 const MAX_OFFSET = 12;
 const MAX_ROTATION = 3; // in degrees
 
-export default function ImageFollow({ image, containerRef, boundsRef }) {
+export default function ImageFollow({ image, containerRef, boundsRef, size }) {
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function ImageFollow({ image, containerRef, boundsRef }) {
       src={image}
       alt="cursor visual"
       style={{
-        width: '25%',
+        width: `${size}%`,
         height: 'auto',
         pointerEvents: 'none',
         willChange: 'transform',
