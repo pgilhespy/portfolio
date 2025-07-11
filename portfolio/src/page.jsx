@@ -8,6 +8,7 @@ import cursorImage from './Content/cursor2.svg';
 import mailImage from './Content/mail2.svg';
 import reel from './Content/WebsiteReel1.1.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
+import speedbookingVideo from './Content/speedbookingVideo.mp4';
 import anthemLogo from './Content/anthemLogo2.svg';
 import brickedLogo from './Content/brickedcoLogo1.svg';
 import hercLogo from './Content/hercLogo1.svg';
@@ -247,72 +248,106 @@ export default function Portfolio() {
         title: "SpeedBooking UK",
         role: "Motion Graphics Editor",
         description:
-          "Created engaging animation and motion graphics utilizing Adobe After Effects to accompany informative content. \
-          Worked alongside the client to narrow down requirements, extract key ideas, write scripts and bring their vision to life. \
-          Also Designed compelling promotional content that increased customer engagement and contributed to a higher conversion \
-          rate for fast-track driving test bookings",
+          "As Speedbooking UK’s go-to motion designer, I’ve produced over 30 animated videos \
+          that clarify complex information and promote fast-track driving test bookings. \
+          From scriptwriting to final edits, I work closely with the team to distill their \
+          ideas into sleek, engaging motion graphics that drive results across social \
+          platforms.",
         details:
           "Produced over 30 promotional and informative videos for social media platforms.",
         logo: speedbookingLogo,
+        content: speedbookingVideo,
+        veritcal: true,
       },
       {
         key: "anthem",
         title: "Anthem",
-        role: "Creative Director",
-        description: "Full creative direction for music video production and brand storytelling.",
+        role: "Video Editor",
+        description: 
+          "I crafted a cinematic highlight reel for Anthem’s corporate event, \
+          handling everything from colour grading to motion logo design. Working \
+          side-by-side with the client, I matched music, visuals, and pacing to \
+          their brand—creating a polished, high-energy video that captured the \
+          event’s atmosphere.",
         details:
-          "Directed and edited multiple music videos, handled color grading, and managed post-production workflow.",
+          "Showcased a company event through dynamic video, cinematic editing \
+          and custom motion design.",
         logo: anthemLogo,
+        content: reel,
       },
       {
         key: "bricked",
         title: "Bricked Co",
-        role: "Editor",
+        role: "Video Editor",
         description:
-          "Full length videos for the brand including music videos, short content, sound effects, etc. Have been doing this for several years now. Passion project of mine.",
+          "As a part-owner of this skate brand, I edit both full-length and short-form \
+          content for YouTube and social media. Each piece is built from the ground up, \
+          with attention to pacing, music, sound design, and brand tone.",
         testimonial: '"This guy is pretty chill lowkey"',
         client: "- Client Co-Owner",
         details:
-          "Long-term collaboration producing weekly content, music videos, and brand campaigns. Managed entire post-production pipeline.",
+          "Long-term collaboration producing long form and short form content and \
+          managing the post-production pipeline.",
         logo: brickedLogo,
+        content: reel,
       },
     ],
     coding: [
       {
         key: "standardfusion",
         title: "StandardFusion",
-        role: "Full Stack Developer",
-        description: "Built a comprehensive business management platform using React and Node.js.",
+        role: "Software Developer",
+        description: 
+          "During my 8-month co-op, I built internal tools that enhanced workflow \
+          efficiency—most notably, a converter that turned Excel compliance checklists \
+          into XML for the web app. I also automated processes by integrating with \
+          external APIs like GitHub and Coda, helping streamline compliance management.",
         details:
-          "Developed custom CRM, inventory management, and reporting systems. Integrated payment processing and automated workflows.",
+          "Developed standalone software as well as seamless integrations with the \
+          StandardFusion web app.",
         logo: sfLogo,
-      },
-      {
-        key: "ltb",
-        title: "LT&B Consulting",
-        role: "Frontend Developer",
-        description: "Created responsive web applications for consulting firm clients.",
-        details:
-          "Built multiple client portals, implemented data visualization dashboards, and optimized for mobile performance.",
-        logo: ltbcLogo,
       },
       {
         key: "portfolio",
         title: "Personal Portfolio",
-        role: "Designer & Developer",
-        description: "This very website you're looking at! Built with React, GSAP, and lots of creativity.",
-        details: "Designed in Figma, built with React and Next.js, animated with GSAP, and deployed on Vercel.",
+        role: "Frontend Designer & Developer",
+        description: 
+          "This site is hand-coded from the ground up with React and Next.js, animated \
+          using GSAP, and styled with custom CSS to reflect my design sensibilities. \
+          Everything—from layout to transitions—was planned in Figma before being brought \
+          to life in code.",
+        details: 
+          "Designed in Figma, built with React and Next.js, animated with GSAP, \
+          and deployed on GitHub.",
         logo: portfolioLogo,
       },
     ],
     design: [
       {
+        key: "ltb",
+        title: "LT&B Consulting",
+        role: "Web Designer",
+        description: 
+          "I redesigned LT&B’s website from a basic one-pager into a fully realized, \
+          six-page site with custom visuals and embedded video. Working within the client’s \
+          existing toolkit, I delivered a modern, professional web presence that better \
+          communicates their expertise.",
+        details:
+          "Took an engineering consultant’s website from being a single page to a professional \
+          multi-page site.",
+        logo: ltbcLogo,
+      },
+      {
         key: "hercules",
         title: "M Hercules Fitness",
-        role: "Brand Designer",
-        description: "Complete brand identity design for fitness coaching business.",
+        role: "Graphic Designer",
+        description: 
+          "I transformed a plain-text PDF into a professionally designed, 9-page flyer for \
+          a fitness coach to share with clients. With a strong visual theme, intuitive layout, \
+          and collaborative revisions, the final product reflects both clarity and style.",
         details:
-          "Created logo, brand guidelines, marketing materials, and social media templates. Designed mobile app UI/UX.",
+          "Turned a plain pdf document of text into a visually engaging flyer for a personal \
+          trainer to send to his clients.",
         logo: hercLogo,
       },
     ],
@@ -472,7 +507,7 @@ export default function Portfolio() {
                                     <p className="details">{project.details}</p>
                                   </div>
                                   <div className="work-item-expanded-right" >
-                                    <video autoPlay loop muted playsInline src={reel} controls />
+                                    <video autoPlay loop muted playsInline src={project.content} controls />
                                   </div>
                                 </div>
                               )}

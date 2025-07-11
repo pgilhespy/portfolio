@@ -443,21 +443,21 @@ button:focus:not(:focus-visible) {
 .testimonial {
   margin: 0.5rem 0;
   padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
 }
 
 .testimonial blockquote {
   font-style: italic;
   font-size: 0.85rem;
-  color: #2d3436;
+  color: white;
   margin-bottom: 0.25rem;
   font-weight: 400;
 }
 
 .testimonial cite {
   font-size: 0.75rem;
-  color: #636e72;
+  color: #c8d2d7;
   font-weight: 500;
 }
 
