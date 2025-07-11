@@ -310,7 +310,7 @@ button:focus:not(:focus-visible) {
 }
 
 .category-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: white;
   margin-bottom: 1rem;
@@ -347,7 +347,7 @@ button:focus:not(:focus-visible) {
 }
 
 .project-title {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: white;
   font-variation-settings: "wght" 500;
   transition: font-variation-settings 0.3s ease;
@@ -355,7 +355,7 @@ button:focus:not(:focus-visible) {
 
 .project-logo {
   width: 45px;
-  height: 1.2rem;
+  height: 1.8rem;
   margin-right: 0rem;
   transition: margin-right 0.3s ease;
   display: flex;
@@ -365,7 +365,6 @@ button:focus:not(:focus-visible) {
 }
 
 .project-logo img {
-  max-width: 100%;
   max-height: 100%;
   filter: invert(1);
 }
@@ -417,7 +416,7 @@ button:focus:not(:focus-visible) {
 }
 
 .work-item-expanded .role {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   color: #c8d2d7;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -425,7 +424,7 @@ button:focus:not(:focus-visible) {
 }
 
 .work-item-expanded .description {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   line-height: 1.4;
   color: white;
   margin-bottom: 0.5rem;
@@ -434,7 +433,7 @@ button:focus:not(:focus-visible) {
 }
 
 .work-item-expanded .details {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 1.4;
   color: #c8d2d7;
   font-weight: 400;
@@ -449,14 +448,14 @@ button:focus:not(:focus-visible) {
 
 .testimonial blockquote {
   font-style: italic;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   color: white;
   margin-bottom: 0.25rem;
   font-weight: 400;
 }
 
 .testimonial cite {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: #c8d2d7;
   font-weight: 500;
 }

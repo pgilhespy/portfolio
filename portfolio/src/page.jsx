@@ -11,6 +11,7 @@ import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import speedbookingVideo from './Content/speedbookingVideo.mp4';
 import anthemLogo from './Content/anthemLogo2.svg';
 import brickedLogo from './Content/brickedcoLogo1.svg';
+import brickedcoVideo from './Content/brickedcoVideo.mp4';
 import hercLogo from './Content/hercLogo1.svg';
 import ltbcLogo from './Content/ltbcLogo1.svg';
 import portfolioLogo from './Content/portfolioLogo1.svg';
@@ -255,6 +256,8 @@ export default function Portfolio() {
           platforms.",
         details:
           "Produced over 30 promotional and informative videos for social media platforms.",
+        testimonial: '"He makes decent videos"',
+        client: "- Jessiah Hercules, CEO",
         logo: speedbookingLogo,
         content: speedbookingVideo,
         veritcal: true,
@@ -284,12 +287,12 @@ export default function Portfolio() {
           content for YouTube and social media. Each piece is built from the ground up, \
           with attention to pacing, music, sound design, and brand tone.",
         testimonial: '"This guy is pretty chill lowkey"',
-        client: "- Client Co-Owner",
+        client: "- Caleb Liu, Co-Owner",
         details:
           "Long-term collaboration producing long form and short form content and \
           managing the post-production pipeline.",
         logo: brickedLogo,
-        content: reel,
+        content: brickedcoVideo,
       },
     ],
     coding: [
