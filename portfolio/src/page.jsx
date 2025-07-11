@@ -13,6 +13,7 @@ import anthemLogo from './Content/anthemLogo2.svg';
 import brickedLogo from './Content/brickedcoLogo1.svg';
 import brickedcoVideo from './Content/brickedcoVideo.mp4';
 import hercLogo from './Content/hercLogo1.svg';
+import hercImage from './Content/herculesImage.png';
 import ltbcLogo from './Content/ltbcLogo1.svg';
 import portfolioLogo from './Content/portfolioLogo1.svg';
 import sfLogo from './Content/sfLogo1.svg';
@@ -260,7 +261,7 @@ export default function Portfolio() {
         client: "- Jessiah Hercules, CEO",
         logo: speedbookingLogo,
         content: speedbookingVideo,
-        veritcal: true,
+        video: true,
       },
       {
         key: "anthem",
@@ -276,7 +277,8 @@ export default function Portfolio() {
           "Showcased a company event through dynamic video, cinematic editing \
           and custom motion design.",
         logo: anthemLogo,
-        content: reel,
+        content: hercImage,
+        video: false,
       },
       {
         key: "bricked",
@@ -293,6 +295,7 @@ export default function Portfolio() {
           managing the post-production pipeline.",
         logo: brickedLogo,
         content: brickedcoVideo,
+        video: true,
       },
     ],
     coding: [
@@ -309,6 +312,7 @@ export default function Portfolio() {
           "Developed standalone software as well as seamless integrations with the \
           StandardFusion web app.",
         logo: sfLogo,
+        video: false,
       },
       {
         key: "portfolio",
@@ -323,6 +327,7 @@ export default function Portfolio() {
           "Designed in Figma, built with React and Next.js, animated with GSAP, \
           and deployed on GitHub.",
         logo: portfolioLogo,
+        video: true,
       },
     ],
     design: [
@@ -339,6 +344,7 @@ export default function Portfolio() {
           "Took an engineering consultant’s website from being a single page to a professional \
           multi-page site.",
         logo: ltbcLogo,
+        video: true,
       },
       {
         key: "hercules",
@@ -352,6 +358,8 @@ export default function Portfolio() {
           "Turned a plain pdf document of text into a visually engaging flyer for a personal \
           trainer to send to his clients.",
         logo: hercLogo,
+        content: hercImage,
+        video: false,
       },
     ],
   }
@@ -510,7 +518,11 @@ export default function Portfolio() {
                                     <p className="details">{project.details}</p>
                                   </div>
                                   <div className="work-item-expanded-right" >
-                                    <video autoPlay loop muted playsInline src={project.content} controls />
+                                    {project.video ? (
+                                      <video autoPlay loop muted playsInline src={project.content} controls />
+                                    ) : (
+                                      <img src={project.content} alt={`${project.title} visual`} />
+                                    )}
                                   </div>
                                 </div>
                               )}
@@ -534,9 +546,24 @@ export default function Portfolio() {
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
-                                  <p className="role">{project.role}</p>
-                                  <p className="description">{project.description}</p>
-                                  <p className="details">{project.details}</p>
+                                  <div className="work-item-expanded-left" >
+                                    <p className="role">{project.role}</p>
+                                    <p className="description">{project.description}</p>
+                                    {project.testimonial && (
+                                      <div className="testimonial">
+                                        <blockquote>{project.testimonial}</blockquote>
+                                        <cite>{project.client}</cite>
+                                      </div>
+                                    )}
+                                    <p className="details">{project.details}</p>
+                                  </div>
+                                  <div className="work-item-expanded-right" >
+                                    {project.video ? (
+                                      <video autoPlay loop muted playsInline src={project.content} controls />
+                                    ) : (
+                                      <img src={project.content} alt={`${project.title} visual`} />
+                                    )}
+                                  </div>
                                 </div>
                               )}
                             </div>
@@ -559,9 +586,24 @@ export default function Portfolio() {
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
-                                  <p className="role">{project.role}</p>
-                                  <p className="description">{project.description}</p>
-                                  <p className="details">{project.details}</p>
+                                  <div className="work-item-expanded-left" >
+                                    <p className="role">{project.role}</p>
+                                    <p className="description">{project.description}</p>
+                                    {project.testimonial && (
+                                      <div className="testimonial">
+                                        <blockquote>{project.testimonial}</blockquote>
+                                        <cite>{project.client}</cite>
+                                      </div>
+                                    )}
+                                    <p className="details">{project.details}</p>
+                                  </div>
+                                  <div className="work-item-expanded-right" >
+                                    {project.video ? (
+                                      <video autoPlay loop muted playsInline src={project.content} controls />
+                                    ) : (
+                                      <img src={project.content} alt={`${project.title} visual`} />
+                                    )}
+                                  </div>
                                 </div>
                               )}
                             </div>
