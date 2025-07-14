@@ -10,6 +10,7 @@ import reel from './Content/WebsiteReel1.1.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import speedbookingVideo from './Content/speedbookingVideo.mp4';
 import anthemLogo from './Content/anthemLogo2.svg';
+import anthemVideo from './Content/anthemVideo.mp4';
 import brickedLogo from './Content/brickedcoLogo1.svg';
 import brickedcoVideo from './Content/brickedcoVideo.mp4';
 import hercLogo from './Content/hercLogo1.svg';
@@ -279,8 +280,8 @@ export default function Portfolio() {
           "Showcased a company event through dynamic video, cinematic editing \
           and custom motion design.",
         logo: anthemLogo,
-        content: hercImage,
-        video: false,
+        content: anthemVideo,
+        video: true,
       },
       {
         key: "bricked",
