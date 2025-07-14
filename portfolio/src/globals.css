@@ -696,11 +696,12 @@ button:focus:not(:focus-visible) {
 /* SMALLER SCREEN */
 @media (max-width: 768px) {
   .main-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .description {
     margin-bottom: 0;
+    max-width: none;
   }
 
   .hero-visual-container {
@@ -718,7 +719,7 @@ button:focus:not(:focus-visible) {
   }
 
   .hero-left-bottom {
-    padding-right: 2rem;
+    padding-right: 0;
   }
 
   .work-header-card {
@@ -752,6 +753,10 @@ button:focus:not(:focus-visible) {
   .contact-info {
     text-align: center;
     max-width: none;
+  }
+
+  .contact-hero-right-top {
+    align-items: normal;
   }
 
   .profile-section {
@@ -802,7 +807,7 @@ button:focus:not(:focus-visible) {
 /* PHONE SCREEN */
 @media (max-width: 480px) {
   .main-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .description {
