@@ -182,6 +182,28 @@ body {
   transform: translateY(-2px);
 }
 
+.testimonial-button {
+  background: transparent;
+  color: #c8d2d7;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+  outline: 1px solid #c8d2d7;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-button:hover {
+  background: #c8d2d7;
+  color: #414c52;
+  outline: 1px solid #c8d2d7;
+  transform: translateY(-2px);
+}
+
 button:focus:not(:focus-visible) {
   outline: 1px solid black;
 }
@@ -444,20 +466,21 @@ button:focus:not(:focus-visible) {
   line-height: 1.4;
   color: #c8d2d7;
   font-weight: 400;
+  margin-bottom: 1.2rem;
 }
 
 .testimonial {
-  margin: 0.5rem 0;
-  padding: 0.5rem;
+  margin: 0 0 0.5rem 0;
+  padding: 0.6rem;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: 15px;
 }
 
 .testimonial blockquote {
   font-style: italic;
   font-size: 1.2rem;
   color: white;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
   font-weight: 400;
 }
 

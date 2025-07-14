@@ -262,6 +262,7 @@ export default function Portfolio() {
         logo: speedbookingLogo,
         content: speedbookingVideo,
         video: true,
+        link: "https://www.instagram.com/speed_booking_uk/",
       },
       {
         key: "anthem",
@@ -296,6 +297,7 @@ export default function Portfolio() {
         logo: brickedLogo,
         content: brickedcoVideo,
         video: true,
+        link: "https://www.instagram.com/brickedcompany/",
       },
     ],
     coding: [
@@ -516,6 +518,13 @@ export default function Portfolio() {
                                       </div>
                                     )}
                                     <p className="details">{project.details}</p>
+                                    {project.link && (
+                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                        <button className="testimonial-button">
+                                          See More
+                                        </button>
+                                      </a>
+                                    )}
                                   </div>
                                   <div className="work-item-expanded-right" >
                                     {project.video ? (
@@ -556,6 +565,13 @@ export default function Portfolio() {
                                       </div>
                                     )}
                                     <p className="details">{project.details}</p>
+                                    {project.link && (
+                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                        <button className="testimonial-button">
+                                          See More
+                                        </button>
+                                      </a>
+                                    )}
                                   </div>
                                   <div className="work-item-expanded-right" >
                                     {project.video ? (
@@ -596,6 +612,13 @@ export default function Portfolio() {
                                       </div>
                                     )}
                                     <p className="details">{project.details}</p>
+                                    {project.link && (
+                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                        <button className="testimonial-button">
+                                          See More
+                                        </button>
+                                      </a>
+                                    )}
                                   </div>
                                   <div className="work-item-expanded-right" >
                                     {project.video ? (
