@@ -17,6 +17,7 @@ import hercImage from './Content/herculesImage.png';
 import ltbcLogo from './Content/ltbcLogo1.svg';
 import portfolioLogo from './Content/portfolioLogo1.svg';
 import sfLogo from './Content/sfLogo1.svg';
+import sfImage from './Content/sfImage2.jpg';
 import starVideo from './Content/chrome1.1.webm';
 import './globals.css';
 
@@ -314,7 +315,9 @@ export default function Portfolio() {
           "Developed standalone software as well as seamless integrations with the \
           StandardFusion web app.",
         logo: sfLogo,
+        content: sfImage,
         video: false,
+        link: "https://www.standardfusion.com/",
       },
       {
         key: "portfolio",
