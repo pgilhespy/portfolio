@@ -22,6 +22,7 @@ import portfolioVideo from './Content/portfolioVideo.mp4';
 import sfLogo from './Content/sfLogo1.svg';
 import sfImage from './Content/sfImage2.jpg';
 import starVideo from './Content/chrome1.1.webm';
+import contactImage from './Content/contactImage1.png';
 import './globals.css';
 
 export default function Portfolio() {
@@ -708,8 +709,8 @@ export default function Portfolio() {
 
                       <div className="contact-hero-bottom-section">
                         <div className="contact-hero-left-bottom">
-                          <div className="reel-video">
-                            <video autoPlay loop muted playsInline src={reel}></video>
+                          <div className="contact-image">
+                            <img src={contactImage} alt={`contact visual`} />
                           </div>
                         </div>
 
