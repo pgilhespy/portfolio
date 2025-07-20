@@ -16,7 +16,9 @@ import brickedcoVideo from './Content/brickedcoVideo.mp4';
 import hercLogo from './Content/hercLogo1.svg';
 import hercImage from './Content/herculesImage.png';
 import ltbcLogo from './Content/ltbcLogo1.svg';
+import ltbcImage from './Content/ltbcImage.png';
 import portfolioLogo from './Content/portfolioLogo1.svg';
+import portfolioVideo from './Content/portfolioVideo.mp4';
 import sfLogo from './Content/sfLogo1.svg';
 import sfImage from './Content/sfImage2.jpg';
 import starVideo from './Content/chrome1.1.webm';
@@ -333,6 +335,7 @@ export default function Portfolio() {
           "Designed in Figma, built with React and Next.js, animated with GSAP, \
           and deployed on GitHub.",
         logo: portfolioLogo,
+        content: portfolioVideo,
         video: true,
       },
     ],
@@ -350,7 +353,8 @@ export default function Portfolio() {
           "Took an engineering consultant’s website from being a single page to a professional \
           multi-page site.",
         logo: ltbcLogo,
-        video: true,
+        content: ltbcImage,
+        video: false,
       },
       {
         key: "hercules",
@@ -425,11 +429,13 @@ export default function Portfolio() {
                           </div>
                           <div className="description">
                             <p>
-                              <b>I'm a 22 year</b> old creator who can take your digital media to the next level. Whether
-                              your looking for help with websites, videos, advertisements or design, I can take what you have
-                              and elevate it. I understand that every project is unique, which is why I pride myself on building
-                              custom solutions tailored to each client. In doing so I've gained experience with a variety of tools
-                              and participated in every stage of the creative process from planning to publishing.
+                              <b>I’m focused on </b> creating tailored, 
+                              effective solutions across web, video, and brand. Every project is different, 
+                              and I bring a flexible, full-stack creative approach to meet each one’s unique 
+                              needs. From concept to final product, I deliver work that’s cohesive, compelling, 
+                              and built to stand out. <br /><br />
+                              
+                              <b>Let’s make something great.</b>
                             </p>
                           </div>
                         </div>
@@ -690,9 +696,11 @@ export default function Portfolio() {
                           </div>
                           <div className="description">
                             <p>
-                              <b>I'm always looking</b> for projects to work on, whether that's a simple design or a combination
-                              of the 3 skills needed to create and run here to help. So please don't hesitate to get in
-                              touch and let's discuss further.
+                              <b>I'm always open</b> to new projects, collaborations, 
+                              or conversations. If you have an idea, a question, 
+                              or just want to connect, feel free to reach out. 
+                              No project is too big or too early—I'm happy to discuss 
+                              how we can bring it to life.
                             </p>
                           </div>
                         </div>
