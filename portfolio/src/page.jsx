@@ -6,7 +6,7 @@ import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
 import ImageFollow from './ImageFollow';
 import cursorImage from './Content/cursor2.svg';
 import mailImage from './Content/mail2.svg';
-import reel from './Content/WebsiteReel1.1.mp4';
+import reel from './Content/WebsiteReel2.0.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import speedbookingVideo from './Content/speedbookingVideo.mp4';
 import anthemLogo from './Content/anthemLogo2.svg';
@@ -454,7 +454,7 @@ export default function Portfolio() {
 
                         <div className="hero-right-bottom">
                           <div className="reel-video">
-                            <video autoPlay loop muted playsInline src={reel} />
+                            <video autoPlay loop muted playsInline src={reel} controls />
                           </div>
                         </div>
                       </div>
