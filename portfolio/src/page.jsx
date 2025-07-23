@@ -262,8 +262,8 @@ export default function Portfolio() {
           platforms.",
         details:
           "Produced over 30 promotional and informative videos for social media platforms.",
-        testimonial: '"He makes decent videos"',
-        client: "- Jessiah Hercules, CEO",
+        testimonial: '"He\'s been a game-changer. Couldn\'t reccommend him more."',
+        client: "- Jessiah Hercules, CEO Speed Booking UK",
         logo: speedbookingLogo,
         content: speedbookingVideo,
         video: true,
@@ -294,7 +294,7 @@ export default function Portfolio() {
           "As a part-owner of this skate brand, I edit both full-length and short-form \
           content for YouTube and social media. Each piece is built from the ground up, \
           with attention to pacing, music, sound design, and brand tone.",
-        testimonial: '"This guy is pretty chill lowkey"',
+        testimonial: '"Phil\'s created all our video content since day one."',
         client: "- Caleb Liu, Co-Owner",
         details:
           "Long-term collaboration producing long form and short form content and \
@@ -368,6 +368,8 @@ export default function Portfolio() {
         details:
           "Turned a plain pdf document of text into a visually engaging flyer for a personal \
           trainer to send to his clients.",
+        testimonial: '"He\'s one of the easiest people to work with."',
+        client: "- Malachi Hercules, Owner",
         logo: hercLogo,
         content: hercImage,
         video: false,
@@ -522,13 +524,13 @@ export default function Portfolio() {
                                   <div className="work-item-expanded-left" >
                                     <p className="role">{project.role}</p>
                                     <p className="description">{project.description}</p>
+                                    <p className="details">{project.details}</p>
                                     {project.testimonial && (
                                       <div className="testimonial">
                                         <blockquote>{project.testimonial}</blockquote>
                                         <cite>{project.client}</cite>
                                       </div>
                                     )}
-                                    <p className="details">{project.details}</p>
                                     {project.link && (
                                       <a href={project.link} target="_blank" rel="noopener noreferrer">
                                         <button className="testimonial-button">
@@ -569,13 +571,13 @@ export default function Portfolio() {
                                   <div className="work-item-expanded-left" >
                                     <p className="role">{project.role}</p>
                                     <p className="description">{project.description}</p>
+                                    <p className="details">{project.details}</p>
                                     {project.testimonial && (
                                       <div className="testimonial">
                                         <blockquote>{project.testimonial}</blockquote>
                                         <cite>{project.client}</cite>
                                       </div>
                                     )}
-                                    <p className="details">{project.details}</p>
                                     {project.link && (
                                       <a href={project.link} target="_blank" rel="noopener noreferrer">
                                         <button className="testimonial-button">
@@ -616,13 +618,13 @@ export default function Portfolio() {
                                   <div className="work-item-expanded-left" >
                                     <p className="role">{project.role}</p>
                                     <p className="description">{project.description}</p>
+                                    <p className="details">{project.details}</p>
                                     {project.testimonial && (
                                       <div className="testimonial">
                                         <blockquote>{project.testimonial}</blockquote>
                                         <cite>{project.client}</cite>
                                       </div>
                                     )}
-                                    <p className="details">{project.details}</p>
                                     {project.link && (
                                       <a href={project.link} target="_blank" rel="noopener noreferrer">
                                         <button className="testimonial-button">
