@@ -4,12 +4,26 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
 import ImageFollow from './ImageFollow';
-import cursorImage from './Content/cursor1.svg';
-import reel from './Content/WebsiteReel1.1.mp4';
+import cursorImage from './Content/cursor2.svg';
+import mailImage from './Content/mail2.svg';
+import reel from './Content/WebsiteReel2.0.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
+import speedbookingVideo from './Content/speedbookingVideo.mp4';
 import anthemLogo from './Content/anthemLogo2.svg';
+import anthemVideo from './Content/anthemVideo.mp4';
 import brickedLogo from './Content/brickedcoLogo1.svg';
-import starVideo from './Content/chrome1.1.webm';
+import brickedcoVideo from './Content/brickedcoVideo.mp4';
+import hercLogo from './Content/hercLogo1.svg';
+import hercImage from './Content/herculesImage.png';
+import ltbcLogo from './Content/ltbcLogo1.svg';
+import ltbcImage from './Content/ltbcImage.png';
+import portfolioLogo from './Content/portfolioLogo1.svg';
+import portfolioVideo from './Content/portfolioVideo.mp4';
+import sfLogo from './Content/sfLogo1.svg';
+import sfImage from './Content/sfImage2.jpg';
+import starVideoChrome from './Content/chrome1.1.webm';
+import starVideoSafari from './Content/chrome1.1-safari.mov';
+import contactImage from './Content/contactImage1.png';
 import './globals.css';
 
 export default function Portfolio() {
@@ -226,11 +240,12 @@ export default function Portfolio() {
     setExpandedWorkItem(expandedWorkItem === itemKey ? null : itemKey)
   }
 
-  const HeroVisual = () => (
+  const HeroVisual = ({ imgSrc, size }) => (
       <ImageFollow
-        image={cursorImage}
+        image={imgSrc}
         containerRef={backgroundRef} // .portfolio-container
         boundsRef={heroVisualContainerRef} // .hero-visual-container
+        size={size}
       />
   )
 
@@ -241,69 +256,124 @@ export default function Portfolio() {
         title: "SpeedBooking UK",
         role: "Motion Graphics Editor",
         description:
-          "Created engaging animation and motion graphics utilizing Adobe After Effects to accompany informative content. \
-          Worked alongside the client to narrow down requirements, extract key ideas, write scripts and bring their vision to life. \
-          Also Designed compelling promotional content that increased customer engagement and contributed to a higher conversion \
-          rate for fast-track driving test bookings",
+          "As Speedbooking UK’s go-to motion designer, I’ve produced over 30 animated videos \
+          that clarify complex information and promote fast-track driving test bookings. \
+          From scriptwriting to final edits, I work closely with the team to distill their \
+          ideas into sleek, engaging motion graphics that drive results across social \
+          platforms.",
         details:
           "Produced over 30 promotional and informative videos for social media platforms.",
+        testimonial: '"He\'s been a game-changer. Couldn\'t reccommend him more."',
+        client: "- Jessiah Hercules, CEO Speed Booking UK",
         logo: speedbookingLogo,
+        content: speedbookingVideo,
+        video: true,
+        link: "https://www.instagram.com/speed_booking_uk/",
       },
       {
         key: "anthem",
         title: "Anthem",
-        role: "Creative Director",
-        description: "Full creative direction for music video production and brand storytelling.",
+        role: "Video Editor",
+        description: 
+          "I crafted a cinematic highlight reel for Anthem’s corporate event, \
+          handling everything from colour grading to motion logo design. Working \
+          side-by-side with the client, I matched music, visuals, and pacing to \
+          their brand—creating a polished, high-energy video that captured the \
+          event’s atmosphere.",
         details:
-          "Directed and edited multiple music videos, handled color grading, and managed post-production workflow.",
+          "Showcased a company event through dynamic video, cinematic editing \
+          and custom motion design.",
         logo: anthemLogo,
+        content: anthemVideo,
+        video: true,
       },
       {
         key: "bricked",
         title: "Bricked Co",
-        role: "Editor",
+        role: "Video Editor",
         description:
-          "Full length videos for the brand including music videos, short content, sound effects, etc. Have been doing this for several years now. Passion project of mine.",
-        testimonial: '"This guy is pretty chill lowkey"',
-        client: "- Client Co-Owner",
+          "As a part-owner of this skate brand, I edit both full-length and short-form \
+          content for YouTube and social media. Each piece is built from the ground up, \
+          with attention to pacing, music, sound design, and brand tone.",
+        testimonial: '"His edits make our near-death experiences come to life."',
+        client: "- Caleb Liu, Co-Owner",
         details:
-          "Long-term collaboration producing weekly content, music videos, and brand campaigns. Managed entire post-production pipeline.",
+          "Long-term collaboration producing long form and short form content and \
+          managing the post-production pipeline.",
         logo: brickedLogo,
+        content: brickedcoVideo,
+        video: true,
+        link: "https://www.instagram.com/brickedcompany/",
       },
     ],
     coding: [
       {
         key: "standardfusion",
         title: "StandardFusion",
-        role: "Full Stack Developer",
-        description: "Built a comprehensive business management platform using React and Node.js.",
+        role: "Software Developer",
+        description: 
+          "During my 8-month co-op, I built internal tools that enhanced workflow \
+          efficiency—most notably, a converter that turned Excel compliance checklists \
+          into XML for the web app. I also automated processes by integrating with \
+          external APIs like GitHub and Coda, helping streamline compliance management.",
         details:
-          "Developed custom CRM, inventory management, and reporting systems. Integrated payment processing and automated workflows.",
-      },
-      {
-        key: "ltb",
-        title: "LT&B Consulting",
-        role: "Frontend Developer",
-        description: "Created responsive web applications for consulting firm clients.",
-        details:
-          "Built multiple client portals, implemented data visualization dashboards, and optimized for mobile performance.",
+          "Developed standalone software as well as seamless integrations with the \
+          StandardFusion web app.",
+        logo: sfLogo,
+        content: sfImage,
+        video: false,
+        link: "https://www.standardfusion.com/",
       },
       {
         key: "portfolio",
         title: "Personal Portfolio",
-        role: "Designer & Developer",
-        description: "This very website you're looking at! Built with React, GSAP, and lots of creativity.",
-        details: "Designed in Figma, built with React and Next.js, animated with GSAP, and deployed on Vercel.",
+        role: "Frontend Designer & Developer",
+        description: 
+          "This site is hand-coded from the ground up with React and Next.js, animated \
+          using GSAP, and styled with custom CSS to reflect my design sensibilities. \
+          Everything—from layout to transitions—was planned in Figma before being brought \
+          to life in code.",
+        details: 
+          "Designed in Figma, built with React and Next.js, animated with GSAP, \
+          and deployed on GitHub.",
+        logo: portfolioLogo,
+        content: portfolioVideo,
+        video: true,
       },
     ],
     design: [
       {
+        key: "ltb",
+        title: "LT&B Consulting",
+        role: "Web Designer",
+        description: 
+          "I redesigned LT&B’s website from a basic one-pager into a fully realized, \
+          six-page site with custom visuals and embedded video. Working within the client’s \
+          existing toolkit, I delivered a modern, professional web presence that better \
+          communicates their expertise.",
+        details:
+          "Took an engineering consultant’s website from being a single page to a professional \
+          multi-page site.",
+        logo: ltbcLogo,
+        content: ltbcImage,
+        video: false,
+      },
+      {
         key: "hercules",
         title: "M Hercules Fitness",
-        role: "Brand Designer",
-        description: "Complete brand identity design for fitness coaching business.",
+        role: "Graphic Designer",
+        description: 
+          "I transformed a plain-text PDF into a professionally designed, 9-page flyer for \
+          a fitness coach to share with clients. With a strong visual theme, intuitive layout, \
+          and collaborative revisions, the final product reflects both clarity and style.",
         details:
-          "Created logo, brand guidelines, marketing materials, and social media templates. Designed mobile app UI/UX.",
+          "Turned a plain pdf document of text into a visually engaging flyer for a personal \
+          trainer to send to his clients.",
+        testimonial: '"He\'s one of the easiest people to work with."',
+        client: "- Malachi Hercules, Owner",
+        logo: hercLogo,
+        content: hercImage,
+        video: false,
       },
     ],
   }
@@ -331,8 +401,10 @@ export default function Portfolio() {
             muted
             playsInline
             preload="auto"
-            src={starVideo}
-          />
+          >
+            <source src={starVideoSafari} type='video/mp4; codecs="hvc1"' />
+            <source src={starVideoChrome} type="video/webm" />
+          </video>
         </div>
       ))}
       <div ref={containerRef} className="sections-wrapper">
@@ -359,20 +431,22 @@ export default function Portfolio() {
                             </p>
                           </div>
                           <div className="hero-visual-container-mobile">
-                            <HeroVisual />
+                            <HeroVisual imgSrc={cursorImage} size={25} />
                           </div>
                           <div className="description">
                             <p>
-                              <b>I'm a 22 year</b> old creator who can take your digital media to the next level. Whether
-                              your looking for help with websites, videos, advertisements or design, I can take what you have
-                              and elevate it. I understand that every project is unique, which is why I pride myself on building
-                              custom solutions tailored to each client. In doing so I've gained experience with a variety of tools
-                              and participated in every stage of the creative process from planning to publishing.
+                              <b>I’m focused on </b> creating tailored, 
+                              effective solutions across web, video, and brand. Every project is different, 
+                              and I bring a flexible, full-stack creative approach to meet each one’s unique 
+                              needs. From concept to final product, I deliver work that’s cohesive, compelling, 
+                              and built to stand out. <br /><br />
+                              
+                              <b>Let’s make something great.</b>
                             </p>
                           </div>
                         </div>
                         <div className="hero-visual-container" ref={heroVisualContainerRef} >
-                          <HeroVisual />
+                          <HeroVisual imgSrc={cursorImage} size={25} />
                         </div>
                       </div>
 
@@ -385,7 +459,7 @@ export default function Portfolio() {
 
                         <div className="hero-right-bottom">
                           <div className="reel-video">
-                            <video autoPlay loop muted playsInline src={reel} />
+                            <video autoPlay loop muted playsInline src={reel} controls />
                           </div>
                         </div>
                       </div>
@@ -453,16 +527,27 @@ export default function Portfolio() {
                                   <div className="work-item-expanded-left" >
                                     <p className="role">{project.role}</p>
                                     <p className="description">{project.description}</p>
+                                    <p className="details">{project.details}</p>
                                     {project.testimonial && (
                                       <div className="testimonial">
                                         <blockquote>{project.testimonial}</blockquote>
                                         <cite>{project.client}</cite>
                                       </div>
                                     )}
-                                    <p className="details">{project.details}</p>
+                                    {project.link && (
+                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                        <button className="testimonial-button">
+                                          See More
+                                        </button>
+                                      </a>
+                                    )}
                                   </div>
                                   <div className="work-item-expanded-right" >
-                                    <video autoPlay loop muted playsInline src={reel} controls />
+                                    {project.video ? (
+                                      <video autoPlay loop muted playsInline src={project.content} controls />
+                                    ) : (
+                                      <img src={project.content} alt={`${project.title} visual`} />
+                                    )}
                                   </div>
                                 </div>
                               )}
@@ -480,13 +565,37 @@ export default function Portfolio() {
                             >
                               <div className="work-item-header">
                                 <span className="project-title">{project.title}</span>
-                                <img src={project.logo} className="project-logo" />
+                                <div className="project-logo">
+                                  <img src={project.logo} />
+                                </div>
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
-                                  <p className="role">{project.role}</p>
-                                  <p className="description">{project.description}</p>
-                                  <p className="details">{project.details}</p>
+                                  <div className="work-item-expanded-left" >
+                                    <p className="role">{project.role}</p>
+                                    <p className="description">{project.description}</p>
+                                    <p className="details">{project.details}</p>
+                                    {project.testimonial && (
+                                      <div className="testimonial">
+                                        <blockquote>{project.testimonial}</blockquote>
+                                        <cite>{project.client}</cite>
+                                      </div>
+                                    )}
+                                    {project.link && (
+                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                        <button className="testimonial-button">
+                                          See More
+                                        </button>
+                                      </a>
+                                    )}
+                                  </div>
+                                  <div className="work-item-expanded-right" >
+                                    {project.video ? (
+                                      <video autoPlay loop muted playsInline src={project.content} controls />
+                                    ) : (
+                                      <img src={project.content} alt={`${project.title} visual`} />
+                                    )}
+                                  </div>
                                 </div>
                               )}
                             </div>
@@ -503,13 +612,37 @@ export default function Portfolio() {
                             >
                               <div className="work-item-header">
                                 <span className="project-title">{project.title}</span>
-                                <img src={project.logo} className="project-logo" />
+                                <div className="project-logo">
+                                  <img src={project.logo} />
+                                </div>
                               </div>
                               {expandedWorkItem === project.key && (
                                 <div className="work-item-expanded">
-                                  <p className="role">{project.role}</p>
-                                  <p className="description">{project.description}</p>
-                                  <p className="details">{project.details}</p>
+                                  <div className="work-item-expanded-left" >
+                                    <p className="role">{project.role}</p>
+                                    <p className="description">{project.description}</p>
+                                    <p className="details">{project.details}</p>
+                                    {project.testimonial && (
+                                      <div className="testimonial">
+                                        <blockquote>{project.testimonial}</blockquote>
+                                        <cite>{project.client}</cite>
+                                      </div>
+                                    )}
+                                    {project.link && (
+                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                        <button className="testimonial-button">
+                                          See More
+                                        </button>
+                                      </a>
+                                    )}
+                                  </div>
+                                  <div className="work-item-expanded-right" >
+                                    {project.video ? (
+                                      <video autoPlay loop muted playsInline src={project.content} controls />
+                                    ) : (
+                                      <img src={project.content} alt={`${project.title} visual`} />
+                                    )}
+                                  </div>
                                 </div>
                               )}
                             </div>
@@ -549,7 +682,7 @@ export default function Portfolio() {
                     <div className="contact-hero-content">
                       <div className="contact-hero-top-section">
                         <div className="hero-visual-container">
-                          <HeroVisual />
+                          <HeroVisual imgSrc={mailImage} size={40} />
                         </div>
                         <div className="contact-hero-right-top">
                           <div>
@@ -565,13 +698,15 @@ export default function Portfolio() {
                             </p>
                           </div>
                           <div className="hero-visual-container-mobile">
-                            <HeroVisual />
+                            <HeroVisual imgSrc={mailImage} size={40} />
                           </div>
                           <div className="description">
                             <p>
-                              <b>I'm always looking</b> for projects to work on, whether that's a simple design or a combination
-                              of the 3 skills needed to create and run here to help. So please don't hesitate to get in
-                              touch and let's discuss further.
+                              <b>I'm always open</b> to new projects, collaborations, 
+                              or conversations. If you have an idea, a question, 
+                              or just want to connect, feel free to reach out. 
+                              No project is too big or too early—I'm happy to discuss 
+                              how we can bring it to life.
                             </p>
                           </div>
                         </div>
@@ -579,8 +714,8 @@ export default function Portfolio() {
 
                       <div className="contact-hero-bottom-section">
                         <div className="contact-hero-left-bottom">
-                          <div className="reel-video">
-                            <video autoPlay loop muted playsInline src={reel}></video>
+                          <div className="contact-image">
+                            <img src={contactImage} alt={`contact visual`} />
                           </div>
                         </div>
 
