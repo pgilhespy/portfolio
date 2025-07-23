@@ -295,7 +295,7 @@ export default function Portfolio() {
           "As a part-owner of this skate brand, I edit both full-length and short-form \
           content for YouTube and social media. Each piece is built from the ground up, \
           with attention to pacing, music, sound design, and brand tone.",
-        testimonial: '"Phil\'s created all our video content since day one."',
+        testimonial: '"His edits make our near-death experiences come to life."',
         client: "- Caleb Liu, Co-Owner",
         details:
           "Long-term collaboration producing long form and short form content and \
