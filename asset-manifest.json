@@ -1,24 +1,35 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.9ab3f800.css",
-    "main.js": "/portfolio/static/js/main.af5820d3.js",
-    "static/js/453.96cba20d.chunk.js": "/portfolio/static/js/453.96cba20d.chunk.js",
-    "static/media/WebsiteReel1.1.mp4": "/portfolio/static/media/WebsiteReel1.1.43c0e9da1a660d93f2d4.mp4",
-    "static/media/chrome1.1-safari.mov": "/portfolio/static/media/chrome1.1-safari.01d03ac3575e46898a8f.mov",
-    "static/media/chrome1.1.webm": "/portfolio/static/media/chrome1.1.2520aa10c05a68521dd1.webm",
-    "static/media/chrome2.0-safari.mov": "/portfolio/static/media/chrome2.0-safari.8bbb881c8553709fc107.mov",
-    "static/media/chrome3.1-safari.mov": "/portfolio/static/media/chrome3.1-safari.8bfdc7c5203a57694be2.mov",
-    "static/media/chrome2.0.webm": "/portfolio/static/media/chrome2.0.26807f6ba0a90ddf2230.webm",
-    "static/media/chrome3.1.webm": "/portfolio/static/media/chrome3.1.75141d98dcc66f6db1f6.webm",
-    "static/media/dashedLine1.1.png": "/portfolio/static/media/dashedLine1.1.981ff6c1bffc225c31bc.png",
-    "static/media/dashedLine2.0.png": "/portfolio/static/media/dashedLine2.0.3fe48a1cb20e14bea72c.png",
-    "index.html": "/portfolio/index.html",
-    "main.9ab3f800.css.map": "/portfolio/static/css/main.9ab3f800.css.map",
-    "main.af5820d3.js.map": "/portfolio/static/js/main.af5820d3.js.map",
-    "453.96cba20d.chunk.js.map": "/portfolio/static/js/453.96cba20d.chunk.js.map"
+    "main.css": "/static/css/main.9bff0f2b.css",
+    "main.js": "/static/js/main.74cf4453.js",
+    "static/js/453.1407b060.chunk.js": "/static/js/453.1407b060.chunk.js",
+    "static/media/anthemVideo.mp4": "/static/media/anthemVideo.f29af7beeed7f3a5d1d8.mp4",
+    "static/media/WebsiteReel2.0.mp4": "/static/media/WebsiteReel2.0.d4ea96716b7d710224a8.mp4",
+    "static/media/speedbookingVideo.mp4": "/static/media/speedbookingVideo.dac1a892448b34a560a9.mp4",
+    "static/media/brickedcoVideo.mp4": "/static/media/brickedcoVideo.21f6387375a636513406.mp4",
+    "static/media/portfolioVideo.mp4": "/static/media/portfolioVideo.d8abf62dc5c47254afc8.mp4",
+    "static/media/contactImage1.png": "/static/media/contactImage1.42dec9fda505b1c656f6.png",
+    "static/media/chrome1.1-safari.mov": "/static/media/chrome1.1-safari.01d03ac3575e46898a8f.mov",
+    "static/media/chrome1.1.webm": "/static/media/chrome1.1.2520aa10c05a68521dd1.webm",
+    "static/media/herculesImage.png": "/static/media/herculesImage.ad06dc25aafb5f890d99.png",
+    "static/media/ltbcImage.png": "/static/media/ltbcImage.24c2da4d7a58f534bb6f.png",
+    "static/media/sfImage2.jpg": "/static/media/sfImage2.754cbdb659582b49c98f.jpg",
+    "static/media/speedbookingLogo2.svg": "/static/media/speedbookingLogo2.45a689d3f2832c8a4869f766d1696456.svg",
+    "static/media/brickedcoLogo1.svg": "/static/media/brickedcoLogo1.654c39fb1378a23e48c58f69d27537f8.svg",
+    "static/media/portfolioLogo1.svg": "/static/media/portfolioLogo1.93067d33c7427a0e2a0656e93c908d4c.svg",
+    "static/media/hercLogo1.svg": "/static/media/hercLogo1.80cc5d8b559e3cb4c3830c71ad2c1751.svg",
+    "index.html": "/index.html",
+    "static/media/sfLogo1.svg": "/static/media/sfLogo1.494ce8047acf3080ebdf6e54362ae776.svg",
+    "static/media/ltbcLogo1.svg": "/static/media/ltbcLogo1.321e16546ee4e3aa77555af4ebe60844.svg",
+    "static/media/cursor2.svg": "/static/media/cursor2.3080503ea1d551b81a91aa23c8f8d773.svg",
+    "static/media/mail2.svg": "/static/media/mail2.d4c0cb5baaa12f6cc564926e9a921b94.svg",
+    "static/media/anthemLogo2.svg": "/static/media/anthemLogo2.bf4a2f96b93069e41e130b6c4054301c.svg",
+    "main.9bff0f2b.css.map": "/static/css/main.9bff0f2b.css.map",
+    "main.74cf4453.js.map": "/static/js/main.74cf4453.js.map",
+    "453.1407b060.chunk.js.map": "/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ab3f800.css",
-    "static/js/main.af5820d3.js"
+    "static/css/main.9bff0f2b.css",
+    "static/js/main.74cf4453.js"
   ]
 }
