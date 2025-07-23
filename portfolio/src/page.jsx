@@ -21,7 +21,8 @@ import portfolioLogo from './Content/portfolioLogo1.svg';
 import portfolioVideo from './Content/portfolioVideo.mp4';
 import sfLogo from './Content/sfLogo1.svg';
 import sfImage from './Content/sfImage2.jpg';
-import starVideo from './Content/chrome1.1.webm';
+import starVideoChrome from './Content/chrome1.1.webm';
+import starVideoSafari from './Content/chrome1.1-safari.mov';
 import contactImage from './Content/contactImage1.png';
 import './globals.css';
 
@@ -400,8 +401,10 @@ export default function Portfolio() {
             muted
             playsInline
             preload="auto"
-            src={starVideo}
-          />
+          >
+            <source src={starVideoSafari} type='video/mp4; codecs="hvc1"' />
+            <source src={starVideoChrome} type="video/webm" />
+          </video>
         </div>
       ))}
       <div ref={containerRef} className="sections-wrapper">
