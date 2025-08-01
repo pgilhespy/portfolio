@@ -251,6 +251,11 @@ export default function Portfolio() {
     setExpandedWorkItem(expandedWorkItem === itemKey ? null : itemKey)
   }
 
+  // Prevent closing work item when clicking inside video/image content
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  }
+
   const HeroVisual = ({ imgSrc, size }) => (
       <ImageFollow
         image={imgSrc}
@@ -553,7 +558,7 @@ export default function Portfolio() {
                                       </a>
                                     )}
                                   </div>
-                                  <div className="work-item-expanded-right" >
+                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
                                     {project.video ? (
                                       <video autoPlay loop muted playsInline src={project.content} controls />
                                     ) : (
@@ -600,7 +605,7 @@ export default function Portfolio() {
                                       </a>
                                     )}
                                   </div>
-                                  <div className="work-item-expanded-right" >
+                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
                                     {project.video ? (
                                       <video autoPlay loop muted playsInline src={project.content} controls />
                                     ) : (
@@ -647,7 +652,7 @@ export default function Portfolio() {
                                       </a>
                                     )}
                                   </div>
-                                  <div className="work-item-expanded-right" >
+                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
                                     {project.video ? (
                                       <video autoPlay loop muted playsInline src={project.content} controls />
                                     ) : (
