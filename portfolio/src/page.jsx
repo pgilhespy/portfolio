@@ -27,6 +27,8 @@ import contactImage from './Content/contactImage1.png';
 import './globals.css';
 
 export default function Portfolio() {
+  // Ref to debounce reload on resize and cancel if exiting fullscreen
+  const resizeReloadTimeout = useRef(null);
   const containerRef = useRef(null)
   const heroVisualContainerRef = useRef(null);
   const backgroundRef = useRef(null)
@@ -83,12 +85,52 @@ export default function Portfolio() {
   // Handle window resize to reload the page
   useEffect(() => { 
     const handleResize = () => {
-      window.location.reload();
+      // Debounce: wait 200ms before reloading, cancel if fullscreenchange happens
+      if (resizeReloadTimeout.current) {
+        clearTimeout(resizeReloadTimeout.current);
+      }
+      const isFullscreen =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement;
+      if (!isFullscreen) {
+        resizeReloadTimeout.current = setTimeout(() => {
+          window.location.reload();
+        }, 200);
+      }
+    };
+
+    // Listen for fullscreen change events
+    const handleFullscreenChange = () => {
+      const isFullscreen =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement;
+      if (!isFullscreen && resizeReloadTimeout.current) {
+        // Cancel pending reload if we just exited fullscreen
+        clearTimeout(resizeReloadTimeout.current);
+        resizeReloadTimeout.current = null;
+      }
     };
 
     window.addEventListener('resize', handleResize);
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+      if (resizeReloadTimeout.current) {
+        clearTimeout(resizeReloadTimeout.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
