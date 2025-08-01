@@ -226,8 +226,6 @@ button:focus:not(:focus-visible) {
   border-radius: 25px;
   z-index: 1000;
   width: auto;
-
-  bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
 }
 
 .navigation-bar {
@@ -786,8 +784,6 @@ button:focus:not(:focus-visible) {
 
   .navigation-bar-fixed {
     bottom: 1rem;
-
-    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   }
 
   .footer-info {
