@@ -80,6 +80,17 @@ export default function Portfolio() {
     },
   ];
 
+  // Handle window resize to reload the page
+  useEffect(() => { 
+    const handleResize = () => {
+      window.location.reload();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     // Initialize GSAP timeline for smooth transitions
     const tl = gsap.timeline()
