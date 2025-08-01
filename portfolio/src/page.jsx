@@ -27,6 +27,8 @@ import contactImage from './Content/contactImage1.png';
 import './globals.css';
 
 export default function Portfolio() {
+  // Ref to debounce reload on resize and cancel if exiting fullscreen
+  const resizeReloadTimeout = useRef(null);
   const containerRef = useRef(null)
   const heroVisualContainerRef = useRef(null);
   const backgroundRef = useRef(null)
@@ -79,6 +81,57 @@ export default function Portfolio() {
       depth: 1,
     },
   ];
+
+  // Handle window resize to reload the page
+  useEffect(() => { 
+    const handleResize = () => {
+      // Debounce: wait 200ms before reloading, cancel if fullscreenchange happens
+      if (resizeReloadTimeout.current) {
+        clearTimeout(resizeReloadTimeout.current);
+      }
+      const isFullscreen =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement;
+      if (!isFullscreen) {
+        resizeReloadTimeout.current = setTimeout(() => {
+          window.location.reload();
+        }, 200);
+      }
+    };
+
+    // Listen for fullscreen change events
+    const handleFullscreenChange = () => {
+      const isFullscreen =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement;
+      if (!isFullscreen && resizeReloadTimeout.current) {
+        // Cancel pending reload if we just exited fullscreen
+        clearTimeout(resizeReloadTimeout.current);
+        resizeReloadTimeout.current = null;
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+      if (resizeReloadTimeout.current) {
+        clearTimeout(resizeReloadTimeout.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     // Initialize GSAP timeline for smooth transitions
@@ -240,6 +293,11 @@ export default function Portfolio() {
     setExpandedWorkItem(expandedWorkItem === itemKey ? null : itemKey)
   }
 
+  // Prevent closing work item when clicking inside video/image content
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  }
+
   const HeroVisual = ({ imgSrc, size }) => (
       <ImageFollow
         image={imgSrc}
@@ -263,7 +321,7 @@ export default function Portfolio() {
           platforms.",
         details:
           "Produced over 30 promotional and informative videos for social media platforms.",
-        testimonial: '"He\'s been a game-changer. Couldn\'t reccommend him more."',
+        testimonial: '"He\'s been a game-changer. Couldn\'t recommend him more."',
         client: "- Jessiah Hercules, CEO Speed Booking UK",
         logo: speedbookingLogo,
         content: speedbookingVideo,
@@ -542,7 +600,7 @@ export default function Portfolio() {
                                       </a>
                                     )}
                                   </div>
-                                  <div className="work-item-expanded-right" >
+                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
                                     {project.video ? (
                                       <video autoPlay loop muted playsInline src={project.content} controls />
                                     ) : (
@@ -589,7 +647,7 @@ export default function Portfolio() {
                                       </a>
                                     )}
                                   </div>
-                                  <div className="work-item-expanded-right" >
+                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
                                     {project.video ? (
                                       <video autoPlay loop muted playsInline src={project.content} controls />
                                     ) : (
@@ -636,7 +694,7 @@ export default function Portfolio() {
                                       </a>
                                     )}
                                   </div>
-                                  <div className="work-item-expanded-right" >
+                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
                                     {project.video ? (
                                       <video autoPlay loop muted playsInline src={project.content} controls />
                                     ) : (
