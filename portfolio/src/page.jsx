@@ -263,7 +263,7 @@ export default function Portfolio() {
           platforms.",
         details:
           "Produced over 30 promotional and informative videos for social media platforms.",
-        testimonial: '"He\'s been a game-changer. Couldn\'t reccommend him more."',
+        testimonial: '"He\'s been a game-changer. Couldn\'t recommend him more."',
         client: "- Jessiah Hercules, CEO Speed Booking UK",
         logo: speedbookingLogo,
         content: speedbookingVideo,

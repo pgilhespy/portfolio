@@ -383,7 +383,6 @@ button:focus:not(:focus-visible) {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .project-logo img {
