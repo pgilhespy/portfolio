@@ -822,7 +822,7 @@ button:focus:not(:focus-visible) {
 }
 
 /* PHONE SCREEN */
-@media (max-width: 480px) {
+@media (max-width: 680px) {
   .main-title {
     font-size: 3rem;
   }
@@ -855,6 +855,7 @@ button:focus:not(:focus-visible) {
 
   .footer-info {
     width: 100%;
+    margin-bottom: 3rem;
   }
 
   .custom-padding {
