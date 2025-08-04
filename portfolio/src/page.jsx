@@ -39,6 +39,9 @@ export default function Portfolio() {
   const scrollRefs = useRef([null, null, null]);
   const floatingAssetsRefs = useRef([]);
 
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
   const floatingAssetsConfig = [
     {
       id: "p1TopRight",
@@ -80,6 +83,18 @@ export default function Portfolio() {
       page: 2,
       depth: 1,
     },
+  ];
+
+  // Collect all unique video sources you want to preload
+  const videoPreloadSources = [
+    reel,
+    speedbookingVideo,
+    anthemVideo,
+    brickedcoVideo,
+    portfolioVideo,
+    starVideoSafari,
+    starVideoChrome,
+    // add any others you use
   ];
 
   // Handle window resize to reload the page
@@ -137,18 +152,29 @@ export default function Portfolio() {
     // Initialize GSAP timeline for smooth transitions
     const tl = gsap.timeline()
 
+    // Helper to set floating asset scale based on screen width
+    const getAssetScale = (depth) => {
+      const baseScale = 2.5 - (depth * 0.5);
+      return window.innerWidth < 680 ? baseScale * 0.7 : baseScale;
+    };
+
     // Init floating assets pos
     floatingAssetsRefs.current.forEach((assetEl, i) => {
       if (assetEl) {
         const assetData = floatingAssetsConfig[i];
-        const startingPosX = 0 + (assetData.page * window.innerWidth) + (window.innerWidth * assetData.ratioX);
+        let startingPosX = 0 + (assetData.page * window.innerWidth) + (window.innerWidth * assetData.ratioX);
         const startingPosY = (window.innerHeight * assetData.ratioY);
+        
+        // Move 50px left if mobile
+        if (window.innerWidth < 680) {
+          startingPosX -= 50;
+        }
 
         gsap.set(assetEl, { 
           x: startingPosX,
           y: startingPosY,
           rotate: assetData.rotation,
-          scale: 2.5 - (assetData.depth * 0.5),
+          scale: getAssetScale(assetData.depth),
         });
       }
     });
@@ -298,6 +324,36 @@ export default function Portfolio() {
     e.stopPropagation();
   }
 
+  // Touch navigation handlers
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) 
+      return;
+
+    const deltaX = touchEndX.current - touchStartX.current;
+    const threshold = 50; // Minimum px to be considered a swipe
+
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX < 0 && activeSection < 2) {
+        // Swipe left, go to next section
+        navigateToSection(activeSection + 1);
+      } else if (deltaX > 0 && activeSection > 0) {
+        // Swipe right, go to previous section
+        navigateToSection(activeSection - 1);
+      }
+    }
+    
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const HeroVisual = ({ imgSrc, size }) => (
       <ImageFollow
         image={imgSrc}
@@ -437,390 +493,402 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="portfolio-container" ref={backgroundRef}>
-      {/* bg floater */}
-      {floatingAssetsConfig.map((asset, i) => (
-        <div
-          key={asset.id}
-          className="background-floater"
-          style={{
-            top: asset.top,
-            bottom: asset.bottom,
-            left: asset.left,
-            right: asset.right,
-            filter: `blur(${3 * asset.depth}px)`
-          }}
-        >
-          <video 
-            ref={(el) => (floatingAssetsRefs.current[i] = el)}
-            className="floating-asset" 
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          >
-            <source src={starVideoSafari} type='video/mp4; codecs="hvc1"' />
-            <source src={starVideoChrome} type="video/webm" />
-          </video>
-        </div>
+    <>
+      {/* Preload all important videos */}
+      {videoPreloadSources.map((src, i) => (
+        <video key={i} src={src} preload="auto" style={{ display: "none" }} />
       ))}
-      <div ref={containerRef} className="sections-wrapper">
-        {/* HOME SECTION */}
-        <section className="portfolio-section home-section" ref={(el) => (scrollRefs.current[0] = el)}>
-          <div className="container-fluid h-100">
-            <div className="row h-100">
-              <div className="col-12 d-flex flex-column justify-content-between custom-padding">
-                <div className="content-area" >
-                  <div className="content-card">
-                    <div className="hero-content">
-                      <div className="hero-top-section">
-                        <div className="hero-left-top">
-                          <div>
-                            <h1 className="main-title">
-                              PHILIP
-                              <br />
-                              GILHESPY
-                            </h1>
-                            <p className="subtitle">
-                              Multidisciplinary Digital
-                              <br />
-                              Creator
-                            </p>
+      <div
+        className="portfolio-container"
+        ref={backgroundRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* bg floater */}
+        {floatingAssetsConfig.map((asset, i) => (
+          <div
+            key={asset.id}
+            className="background-floater"
+            style={{
+              top: asset.top,
+              bottom: asset.bottom,
+              left: asset.left,
+              right: asset.right,
+              filter: `blur(${3 * asset.depth}px)`
+            }}
+          >
+            <video 
+              ref={(el) => (floatingAssetsRefs.current[i] = el)}
+              className="floating-asset" 
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            >
+              <source src={starVideoSafari} type='video/mp4; codecs="hvc1"' />
+              <source src={starVideoChrome} type="video/webm" />
+            </video>
+          </div>
+        ))}
+        <div ref={containerRef} className="sections-wrapper">
+          {/* HOME SECTION */}
+          <section className="portfolio-section home-section" ref={(el) => (scrollRefs.current[0] = el)}>
+            <div className="container-fluid h-100">
+              <div className="row h-100">
+                <div className="col-12 d-flex flex-column justify-content-between custom-padding">
+                  <div className="content-area" >
+                    <div className="content-card">
+                      <div className="hero-content">
+                        <div className="hero-top-section">
+                          <div className="hero-left-top">
+                            <div>
+                              <h1 className="main-title">
+                                PHILIP
+                                <br />
+                                GILHESPY
+                              </h1>
+                              <p className="subtitle">
+                                Multidisciplinary Digital
+                                <br />
+                                Creator
+                              </p>
+                            </div>
+                            <div className="hero-visual-container-mobile">
+                              <HeroVisual imgSrc={cursorImage} size={25} />
+                            </div>
+                            <div className="description">
+                              <p>
+                                <b>I’m focused on </b> creating tailored, 
+                                effective solutions across web, video, and brand. Every project is different, 
+                                and I bring a flexible, full-stack creative approach to meet each one’s unique 
+                                needs. From concept to final product, I deliver work that’s cohesive, compelling, 
+                                and built to stand out. <br /><br />
+                                
+                                <b>Let’s make something great.</b>
+                              </p>
+                            </div>
                           </div>
-                          <div className="hero-visual-container-mobile">
+                          <div className="hero-visual-container" ref={heroVisualContainerRef} >
                             <HeroVisual imgSrc={cursorImage} size={25} />
                           </div>
-                          <div className="description">
-                            <p>
-                              <b>I’m focused on </b> creating tailored, 
-                              effective solutions across web, video, and brand. Every project is different, 
-                              and I bring a flexible, full-stack creative approach to meet each one’s unique 
-                              needs. From concept to final product, I deliver work that’s cohesive, compelling, 
-                              and built to stand out. <br /><br />
-                              
-                              <b>Let’s make something great.</b>
-                            </p>
+                        </div>
+
+                        <div className="hero-bottom-section">
+                          <div className="hero-left-bottom">
+                            <button className="cta-button" onClick={() => navigateToSection(1)}>
+                              See My Projects
+                            </button>
                           </div>
-                        </div>
-                        <div className="hero-visual-container" ref={heroVisualContainerRef} >
-                          <HeroVisual imgSrc={cursorImage} size={25} />
-                        </div>
-                      </div>
 
-                      <div className="hero-bottom-section">
-                        <div className="hero-left-bottom">
-                          <button className="cta-button" onClick={() => navigateToSection(1)}>
-                            See My Projects
-                          </button>
-                        </div>
-
-                        <div className="hero-right-bottom">
-                          <div className="reel-video">
-                            <video autoPlay loop muted playsInline src={reel} controls />
+                          <div className="hero-right-bottom">
+                            <div className="reel-video">
+                              <video autoPlay loop muted playsInline src={reel} controls />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="footer-info">
-                  <span className="name">Philip Gilhespy</span>
-                  <div className="social-links">
-                    <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
-                      <Instagram size={20} />
-                    </a>
-                    <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
-                      <Linkedin size={20} />
-                    </a>
-                    <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
-                      <ArrowUpRight size={20} />
-                    </a>
+                  <div className="footer-info">
+                    <span className="name">Philip Gilhespy</span>
+                    <div className="social-links">
+                      <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
+                        <Instagram size={20} />
+                      </a>
+                      <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
+                        <Linkedin size={20} />
+                      </a>
+                      <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
+                        <ArrowUpRight size={20} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* WORK SECTION */}
-        <section className="portfolio-section work-section" ref={(el) => (scrollRefs.current[1] = el)} >
-          <div className="container-fluid h-100">
-            <div className="row h-100">
-              <div className="col-12 d-flex flex-column justify-content-between custom-padding">
-                <div className="content-area">
-                  <div className="work-content-wrapper">
-                    <div className="work-header-card">
-                      <h1 className="main-title work-title">
-                        MY
-                        <br />
-                        WORK
-                      </h1>
-                      <p className="subtitle work-subtitle">
-                        Some Past
-                        <br />
-                        Projects
-                      </p>
-                    </div>
+          {/* WORK SECTION */}
+          <section className="portfolio-section work-section" ref={(el) => (scrollRefs.current[1] = el)} >
+            <div className="container-fluid h-100">
+              <div className="row h-100">
+                <div className="col-12 d-flex flex-column justify-content-between custom-padding">
+                  <div className="content-area">
+                    <div className="work-content-wrapper">
+                      <div className="work-header-card">
+                        <h1 className="main-title work-title">
+                          MY
+                          <br />
+                          WORK
+                        </h1>
+                        <p className="subtitle work-subtitle">
+                          Some Past
+                          <br />
+                          Projects
+                        </p>
+                      </div>
 
-                    <div className="work-content-scrollable">
-                      <div className="work-categories">
-                        <div className="category">
-                          <h3 className="category-title">VIDEO</h3>
-                          {workData.video.map((project) => (
-                            <div
-                              key={project.key}
-                              className="work-item-card"
-                              onClick={() => toggleWorkItem(project.key)}
-                            >
-                              <div className="work-item-header">
-                                <span className="project-title">{project.title}</span>
-                                <div className="project-logo">
-                                  <img src={project.logo} />
+                      <div className="work-content-scrollable">
+                        <div className="work-categories">
+                          <div className="category">
+                            <h3 className="category-title">VIDEO</h3>
+                            {workData.video.map((project) => (
+                              <div
+                                key={project.key}
+                                className="work-item-card"
+                                onClick={() => toggleWorkItem(project.key)}
+                              >
+                                <div className="work-item-header">
+                                  <span className="project-title">{project.title}</span>
+                                  <div className="project-logo">
+                                    <img src={project.logo} />
+                                  </div>
                                 </div>
+                                {expandedWorkItem === project.key && (
+                                  <div className="work-item-expanded">
+                                    <div className="work-item-expanded-left" >
+                                      <p className="role">{project.role}</p>
+                                      <p className="description">{project.description}</p>
+                                      <p className="details">{project.details}</p>
+                                      {project.testimonial && (
+                                        <div className="testimonial">
+                                          <blockquote>{project.testimonial}</blockquote>
+                                          <cite>{project.client}</cite>
+                                        </div>
+                                      )}
+                                      {project.link && (
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                          <button className="testimonial-button">
+                                            See More
+                                          </button>
+                                        </a>
+                                      )}
+                                    </div>
+                                    <div className="work-item-expanded-right" onClick={stopPropagation} >
+                                      {project.video ? (
+                                        <video autoPlay loop muted playsInline src={project.content} controls />
+                                      ) : (
+                                        <img src={project.content} alt={`${project.title} visual`} />
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
                               </div>
-                              {expandedWorkItem === project.key && (
-                                <div className="work-item-expanded">
-                                  <div className="work-item-expanded-left" >
-                                    <p className="role">{project.role}</p>
-                                    <p className="description">{project.description}</p>
-                                    <p className="details">{project.details}</p>
-                                    {project.testimonial && (
-                                      <div className="testimonial">
-                                        <blockquote>{project.testimonial}</blockquote>
-                                        <cite>{project.client}</cite>
-                                      </div>
-                                    )}
-                                    {project.link && (
-                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                        <button className="testimonial-button">
-                                          See More
-                                        </button>
-                                      </a>
-                                    )}
-                                  </div>
-                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
-                                    {project.video ? (
-                                      <video autoPlay loop muted playsInline src={project.content} controls />
-                                    ) : (
-                                      <img src={project.content} alt={`${project.title} visual`} />
-                                    )}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
 
-                        <div className="category">
-                          <h3 className="category-title">CODING</h3>
-                          {workData.coding.map((project) => (
-                            <div
-                              key={project.key}
-                              className="work-item-card"
-                              onClick={() => toggleWorkItem(project.key)}
-                            >
-                              <div className="work-item-header">
-                                <span className="project-title">{project.title}</span>
-                                <div className="project-logo">
-                                  <img src={project.logo} />
+                          <div className="category">
+                            <h3 className="category-title">CODING</h3>
+                            {workData.coding.map((project) => (
+                              <div
+                                key={project.key}
+                                className="work-item-card"
+                                onClick={() => toggleWorkItem(project.key)}
+                              >
+                                <div className="work-item-header">
+                                  <span className="project-title">{project.title}</span>
+                                  <div className="project-logo">
+                                    <img src={project.logo} />
+                                  </div>
                                 </div>
+                                {expandedWorkItem === project.key && (
+                                  <div className="work-item-expanded">
+                                    <div className="work-item-expanded-left" >
+                                      <p className="role">{project.role}</p>
+                                      <p className="description">{project.description}</p>
+                                      <p className="details">{project.details}</p>
+                                      {project.testimonial && (
+                                        <div className="testimonial">
+                                          <blockquote>{project.testimonial}</blockquote>
+                                          <cite>{project.client}</cite>
+                                        </div>
+                                      )}
+                                      {project.link && (
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                          <button className="testimonial-button">
+                                            See More
+                                          </button>
+                                        </a>
+                                      )}
+                                    </div>
+                                    <div className="work-item-expanded-right" onClick={stopPropagation} >
+                                      {project.video ? (
+                                        <video autoPlay loop muted playsInline src={project.content} controls />
+                                      ) : (
+                                        <img src={project.content} alt={`${project.title} visual`} />
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
                               </div>
-                              {expandedWorkItem === project.key && (
-                                <div className="work-item-expanded">
-                                  <div className="work-item-expanded-left" >
-                                    <p className="role">{project.role}</p>
-                                    <p className="description">{project.description}</p>
-                                    <p className="details">{project.details}</p>
-                                    {project.testimonial && (
-                                      <div className="testimonial">
-                                        <blockquote>{project.testimonial}</blockquote>
-                                        <cite>{project.client}</cite>
-                                      </div>
-                                    )}
-                                    {project.link && (
-                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                        <button className="testimonial-button">
-                                          See More
-                                        </button>
-                                      </a>
-                                    )}
-                                  </div>
-                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
-                                    {project.video ? (
-                                      <video autoPlay loop muted playsInline src={project.content} controls />
-                                    ) : (
-                                      <img src={project.content} alt={`${project.title} visual`} />
-                                    )}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
 
-                        <div className="category">
-                          <h3 className="category-title">DESIGN</h3>
-                          {workData.design.map((project) => (
-                            <div
-                              key={project.key}
-                              className="work-item-card"
-                              onClick={() => toggleWorkItem(project.key)}
-                            >
-                              <div className="work-item-header">
-                                <span className="project-title">{project.title}</span>
-                                <div className="project-logo">
-                                  <img src={project.logo} />
+                          <div className="category">
+                            <h3 className="category-title">DESIGN</h3>
+                            {workData.design.map((project) => (
+                              <div
+                                key={project.key}
+                                className="work-item-card"
+                                onClick={() => toggleWorkItem(project.key)}
+                              >
+                                <div className="work-item-header">
+                                  <span className="project-title">{project.title}</span>
+                                  <div className="project-logo">
+                                    <img src={project.logo} />
+                                  </div>
                                 </div>
+                                {expandedWorkItem === project.key && (
+                                  <div className="work-item-expanded">
+                                    <div className="work-item-expanded-left" >
+                                      <p className="role">{project.role}</p>
+                                      <p className="description">{project.description}</p>
+                                      <p className="details">{project.details}</p>
+                                      {project.testimonial && (
+                                        <div className="testimonial">
+                                          <blockquote>{project.testimonial}</blockquote>
+                                          <cite>{project.client}</cite>
+                                        </div>
+                                      )}
+                                      {project.link && (
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                          <button className="testimonial-button">
+                                            See More
+                                          </button>
+                                        </a>
+                                      )}
+                                    </div>
+                                    <div className="work-item-expanded-right" onClick={stopPropagation} >
+                                      {project.video ? (
+                                        <video autoPlay loop muted playsInline src={project.content} controls />
+                                      ) : (
+                                        <img src={project.content} alt={`${project.title} visual`} />
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
                               </div>
-                              {expandedWorkItem === project.key && (
-                                <div className="work-item-expanded">
-                                  <div className="work-item-expanded-left" >
-                                    <p className="role">{project.role}</p>
-                                    <p className="description">{project.description}</p>
-                                    <p className="details">{project.details}</p>
-                                    {project.testimonial && (
-                                      <div className="testimonial">
-                                        <blockquote>{project.testimonial}</blockquote>
-                                        <cite>{project.client}</cite>
-                                      </div>
-                                    )}
-                                    {project.link && (
-                                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                        <button className="testimonial-button">
-                                          See More
-                                        </button>
-                                      </a>
-                                    )}
-                                  </div>
-                                  <div className="work-item-expanded-right" onClick={stopPropagation} >
-                                    {project.video ? (
-                                      <video autoPlay loop muted playsInline src={project.content} controls />
-                                    ) : (
-                                      <img src={project.content} alt={`${project.title} visual`} />
-                                    )}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="footer-info">
-                  <span className="name dark-mode">Philip Gilhespy</span>
-                  <div className="social-links dark-mode">
-                    <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
-                      <Instagram size={20} />
-                    </a>
-                    <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
-                      <Linkedin size={20} />
-                    </a>
-                    <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
-                      <ArrowUpRight size={20} />
-                    </a>
+                  <div className="footer-info">
+                    <span className="name dark-mode">Philip Gilhespy</span>
+                    <div className="social-links dark-mode">
+                      <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
+                        <Instagram size={20} />
+                      </a>
+                      <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
+                        <Linkedin size={20} />
+                      </a>
+                      <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
+                        <ArrowUpRight size={20} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* CONTACT SECTION */}
-        <section className="portfolio-section contact-section" ref={(el) => (scrollRefs.current[2] = el)}>
-          <div className="container-fluid h-100">
-            <div className="row h-100">
-              <div className="col-12 d-flex flex-column justify-content-between custom-padding">
-                <div className="content-area">
-                  <div className="content-card">
-                    <div className="contact-hero-content">
-                      <div className="contact-hero-top-section">
-                        <div className="hero-visual-container">
-                          <HeroVisual imgSrc={mailImage} size={40} />
-                        </div>
-                        <div className="contact-hero-right-top">
-                          <div>
-                            <h1 className="main-title contact-title">
-                              GET IN
-                              <br />
-                              CONTACT
-                            </h1>
-                            <p className="subtitle contact-subtitle">
-                              With Me For Any
-                              <br />
-                              Inquiries
-                            </p>
-                          </div>
-                          <div className="hero-visual-container-mobile">
+          {/* CONTACT SECTION */}
+          <section className="portfolio-section contact-section" ref={(el) => (scrollRefs.current[2] = el)}>
+            <div className="container-fluid h-100">
+              <div className="row h-100">
+                <div className="col-12 d-flex flex-column justify-content-between custom-padding">
+                  <div className="content-area">
+                    <div className="content-card">
+                      <div className="contact-hero-content">
+                        <div className="contact-hero-top-section">
+                          <div className="hero-visual-container">
                             <HeroVisual imgSrc={mailImage} size={40} />
                           </div>
-                          <div className="description">
-                            <p>
-                              <b>I'm always open</b> to new projects, collaborations, 
-                              or conversations. If you have an idea, a question, 
-                              or just want to connect, feel free to reach out. 
-                              No project is too big or too early—I'm happy to discuss 
-                              how we can bring it to life.
-                            </p>
+                          <div className="contact-hero-right-top">
+                            <div>
+                              <h1 className="main-title contact-title">
+                                GET IN
+                                <br />
+                                CONTACT
+                              </h1>
+                              <p className="subtitle contact-subtitle">
+                                With Me For Any
+                                <br />
+                                Inquiries
+                              </p>
+                            </div>
+                            <div className="hero-visual-container-mobile">
+                              <HeroVisual imgSrc={mailImage} size={40} />
+                            </div>
+                            <div className="description">
+                              <p>
+                                <b>I'm always open</b> to new projects, collaborations, 
+                                or conversations. If you have an idea, a question, 
+                                or just want to connect, feel free to reach out. 
+                                No project is too big or too early—I'm happy to discuss 
+                                how we can bring it to life.
+                              </p>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div className="contact-hero-bottom-section">
-                        <div className="contact-hero-left-bottom">
-                          <div className="contact-image">
-                            <img src={contactImage} alt={`contact visual`} />
+                        <div className="contact-hero-bottom-section">
+                          <div className="contact-hero-left-bottom">
+                            <div className="contact-image">
+                              <img src={contactImage} alt={`contact visual`} />
+                            </div>
                           </div>
-                        </div>
 
-                        <div className="contact-hero-right-bottom">
-                          <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
-                            <button className="cta-button" >
-                              Email Me
-                            </button>
-                          </a>
+                          <div className="contact-hero-right-bottom">
+                            <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
+                              <button className="cta-button" >
+                                Email Me
+                              </button>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="footer-info">
-                  <span className="name">Philip Gilhespy</span>
-                  <div className="social-links">
-                    <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
-                      <Instagram size={20} />
-                    </a>
-                    <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
-                      <Linkedin size={20} />
-                    </a>
-                    <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
-                      <ArrowUpRight size={20} />
-                    </a>
+                  <div className="footer-info">
+                    <span className="name">Philip Gilhespy</span>
+                    <div className="social-links">
+                      <a href="https://www.instagram.com/p_gilhespy/" target="_blank" rel="noopener noreferrer">
+                        <Instagram size={20} />
+                      </a>
+                      <a href="https://www.linkedin.com/in/philip-gilhespy-7601132a1/" target="_blank" rel="noopener noreferrer">
+                        <Linkedin size={20} />
+                      </a>
+                      <a href="mailto:philip@gilhespy.net" target="_blank" rel="noopener noreferrer">
+                        <ArrowUpRight size={20} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
 
-      {/* NAVIGATION BAR */}
-      <div className="navigation-bar-fixed">
-        <button className={`nav-item ${activeSection === 0 ? "active" : ""}`} onClick={() => navigateToSection(0)}>
-          Home
-        </button>
-        <button className={`nav-item ${activeSection === 1 ? "active" : ""}`} onClick={() => navigateToSection(1)}>
-          Work
-        </button>
-        <button className={`nav-item ${activeSection === 2 ? "active" : ""}`} onClick={() => navigateToSection(2)}>
-          Contact
-        </button>
+        {/* NAVIGATION BAR */}
+        <div className="navigation-bar-fixed">
+          <button className={`nav-item ${activeSection === 0 ? "active" : ""}`} onClick={() => navigateToSection(0)}>
+            Home
+          </button>
+          <button className={`nav-item ${activeSection === 1 ? "active" : ""}`} onClick={() => navigateToSection(1)}>
+            Work
+          </button>
+          <button className={`nav-item ${activeSection === 2 ? "active" : ""}`} onClick={() => navigateToSection(2)}>
+            Contact
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
