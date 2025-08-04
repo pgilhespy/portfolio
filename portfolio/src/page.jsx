@@ -39,6 +39,9 @@ export default function Portfolio() {
   const scrollRefs = useRef([null, null, null]);
   const floatingAssetsRefs = useRef([]);
 
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
   const floatingAssetsConfig = [
     {
       id: "p1TopRight",
@@ -298,6 +301,36 @@ export default function Portfolio() {
     e.stopPropagation();
   }
 
+  // Touch navigation handlers
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) 
+      return;
+
+    const deltaX = touchEndX.current - touchStartX.current;
+    const threshold = 50; // Minimum px to be considered a swipe
+
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX < 0 && activeSection < 2) {
+        // Swipe left, go to next section
+        navigateToSection(activeSection + 1);
+      } else if (deltaX > 0 && activeSection > 0) {
+        // Swipe right, go to previous section
+        navigateToSection(activeSection - 1);
+      }
+    }
+    
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const HeroVisual = ({ imgSrc, size }) => (
       <ImageFollow
         image={imgSrc}
@@ -437,7 +470,13 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="portfolio-container" ref={backgroundRef}>
+    <div
+      className="portfolio-container"
+      ref={backgroundRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* bg floater */}
       {floatingAssetsConfig.map((asset, i) => (
         <div
