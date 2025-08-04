@@ -140,18 +140,29 @@ export default function Portfolio() {
     // Initialize GSAP timeline for smooth transitions
     const tl = gsap.timeline()
 
+    // Helper to set floating asset scale based on screen width
+    const getAssetScale = (depth) => {
+      const baseScale = 2.5 - (depth * 0.5);
+      return window.innerWidth < 680 ? baseScale * 0.7 : baseScale;
+    };
+
     // Init floating assets pos
     floatingAssetsRefs.current.forEach((assetEl, i) => {
       if (assetEl) {
         const assetData = floatingAssetsConfig[i];
-        const startingPosX = 0 + (assetData.page * window.innerWidth) + (window.innerWidth * assetData.ratioX);
+        let startingPosX = 0 + (assetData.page * window.innerWidth) + (window.innerWidth * assetData.ratioX);
         const startingPosY = (window.innerHeight * assetData.ratioY);
+        
+        // Move 50px left if mobile
+        if (window.innerWidth < 680) {
+          startingPosX -= 50;
+        }
 
         gsap.set(assetEl, { 
           x: startingPosX,
           y: startingPosY,
           rotate: assetData.rotation,
-          scale: 2.5 - (assetData.depth * 0.5),
+          scale: getAssetScale(assetData.depth),
         });
       }
     });
