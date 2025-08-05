@@ -10,7 +10,8 @@
 body {
   font-family: "Inter", sans-serif;
   overflow: hidden;
-  height: 100vh;
+  height: 100dvh;
+  height: 100vh; /* fallback for older browsers */
 }
 
 .social-links a {
@@ -64,7 +65,10 @@ body {
 
 .portfolio-container {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
+  height: 100vh; /* fallback for older browsers */
+  min-height: 100vh; /* fallback for older browsers */
   overflow: hidden;
   position: relative;
 
@@ -82,17 +86,24 @@ body {
 .sections-wrapper {
   display: flex;
   width: 300vw;
-  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
+  height: 100vh; /* fallback for older browsers */
+  min-height: 100vh; /* fallback for older browsers */
   will-change: transform;
 }
 
 .portfolio-section {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100vh; /* fallback for older browsers */
   flex-shrink: 0;
   position: relative;
   padding-bottom: 120px;
   overflow-y: auto;
+
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .content-area {
