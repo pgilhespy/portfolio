@@ -104,16 +104,23 @@ export default function Portfolio() {
       if (resizeReloadTimeout.current) {
         clearTimeout(resizeReloadTimeout.current);
       }
+
+      // Detect fullscreen (cross-browser)
       const isFullscreen =
         document.fullscreenElement ||
         document.webkitFullscreenElement ||
         document.mozFullScreenElement ||
         document.msFullscreenElement;
-      if (!isFullscreen) {
-        resizeReloadTimeout.current = setTimeout(() => {
-          window.location.reload();
-        }, 200);
+
+      // On iOS Safari, orientation change in fullscreen triggers resize, but we do NOT want to reload
+      // So, if in fullscreen, skip reload
+      if (isFullscreen) {
+        return;
       }
+
+      resizeReloadTimeout.current = setTimeout(() => {
+        window.location.reload();
+      }, 200);
     };
 
     // Listen for fullscreen change events
@@ -123,6 +130,7 @@ export default function Portfolio() {
         document.webkitFullscreenElement ||
         document.mozFullScreenElement ||
         document.msFullscreenElement;
+
       if (!isFullscreen && resizeReloadTimeout.current) {
         // Cancel pending reload if we just exited fullscreen
         clearTimeout(resizeReloadTimeout.current);
