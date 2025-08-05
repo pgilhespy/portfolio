@@ -338,7 +338,7 @@ export default function Portfolio() {
       return;
 
     const deltaX = touchEndX.current - touchStartX.current;
-    const threshold = 50; // Minimum px to be considered a swipe
+    const threshold = 75; // Minimum px to be considered a swipe
 
     if (Math.abs(deltaX) > threshold) {
       if (deltaX < 0 && activeSection < 2) {
