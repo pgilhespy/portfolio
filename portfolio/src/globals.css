@@ -9,9 +9,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  overflow: hidden;
-  height: 100dvh;
-  height: 100vh; /* fallback for older browsers */
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .social-links a {
@@ -65,12 +63,12 @@ body {
 
 .portfolio-container {
   width: 100vw;
-  height: 100dvh;
-  min-height: 100dvh;
-  height: 100vh; /* fallback for older browsers */
-  min-height: 100vh; /* fallback for older browsers */
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   position: relative;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 
   /* Animated gradient background using CSS custom property */
   --gradient-angle: 150deg;
@@ -86,22 +84,18 @@ body {
 .sections-wrapper {
   display: flex;
   width: 300vw;
-  height: 100dvh;
-  min-height: 100dvh;
-  height: 100vh; /* fallback for older browsers */
-  min-height: 100vh; /* fallback for older browsers */
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);
   will-change: transform;
 }
 
 .portfolio-section {
   width: 100vw;
-  min-height: 100dvh;
-  min-height: 100vh; /* fallback for older browsers */
+  min-height: calc(var(--vh, 1vh) * 100);
   flex-shrink: 0;
   position: relative;
   padding-bottom: 120px;
   overflow-y: auto;
-
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
