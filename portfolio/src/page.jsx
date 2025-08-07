@@ -28,7 +28,6 @@ import './globals.css';
 
 export default function Portfolio() {
   // Ref to debounce reload on resize and cancel if exiting fullscreen
-  const resizeReloadTimeout = useRef(null);
   const containerRef = useRef(null)
   const heroVisualContainerRef = useRef(null);
   const backgroundRef = useRef(null)
@@ -46,8 +45,10 @@ export default function Portfolio() {
   const scrollRefs = useRef([null, null, null]);
   const floatingAssetsRefs = useRef([]);
 
+  /* REMOVED BECAUSE THEY WERE GLITCHING ON SWIPE AFTER ADDING DYNAMIC RELOADS
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
+  */
 
   const floatingAssetsConfig = [
     {
@@ -358,6 +359,7 @@ export default function Portfolio() {
   }
 
   // Touch navigation handlers
+  /* REMOVED BECAUSE THEY WERE GLITCHING ON SWIPE AFTER ADDING DYNAMIC RELOADS
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -386,6 +388,7 @@ export default function Portfolio() {
     touchStartX.current = null;
     touchEndX.current = null;
   };
+  */
 
   const HeroVisual = ({ imgSrc, size }) => (
       <ImageFollow
@@ -534,9 +537,11 @@ export default function Portfolio() {
       <div
         className="portfolio-container"
         ref={backgroundRef}
+        /* REMOVED BECAUSE THEY WERE GLITCHING ON SWIPE AFTER ADDING DYNAMIC RELOADS
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        */
       >
         {/* bg floater */}
         {floatingAssetsConfig.map((asset, i) => (
