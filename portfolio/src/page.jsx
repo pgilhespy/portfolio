@@ -29,13 +29,21 @@ import './globals.css';
 export default function Portfolio() {
   // Animate main title letter-spacing on initial load
   const mainTitleRef = useRef(null);
-  const [mainTitleStyle, setMainTitleStyle] = useState({ letterSpacing: "-6px" });
+  const [mainTitleStyle, setMainTitleStyle] = useState({ letterSpacing: "-5px" });
   useEffect(() => {
     setTimeout(() => {
       setMainTitleStyle({ letterSpacing: "-2px" });
     }, 100);
   }, []);
-  // Ref to debounce reload on resize and cancel if exiting fullscreen
+
+  // Animate homepage star translate on initial load
+  const [homepageStarStyle, sethomepageStarStyle] = useState({ transform: "translateX(-7%) rotate(-5deg)" });
+  useEffect(() => {
+    setTimeout(() => {
+      sethomepageStarStyle({ transform: "translateX(0%) rotate(0deg)" });
+    }, 100);
+  }, []);
+
   const containerRef = useRef(null)
   const heroVisualContainerRef = useRef(null);
   const backgroundRef = useRef(null)
@@ -605,7 +613,11 @@ export default function Portfolio() {
                                 Creator
                               </p>
                             </div>
-                            <div className="hero-visual-container-mobile">
+                            <div 
+                              className="hero-visual-container-mobile"
+                              style={homepageStarStyle}
+                              ref={heroVisualContainerRef}
+                            >
                               <HeroVisual imgSrc={homepageStarImage} size={50} />
                             </div>
                             <div className="description">
@@ -620,7 +632,11 @@ export default function Portfolio() {
                               </p>
                             </div>
                           </div>
-                          <div className="hero-visual-container" ref={heroVisualContainerRef} >
+                          <div 
+                            className="hero-visual-container" 
+                            style={homepageStarStyle}
+                            ref={heroVisualContainerRef}
+                          >
                             <HeroVisual imgSrc={homepageStarImage} size={70} />
                           </div>
                         </div>

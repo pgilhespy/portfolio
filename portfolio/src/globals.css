@@ -143,12 +143,16 @@ body {
   flex: 1; /* takes up remaining space */
   display: flex;
   justify-content: center; /* centers content within this area */
+  transform: translateX(0px);
+  transition: transform 0.6s cubic-bezier(0, 0, 0.3, 1);
 }
 
 .hero-visual-container-mobile {
   flex: 1; /* takes up remaining space */
   display: none;
   justify-content: center; /* centers content within this area */
+  transform: translateX(0px);
+  transition: transform 0.6s cubic-bezier(0, 0, 0.3, 1);
 }
 
 .description {
