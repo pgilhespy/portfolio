@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
 import ImageFollow from './ImageFollow';
-import cursorImage from './Content/cursor2.svg';
+import homepageStarImage from './Content/homepageStar.png';
 import mailImage from './Content/mail2.svg';
 import reel from './Content/WebsiteReel2.0.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
@@ -27,7 +27,23 @@ import contactImage from './Content/contactImage1.png';
 import './globals.css';
 
 export default function Portfolio() {
-  // Ref to debounce reload on resize and cancel if exiting fullscreen
+  // Animate main title letter-spacing on initial load
+  const mainTitleRef = useRef(null);
+  const [mainTitleStyle, setMainTitleStyle] = useState({ letterSpacing: "-5px" });
+  useEffect(() => {
+    setTimeout(() => {
+      setMainTitleStyle({ letterSpacing: "-2px" });
+    }, 100);
+  }, []);
+
+  // Animate homepage star translate on initial load
+  const [homepageStarStyle, sethomepageStarStyle] = useState({ transform: "translateX(-7%) rotate(-5deg)" });
+  useEffect(() => {
+    setTimeout(() => {
+      sethomepageStarStyle({ transform: "translateX(0%) rotate(0deg)" });
+    }, 100);
+  }, []);
+
   const containerRef = useRef(null)
   const heroVisualContainerRef = useRef(null);
   const backgroundRef = useRef(null)
@@ -582,7 +598,11 @@ export default function Portfolio() {
                         <div className="hero-top-section">
                           <div className="hero-left-top">
                             <div>
-                              <h1 className="main-title">
+                              <h1
+                                className="main-title"
+                                style={mainTitleStyle}
+                                ref={mainTitleRef}
+                              >
                                 PHILIP
                                 <br />
                                 GILHESPY
@@ -593,8 +613,12 @@ export default function Portfolio() {
                                 Creator
                               </p>
                             </div>
-                            <div className="hero-visual-container-mobile">
-                              <HeroVisual imgSrc={cursorImage} size={25} />
+                            <div 
+                              className="hero-visual-container-mobile"
+                              style={homepageStarStyle}
+                              ref={heroVisualContainerRef}
+                            >
+                              <HeroVisual imgSrc={homepageStarImage} size={50} />
                             </div>
                             <div className="description">
                               <p>
@@ -608,8 +632,12 @@ export default function Portfolio() {
                               </p>
                             </div>
                           </div>
-                          <div className="hero-visual-container" ref={heroVisualContainerRef} >
-                            <HeroVisual imgSrc={cursorImage} size={25} />
+                          <div 
+                            className="hero-visual-container" 
+                            style={homepageStarStyle}
+                            ref={heroVisualContainerRef}
+                          >
+                            <HeroVisual imgSrc={homepageStarImage} size={70} />
                           </div>
                         </div>
 
