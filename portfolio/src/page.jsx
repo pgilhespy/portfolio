@@ -28,19 +28,27 @@ import './globals.css';
 
 export default function Portfolio() {
   // Ref to debounce reload on resize and cancel if exiting fullscreen
-  const resizeReloadTimeout = useRef(null);
   const containerRef = useRef(null)
   const heroVisualContainerRef = useRef(null);
   const backgroundRef = useRef(null)
   const [activeSection, setActiveSection] = useState(0)
+  const activeSectionRef = useRef(activeSection);
+
+  // Update activeSectionRef whenever activeSection changes for dynamic reloads
+  useEffect(() => {
+    activeSectionRef.current = activeSection;
+  }, [activeSection]);
+  
   const [expandedWorkItem, setExpandedWorkItem] = useState(null)
   const gradientAngleRef = useRef(150) // Starting angle
   const continuousAnimationRef = useRef(null)
   const scrollRefs = useRef([null, null, null]);
   const floatingAssetsRefs = useRef([]);
 
+  /* REMOVED BECAUSE THEY WERE GLITCHING ON SWIPE AFTER ADDING DYNAMIC RELOADS
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
+  */
 
   const floatingAssetsConfig = [
     {
@@ -97,56 +105,82 @@ export default function Portfolio() {
     // add any others you use
   ];
 
-  // Handle window resize to reload the page
-  useEffect(() => { 
-    const handleResize = () => {
-      // Debounce: wait 200ms before reloading, cancel if fullscreenchange happens
-      if (resizeReloadTimeout.current) {
-        clearTimeout(resizeReloadTimeout.current);
-      }
-      const isFullscreen =
-        document.fullscreenElement ||
-        document.webkitFullscreenElement ||
-        document.mozFullScreenElement ||
-        document.msFullscreenElement;
-      if (!isFullscreen) {
-        resizeReloadTimeout.current = setTimeout(() => {
-          window.location.reload();
-        }, 200);
-      }
+  // Robust viewport height CSS variable for mobile stability
+  useEffect(() => {
+    // Set --vh custom property to 1% of the viewport height
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      // Recalculate offsets and transforms after resize/orientation change
+      recalculateOffsetsAndTransforms();
     };
 
-    // Listen for fullscreen change events
-    const handleFullscreenChange = () => {
-      const isFullscreen =
-        document.fullscreenElement ||
-        document.webkitFullscreenElement ||
-        document.mozFullScreenElement ||
-        document.msFullscreenElement;
-      if (!isFullscreen && resizeReloadTimeout.current) {
-        // Cancel pending reload if we just exited fullscreen
-        clearTimeout(resizeReloadTimeout.current);
-        resizeReloadTimeout.current = null;
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', setVh);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-      document.removeEventListener('fullscreenchange', handleFullscreenChange);
-      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
-      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
-      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
-      if (resizeReloadTimeout.current) {
-        clearTimeout(resizeReloadTimeout.current);
-      }
+      window.removeEventListener('resize', setVh);
+      window.removeEventListener('orientationchange', setVh);
     };
   }, []);
+
+  // Recalculate offsets and transforms after resize/orientation change
+  const recalculateOffsetsAndTransforms = () => {
+    // Always use latest activeSection from ref
+    const section = activeSectionRef.current;
+
+    // Recalculate floating asset positions
+    floatingAssetsRefs.current.forEach((assetEl, i) => {
+      if (assetEl) {
+        const assetData = floatingAssetsConfig[i];
+        let startingPosX = 0 + (assetData.page * window.innerWidth) + (window.innerWidth * assetData.ratioX);
+        const startingPosY = (window.innerHeight * assetData.ratioY);
+
+        const starOffset = -(window.innerWidth * 0.8) * (1 - (assetData.depth / 16));
+        const angleOffset = 30 * (1 - (assetData.depth / 6));
+
+        if (window.innerWidth < 680) {
+          startingPosX -= 50;
+        }
+
+        const baseScale = 2.5 - (assetData.depth * 0.5);
+        const scale = window.innerWidth < 680 ? baseScale * 0.7 : baseScale;
+        gsap.set(assetEl, {
+          x: startingPosX + section * starOffset,
+          y: startingPosY,
+          rotate: assetData.rotation + section * angleOffset,
+          scale: scale,
+        });
+      }
+    });
+
+    // Reapply container transform for active section
+    console.log(`Recalculating offsets for active section: ${section}`);
+    if (containerRef.current) {
+      const translateX = -section * window.innerWidth;
+      requestAnimationFrame(() => {
+        gsap.set(containerRef.current, { x: translateX });
+      });
+    }
+
+    // Reapply gradient angle and colors for background
+    if (backgroundRef.current) {
+      let bgColourStart = "#c8d2d7";
+      let bgColourEnd = "#9eadb4";
+      if (section === 1) {
+        bgColourStart = '#414c52';
+        bgColourEnd = '#353e42';
+      }
+      const newBaseAngle = 195 - section * 15;
+      gradientAngleRef.current = newBaseAngle;
+      gsap.set(backgroundRef.current, {
+        "--gradient-angle": `${newBaseAngle}deg`,
+        "--color-start": `${bgColourStart}`,
+        "--color-end": `${bgColourEnd}`,
+      });
+    }
+  }
 
   useEffect(() => {
     // Initialize GSAP timeline for smooth transitions
@@ -325,6 +359,7 @@ export default function Portfolio() {
   }
 
   // Touch navigation handlers
+  /* REMOVED BECAUSE THEY WERE GLITCHING ON SWIPE AFTER ADDING DYNAMIC RELOADS
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -353,6 +388,7 @@ export default function Portfolio() {
     touchStartX.current = null;
     touchEndX.current = null;
   };
+  */
 
   const HeroVisual = ({ imgSrc, size }) => (
       <ImageFollow
@@ -501,9 +537,11 @@ export default function Portfolio() {
       <div
         className="portfolio-container"
         ref={backgroundRef}
+        /* REMOVED BECAUSE THEY WERE GLITCHING ON SWIPE AFTER ADDING DYNAMIC RELOADS
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        */
       >
         {/* bg floater */}
         {floatingAssetsConfig.map((asset, i) => (
