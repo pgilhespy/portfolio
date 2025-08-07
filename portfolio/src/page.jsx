@@ -33,6 +33,13 @@ export default function Portfolio() {
   const heroVisualContainerRef = useRef(null);
   const backgroundRef = useRef(null)
   const [activeSection, setActiveSection] = useState(0)
+  const activeSectionRef = useRef(activeSection);
+
+  // Update activeSectionRef whenever activeSection changes for dynamic reloads
+  useEffect(() => {
+    activeSectionRef.current = activeSection;
+  }, [activeSection]);
+  
   const [expandedWorkItem, setExpandedWorkItem] = useState(null)
   const gradientAngleRef = useRef(150) // Starting angle
   const continuousAnimationRef = useRef(null)
@@ -103,6 +110,8 @@ export default function Portfolio() {
     const setVh = () => {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
+      // Recalculate offsets and transforms after resize/orientation change
+      recalculateOffsetsAndTransforms();
     };
 
     setVh();
@@ -114,6 +123,63 @@ export default function Portfolio() {
       window.removeEventListener('orientationchange', setVh);
     };
   }, []);
+
+  // Recalculate offsets and transforms after resize/orientation change
+  const recalculateOffsetsAndTransforms = () => {
+    // Always use latest activeSection from ref
+    const section = activeSectionRef.current;
+
+    // Recalculate floating asset positions
+    floatingAssetsRefs.current.forEach((assetEl, i) => {
+      if (assetEl) {
+        const assetData = floatingAssetsConfig[i];
+        let startingPosX = 0 + (assetData.page * window.innerWidth) + (window.innerWidth * assetData.ratioX);
+        const startingPosY = (window.innerHeight * assetData.ratioY);
+
+        const starOffset = -(window.innerWidth * 0.8) * (1 - (assetData.depth / 16));
+        const angleOffset = 30 * (1 - (assetData.depth / 6));
+
+        if (window.innerWidth < 680) {
+          startingPosX -= 50;
+        }
+
+        const baseScale = 2.5 - (assetData.depth * 0.5);
+        const scale = window.innerWidth < 680 ? baseScale * 0.7 : baseScale;
+        gsap.set(assetEl, {
+          x: startingPosX + section * starOffset,
+          y: startingPosY,
+          rotate: assetData.rotation + section * angleOffset,
+          scale: scale,
+        });
+      }
+    });
+
+    // Reapply container transform for active section
+    console.log(`Recalculating offsets for active section: ${section}`);
+    if (containerRef.current) {
+      const translateX = -section * window.innerWidth;
+      requestAnimationFrame(() => {
+        gsap.set(containerRef.current, { x: translateX });
+      });
+    }
+
+    // Reapply gradient angle and colors for background
+    if (backgroundRef.current) {
+      let bgColourStart = "#c8d2d7";
+      let bgColourEnd = "#9eadb4";
+      if (section === 1) {
+        bgColourStart = '#414c52';
+        bgColourEnd = '#353e42';
+      }
+      const newBaseAngle = 195 - section * 15;
+      gradientAngleRef.current = newBaseAngle;
+      gsap.set(backgroundRef.current, {
+        "--gradient-angle": `${newBaseAngle}deg`,
+        "--color-start": `${bgColourStart}`,
+        "--color-end": `${bgColourEnd}`,
+      });
+    }
+  }
 
   useEffect(() => {
     // Initialize GSAP timeline for smooth transitions
