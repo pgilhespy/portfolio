@@ -27,6 +27,14 @@ import contactImage from './Content/contactImage1.png';
 import './globals.css';
 
 export default function Portfolio() {
+  // Animate main title letter-spacing on initial load
+  const mainTitleRef = useRef(null);
+  const [mainTitleStyle, setMainTitleStyle] = useState({ letterSpacing: "-6px" });
+  useEffect(() => {
+    setTimeout(() => {
+      setMainTitleStyle({ letterSpacing: "-2px" });
+    }, 100);
+  }, []);
   // Ref to debounce reload on resize and cancel if exiting fullscreen
   const containerRef = useRef(null)
   const heroVisualContainerRef = useRef(null);
@@ -582,7 +590,11 @@ export default function Portfolio() {
                         <div className="hero-top-section">
                           <div className="hero-left-top">
                             <div>
-                              <h1 className="main-title">
+                              <h1
+                                className="main-title"
+                                style={mainTitleStyle}
+                                ref={mainTitleRef}
+                              >
                                 PHILIP
                                 <br />
                                 GILHESPY
