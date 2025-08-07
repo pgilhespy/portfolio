@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { Instagram, Linkedin, ArrowUpRight } from "lucide-react"
 import ImageFollow from './ImageFollow';
-import cursorImage from './Content/cursor2.svg';
+import homepageStarImage from './Content/homepageStar.png';
 import mailImage from './Content/mail2.svg';
 import reel from './Content/WebsiteReel2.0.mp4';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
@@ -594,7 +594,7 @@ export default function Portfolio() {
                               </p>
                             </div>
                             <div className="hero-visual-container-mobile">
-                              <HeroVisual imgSrc={cursorImage} size={25} />
+                              <HeroVisual imgSrc={homepageStarImage} size={50} />
                             </div>
                             <div className="description">
                               <p>
@@ -609,7 +609,7 @@ export default function Portfolio() {
                             </div>
                           </div>
                           <div className="hero-visual-container" ref={heroVisualContainerRef} >
-                            <HeroVisual imgSrc={cursorImage} size={25} />
+                            <HeroVisual imgSrc={homepageStarImage} size={70} />
                           </div>
                         </div>
 
