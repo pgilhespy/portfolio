@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.55337ea6.css",
-    "main.js": "/portfolio/static/js/main.79fa02cd.js",
+    "main.css": "/portfolio/static/css/main.664c256c.css",
+    "main.js": "/portfolio/static/js/main.e20ba3fe.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
     "static/media/anthemVideo.mp4": "/portfolio/static/media/anthemVideo.f29af7beeed7f3a5d1d8.mp4",
     "static/media/WebsiteReel2.0.mp4": "/portfolio/static/media/WebsiteReel2.0.d4ea96716b7d710224a8.mp4",
@@ -14,6 +14,7 @@
     "static/media/herculesImage.png": "/portfolio/static/media/herculesImage.ad06dc25aafb5f890d99.png",
     "static/media/ltbcImage.png": "/portfolio/static/media/ltbcImage.24c2da4d7a58f534bb6f.png",
     "static/media/sfImage2.jpg": "/portfolio/static/media/sfImage2.754cbdb659582b49c98f.jpg",
+    "static/media/homepageStar.png": "/portfolio/static/media/homepageStar.58dabbc7d67664335c92.png",
     "static/media/speedbookingLogo2.svg": "/portfolio/static/media/speedbookingLogo2.45a689d3f2832c8a4869f766d1696456.svg",
     "static/media/brickedcoLogo1.svg": "/portfolio/static/media/brickedcoLogo1.654c39fb1378a23e48c58f69d27537f8.svg",
     "index.html": "/portfolio/index.html",
@@ -21,15 +22,14 @@
     "static/media/hercLogo1.svg": "/portfolio/static/media/hercLogo1.80cc5d8b559e3cb4c3830c71ad2c1751.svg",
     "static/media/sfLogo1.svg": "/portfolio/static/media/sfLogo1.494ce8047acf3080ebdf6e54362ae776.svg",
     "static/media/ltbcLogo1.svg": "/portfolio/static/media/ltbcLogo1.321e16546ee4e3aa77555af4ebe60844.svg",
-    "static/media/cursor2.svg": "/portfolio/static/media/cursor2.3080503ea1d551b81a91aa23c8f8d773.svg",
     "static/media/mail2.svg": "/portfolio/static/media/mail2.d4c0cb5baaa12f6cc564926e9a921b94.svg",
     "static/media/anthemLogo2.svg": "/portfolio/static/media/anthemLogo2.bf4a2f96b93069e41e130b6c4054301c.svg",
-    "main.55337ea6.css.map": "/portfolio/static/css/main.55337ea6.css.map",
-    "main.79fa02cd.js.map": "/portfolio/static/js/main.79fa02cd.js.map",
+    "main.664c256c.css.map": "/portfolio/static/css/main.664c256c.css.map",
+    "main.e20ba3fe.js.map": "/portfolio/static/js/main.e20ba3fe.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.55337ea6.css",
-    "static/js/main.79fa02cd.js"
+    "static/css/main.664c256c.css",
+    "static/js/main.e20ba3fe.js"
   ]
 }
