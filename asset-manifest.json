@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.664c256c.css",
-    "main.js": "/portfolio/static/js/main.e20ba3fe.js",
+    "main.css": "/portfolio/static/css/main.403b096b.css",
+    "main.js": "/portfolio/static/js/main.e8849305.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
     "static/media/anthemVideo.mp4": "/portfolio/static/media/anthemVideo.f29af7beeed7f3a5d1d8.mp4",
     "static/media/WebsiteReel2.0.mp4": "/portfolio/static/media/WebsiteReel2.0.d4ea96716b7d710224a8.mp4",
+    "static/media/drivewiseVideo.mp4": "/portfolio/static/media/drivewiseVideo.b3740d45bfdfc83414dc.mp4",
+    "static/media/stonehausVideo.mp4": "/portfolio/static/media/stonehausVideo.afdc491232ff9d623921.mp4",
     "static/media/speedbookingVideo.mp4": "/portfolio/static/media/speedbookingVideo.dac1a892448b34a560a9.mp4",
     "static/media/brickedcoVideo.mp4": "/portfolio/static/media/brickedcoVideo.21f6387375a636513406.mp4",
     "static/media/portfolioVideo.mp4": "/portfolio/static/media/portfolioVideo.d8abf62dc5c47254afc8.mp4",
@@ -14,7 +16,9 @@
     "static/media/herculesImage.png": "/portfolio/static/media/herculesImage.ad06dc25aafb5f890d99.png",
     "static/media/ltbcImage.png": "/portfolio/static/media/ltbcImage.24c2da4d7a58f534bb6f.png",
     "static/media/sfImage2.jpg": "/portfolio/static/media/sfImage2.754cbdb659582b49c98f.jpg",
+    "static/media/drivewiseLogo1.svg": "/portfolio/static/media/drivewiseLogo1.32ecb311c63f5b39ac8f89cdff58c061.svg",
     "static/media/homepageStar.png": "/portfolio/static/media/homepageStar.58dabbc7d67664335c92.png",
+    "static/media/stonehausLogo1.svg": "/portfolio/static/media/stonehausLogo1.bdf306f575910064316c6d30370ad895.svg",
     "static/media/speedbookingLogo2.svg": "/portfolio/static/media/speedbookingLogo2.45a689d3f2832c8a4869f766d1696456.svg",
     "static/media/brickedcoLogo1.svg": "/portfolio/static/media/brickedcoLogo1.654c39fb1378a23e48c58f69d27537f8.svg",
     "index.html": "/portfolio/index.html",
@@ -24,12 +28,12 @@
     "static/media/ltbcLogo1.svg": "/portfolio/static/media/ltbcLogo1.321e16546ee4e3aa77555af4ebe60844.svg",
     "static/media/mail2.svg": "/portfolio/static/media/mail2.d4c0cb5baaa12f6cc564926e9a921b94.svg",
     "static/media/anthemLogo2.svg": "/portfolio/static/media/anthemLogo2.bf4a2f96b93069e41e130b6c4054301c.svg",
-    "main.664c256c.css.map": "/portfolio/static/css/main.664c256c.css.map",
-    "main.e20ba3fe.js.map": "/portfolio/static/js/main.e20ba3fe.js.map",
+    "main.403b096b.css.map": "/portfolio/static/css/main.403b096b.css.map",
+    "main.e8849305.js.map": "/portfolio/static/js/main.e8849305.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.664c256c.css",
-    "static/js/main.e20ba3fe.js"
+    "static/css/main.403b096b.css",
+    "static/js/main.e8849305.js"
   ]
 }
