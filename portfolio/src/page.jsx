@@ -7,6 +7,10 @@ import ImageFollow from './ImageFollow';
 import homepageStarImage from './Content/homepageStar.png';
 import mailImage from './Content/mail2.svg';
 import reel from './Content/WebsiteReel2.0.mp4';
+import drivewiseVideo from './Content/drivewiseVideo.mp4';
+import drivewiseLogo from './Content/drivewiseLogo1.svg';
+import stonehausVideo from './Content/stonehausVideo.mp4';
+import stonehausLogo from './Content/stonehausLogo1.svg';
 import speedbookingLogo from './Content/speedbookingLogo2.svg';
 import speedbookingVideo from './Content/speedbookingVideo.mp4';
 import anthemLogo from './Content/anthemLogo2.svg';
@@ -418,6 +422,46 @@ export default function Portfolio() {
   const workData = {
     video: [
       {
+        key: "drivewise",
+        title: "Drivewise Solutions",
+        role: "Motion Graphics Editor",
+        description:
+          "As the motion graphics editor for DriveWise Solutions, I produced a series \
+          of explainer videos that break down the insurance acquisition process into \
+          clear, approachable steps. Working from high-level objectives rather than fixed \
+          scripts, I independently developed the narrative structure, visuals, and pacing \
+          to translate complex insurance concepts into smooth, engaging motion graphics \
+          with voiceover.",
+        details:
+          "Produced 5 explanatory videos covering key stages of the insurance process.",
+        testimonial: '"He\'s been a game-changer. Couldn\'t recommend him more."',
+        client: "Jessiah Hercules, CEO Drivewise Solutions",
+        logo: drivewiseLogo,
+        content: drivewiseVideo,
+        video: true,
+        link: "https://www.instagram.com/drive_wise_solutions/",
+      },
+      {
+        key: "stonehaus",
+        title: "Stonehaus Realty",
+        role: "Motion Graphics Editor",
+        description:
+          "As a motion graphics editor for Stonehaus Realty, I designed a concise 8-second \
+          podcast intro that balances creativity with a polished, professional tone. \
+          Working without detailed creative direction, I independently developed the \
+          visual concept while adhering closely to the brand’s identity through the use \
+          of official colors, typography, and logo assets. The result was a distinctive, \
+          on-brand introduction that was enthusiastically received by the team.",
+        details:
+          "Produced an 8-second branded intro animation for a real estate podcast.",
+        testimonial: '"Love it."',
+        client: "Sean Zubor, CEO Stonehaus Realty",
+        logo: stonehausLogo,
+        content: stonehausVideo,
+        video: true,
+        link: "https://stonehausrealty.ca/",
+      },
+      {
         key: "speedbooking",
         title: "SpeedBooking UK",
         role: "Motion Graphics Editor",
@@ -429,8 +473,6 @@ export default function Portfolio() {
           platforms.",
         details:
           "Produced over 30 promotional and informative videos for social media platforms.",
-        testimonial: '"He\'s been a game-changer. Couldn\'t recommend him more."',
-        client: "- Jessiah Hercules, CEO Speed Booking UK",
         logo: speedbookingLogo,
         content: speedbookingVideo,
         video: true,
@@ -462,7 +504,7 @@ export default function Portfolio() {
           content for YouTube and social media. Each piece is built from the ground up, \
           with attention to pacing, music, sound design, and brand tone.",
         testimonial: '"His edits make our near-death experiences come to life."',
-        client: "- Caleb Liu, Co-Owner",
+        client: "Caleb Liu, Co-Owner",
         details:
           "Long-term collaboration producing long form and short form content and \
           managing the post-production pipeline.",
@@ -536,7 +578,7 @@ export default function Portfolio() {
           "Turned a plain pdf document of text into a visually engaging flyer for a personal \
           trainer to send to his clients.",
         testimonial: '"He\'s one of the easiest people to work with."',
-        client: "- Malachi Hercules, Owner",
+        client: "Malachi Hercules, Owner",
         logo: hercLogo,
         content: hercImage,
         video: false,

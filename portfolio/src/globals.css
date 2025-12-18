@@ -486,7 +486,6 @@ button:focus:not(:focus-visible) {
 }
 
 .testimonial blockquote {
-  font-style: italic;
   font-size: 1.2rem;
   color: white;
   margin-bottom: 0.1rem;
