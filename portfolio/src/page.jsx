@@ -27,7 +27,7 @@ import sfLogo from './Content/sfLogo1.svg';
 import sfImage from './Content/sfImage2.jpg';
 import starVideoChrome from './Content/chrome1.1.webm';
 import starVideoSafari from './Content/chrome1.1-safari.mov';
-import contactImage from './Content/contactImage1.png';
+import contactImage from './Content/contactImage2.png';
 import './globals.css';
 
 export default function Portfolio() {
